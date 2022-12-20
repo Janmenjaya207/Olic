@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OLICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OLICEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_case_hearing_detail" ReturnType="Collection(OLICModel.sp_case_hearing_detail_Result)">
+      <Parameter Name="caseid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_case_hearing_doc_detail" ReturnType="Collection(OLICModel.sp_case_hearing_doc_detail_Result)">
+      <Parameter Name="hearingid" Mode="In" Type="Int32" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_input_case_doc_detail" ReturnType="Collection(OLICModel.sp_input_case_doc_detail_Result)">
+      <Parameter Name="caseid" Mode="In" Type="Int32" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_lcms_user_log" ReturnType="Collection(OLICModel.sp_lcms_user_log_Result)">
+      <Parameter Name="caseid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_deepBorewell_REgdeatils" ReturnType="Collection(OLICModel.sp_deepBorewell_REgdeatils_Result)">
+      <Parameter Name="DeepBorewellRegdId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeepBorewell_PattaDetails" ReturnType="Collection(OLICModel.sp_DeepBorewell_PattaDetails_Result)">
+      <Parameter Name="DeepBorewellRegdId" Mode="In" Type="Int32" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="BankUpdatePayments" EntityType="OLICModel.BankUpdatePayment" />
+    <EntitySet Name="DeepBorewell_PattaDetails" EntityType="OLICModel.DeepBorewell_PattaDetails" />
+    <EntitySet Name="EE_Verify" EntityType="OLICModel.EE_Verify" />
+    <EntitySet Name="Files" EntityType="OLICModel.File" />
+    <EntitySet Name="FileTypes" EntityType="OLICModel.FileType" />
+    <EntitySet Name="LCMS_AssignedLawer" EntityType="OLICModel.LCMS_AssignedLawer" />
+    <EntitySet Name="LCMS_Case_Hearing_Doc" EntityType="OLICModel.LCMS_Case_Hearing_Doc" />
+    <EntitySet Name="LCMS_Case_Hearing_Dtls" EntityType="OLICModel.LCMS_Case_Hearing_Dtls" />
+    <EntitySet Name="LCMS_CaseDetails" EntityType="OLICModel.LCMS_CaseDetails" />
+    <EntitySet Name="LCMS_CaseDoc" EntityType="OLICModel.LCMS_CaseDoc" />
+    <EntitySet Name="LCMS_Mst_CaseType" EntityType="OLICModel.LCMS_Mst_CaseType" />
+    <EntitySet Name="LCMS_Mst_Compliance_Time" EntityType="OLICModel.LCMS_Mst_Compliance_Time" />
+    <EntitySet Name="LCMS_Mst_Court" EntityType="OLICModel.LCMS_Mst_Court" />
+    <EntitySet Name="LCMS_Status" EntityType="OLICModel.LCMS_Status" />
+    <EntitySet Name="LCMS_UserLog" EntityType="OLICModel.LCMS_UserLog" />
+    <EntitySet Name="ManageUsers" EntityType="OLICModel.ManageUser" />
+    <EntitySet Name="OLIC_Block_Ulb" EntityType="OLICModel.OLIC_Block_Ulb" />
+    <EntitySet Name="OLIC_District_Mst" EntityType="OLICModel.OLIC_District_Mst" />
+    <EntitySet Name="OLIC_Gram_Panchayat" EntityType="OLICModel.OLIC_Gram_Panchayat" />
+    <EntitySet Name="OLIC_Test" EntityType="OLICModel.OLIC_Test" />
+    <EntitySet Name="Projects" EntityType="OLICModel.Project" />
+    <EntitySet Name="UserTypes" EntityType="OLICModel.UserType" />
+    <EntitySet Name="Vw_DeepBorewellRegdDtl" EntityType="OLICModel.Vw_DeepBorewellRegdDtl" />
+    <EntitySet Name="vw_input_case_list" EntityType="OLICModel.vw_input_case_list" />
+    <AssociationSet Name="FK_Files_FileType" Association="OLICModel.FK_Files_FileType">
+      <End Role="FileType" EntitySet="FileTypes" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <FunctionImport Name="sp_input_case_detail" ReturnType="Collection(OLICModel.sp_input_case_detail_Result)">
+      <Parameter Name="caseid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DeepBorewell_Registration" EntityType="OLICModel.DeepBorewell_Registration" />
+    <EntitySet Name="DBW_Mst_DPR" EntityType="OLICModel.DBW_Mst_DPR" />
+    <EntitySet Name="Mst_OlicDtl" EntityType="OLICModel.Mst_OlicDtl" />
+    <EntitySet Name="Mst_Circle" EntityType="OLICModel.Mst_Circle" />
+    <EntitySet Name="Mst_Division" EntityType="OLICModel.Mst_Division" />
+    <EntitySet Name="Mst_Section" EntityType="OLICModel.Mst_Section" />
+    <EntitySet Name="Mst_SubDivision" EntityType="OLICModel.Mst_SubDivision" />
+    <EntitySet Name="Scrap_Catrgory_Mst" EntityType="OLICModel.Scrap_Catrgory_Mst" />
+    <EntitySet Name="Scrap_code" EntityType="OLICModel.Scrap_code" />
+    <EntitySet Name="Scrap_Details_Entry" EntityType="OLICModel.Scrap_Details_Entry" />
+    <EntitySet Name="Scrap_Item_Mst" EntityType="OLICModel.Scrap_Item_Mst" />
+    <FunctionImport Name="sp_scrap_detail_category" ReturnType="Collection(OLICModel.sp_scrap_detail_category_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_scrap_item_detail_category_wise" ReturnType="Collection(OLICModel.sp_scrap_item_detail_category_wise_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="FinacialYears" EntityType="OLICModel.FinacialYear" />
+    <EntitySet Name="Hcm_ApplyLeave" EntityType="OLICModel.Hcm_ApplyLeave" />
+    <EntitySet Name="HCM_EmployeeDtl" EntityType="OLICModel.HCM_EmployeeDtl" />
+    <EntitySet Name="HCM_LeaveBalance" EntityType="OLICModel.HCM_LeaveBalance" />
+    <EntitySet Name="HCM_LeaveMaster" EntityType="OLICModel.HCM_LeaveMaster" />
+    <EntitySet Name="Hcm_Property" EntityType="OLICModel.Hcm_Property" />
+    <EntitySet Name="vwEmployeesByLeaveTypes" EntityType="OLICModel.vwEmployeesByLeaveType" />
+    <EntitySet Name="Hcm_Property_House" EntityType="OLICModel.Hcm_Property_House" />
+    <EntitySet Name="Hcm_Property_ImmovableProperties" EntityType="OLICModel.Hcm_Property_ImmovableProperties" />
+    <EntitySet Name="Hcm_Property_Land" EntityType="OLICModel.Hcm_Property_Land" />
+    <EntitySet Name="Hcm_Property_MovableProperty" EntityType="OLICModel.Hcm_Property_MovableProperty" />
+    <EntitySet Name="Hcm_Property_OtherMovable" EntityType="OLICModel.Hcm_Property_OtherMovable" />
+    <AssociationSet Name="FK__Hcm_Prope__Prope__725BF7F6" Association="OLICModel.FK__Hcm_Prope__Prope__725BF7F6">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_House" EntitySet="Hcm_Property_House" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__73501C2F" Association="OLICModel.FK__Hcm_Prope__Prope__73501C2F">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_ImmovableProperties" EntitySet="Hcm_Property_ImmovableProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__74444068" Association="OLICModel.FK__Hcm_Prope__Prope__74444068">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_Land" EntitySet="Hcm_Property_Land" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__753864A1" Association="OLICModel.FK__Hcm_Prope__Prope__753864A1">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_MovableProperty" EntitySet="Hcm_Property_MovableProperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__762C88DA" Association="OLICModel.FK__Hcm_Prope__Prope__762C88DA">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_OtherMovable" EntitySet="Hcm_Property_OtherMovable" />
+    </AssociationSet>
+    <EntitySet Name="Demo_Table_Rajesh" EntityType="OLICModel.Demo_Table_Rajesh" />
+    <EntitySet Name="Clusters" EntityType="OLICModel.Cluster" />
+    <EntitySet Name="Cluster_Details" EntityType="OLICModel.Cluster_Details" />
+    <EntitySet Name="DB_Registration_Detail" EntityType="OLICModel.DB_Registration_Detail" />
+  </EntityContainer>
+  <ComplexType Name="sp_case_hearing_detail_Result">
+    <Property Type="Int32" Name="Case_Hearing_Id" Nullable="false" />
+    <Property Type="Int32" Name="CaseId" Nullable="true" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="HearingDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="OrderOfCourt" Nullable="true" />
+    <Property Type="String" Name="CaseNo" Nullable="true" />
+    <Property Type="String" Name="LCMS_Status_Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_case_hearing_doc_detail_Result">
+    <Property Type="Int32" Name="Case_Hearing_Doc_Id" Nullable="false" />
+    <Property Type="Int32" Name="Case_Hearing_Id" Nullable="true" />
+    <Property Type="String" Name="DocumentName" Nullable="true" />
+    <Property Type="String" Name="docfile" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_input_case_doc_detail_Result">
+    <Property Type="Int32" Name="CaseDocId" Nullable="false" />
+    <Property Type="Int32" Name="CaseId" Nullable="true" />
+    <Property Type="String" Name="DocumentName" Nullable="true" />
+    <Property Type="String" Name="docfile" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_lcms_user_log_Result">
+    <Property Type="String" Name="Remarks" Nullable="true" />
+    <Property Type="String" Name="CreatedOn" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_deepBorewell_REgdeatils_Result">
+    <Property Type="Int32" Name="DeepBorewellRegdId" Nullable="false" />
+    <Property Type="String" Name="DbRegistrationNo" Nullable="true" />
+    <Property Type="String" Name="FarmerName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AadhaarNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BPLCardNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Ad_Village" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Ad_DistrictId" Nullable="true" />
+    <Property Type="Int32" Name="Ad_BlockId" Nullable="true" />
+    <Property Type="Int32" Name="Ad_GramPanchayatId" Nullable="true" />
+    <Property Type="String" Name="Ad_PostOffice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pro_Village" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Pro_DistrictId" Nullable="true" />
+    <Property Type="Int32" Name="Pro_BlockId" Nullable="true" />
+    <Property Type="Int32" Name="Pro_GramPanchayatId" Nullable="true" />
+    <Property Type="String" Name="Pro_PostOffice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AadharFileDtl" Nullable="true" />
+    <Property Type="String" Name="BplFileDtl" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Block_Ulb_Name" Nullable="true" />
+    <Property Type="String" Name="GRAM_PANCHAYAT_Name" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_DeepBorewell_PattaDetails_Result">
+    <Property Type="Int32" Name="PattaId" Nullable="false" />
+    <Property Type="String" Name="Pro_PlotNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pro_KhataNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pro_LandArea" Nullable="true" />
+    <Property Type="String" Name="LandPattaFileDtl" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="BankUpdatePayment">
+    <Key>
+      <PropertyRef Name="Bnk_Payment_ID" />
+    </Key>
+    <Property Name="Bnk_Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeepBorewellRegdId" Type="Int32" />
+    <Property Name="FD_Number" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Dateof_FD" Type="DateTime" Precision="3" />
+    <Property Name="Account_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FD_Amount" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="Add_By" Type="Int32" />
+    <Property Name="Add_On" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="Int32" />
+    <Property Name="Mod_On" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DeepBorewell_PattaDetails">
+    <Key>
+      <PropertyRef Name="PattaId" />
+    </Key>
+    <Property Name="PattaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeepBorewellRegdId" Type="Int32" />
+    <Property Name="Pro_PlotNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_KhataNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_LandArea" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LandPattaFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EE_Verify">
+    <Key>
+      <PropertyRef Name="EE_Verifyappid" />
+    </Key>
+    <Property Name="EE_Verifyappid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="District" Type="Int32" />
+    <Property Name="block" Type="Int32" />
+    <Property Name="panchayat" Type="Int32" />
+    <Property Name="Fdate" Type="DateTime" Precision="3" />
+    <Property Name="Tdate" Type="DateTime" Precision="3" />
+    <Property Name="AssignTo" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Addon" Type="DateTime" Precision="3" />
+    <Property Name="Addby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="Modby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FileExtension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FileTypeId" Type="Int32" Nullable="false" />
+    <Property Name="FileSize" Type="Int32" Nullable="false" />
+    <Property Name="FileLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContentType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SystemFileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FileType" Relationship="OLICModel.FK_Files_FileType" FromRole="File" ToRole="FileType" />
+  </EntityType>
+  <EntityType Name="FileType">
+    <Key>
+      <PropertyRef Name="FileTypeId" />
+    </Key>
+    <Property Name="FileTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Files" Relationship="OLICModel.FK_Files_FileType" FromRole="FileType" ToRole="File" />
+  </EntityType>
+  <EntityType Name="LCMS_AssignedLawer">
+    <Key>
+      <PropertyRef Name="Assign_Id" />
+    </Key>
+    <Property Name="Assign_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Case_Hearing_Doc">
+    <Key>
+      <PropertyRef Name="Case_Hearing_Doc_Id" />
+    </Key>
+    <Property Name="Case_Hearing_Doc_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Case_Hearing_Id" Type="Int32" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FileExtension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileSize" Type="Int32" />
+    <Property Name="FileLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Case_Hearing_Dtls">
+    <Key>
+      <PropertyRef Name="Case_Hearing_Id" />
+    </Key>
+    <Property Name="Case_Hearing_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="HearingDate" Type="DateTime" Precision="3" />
+    <Property Name="OrderOfCourt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_CaseDetails">
+    <Key>
+      <PropertyRef Name="CaseId" />
+    </Key>
+    <Property Name="CaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PartyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourtName" Type="Int32" />
+    <Property Name="CaseFileDate" Type="DateTime" Precision="3" />
+    <Property Name="ComplianceDate" Type="DateTime" Precision="3" />
+    <Property Name="CaseTypeId" Type="Int32" />
+    <Property Name="CaseSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourtOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComplianceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="PendingAt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LCMS_CaseDoc">
+    <Key>
+      <PropertyRef Name="CaseDocId" />
+    </Key>
+    <Property Name="CaseDocId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseId" Type="Int32" />
+    <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FileExtension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileSize" Type="Int32" />
+    <Property Name="FileLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_CaseType">
+    <Key>
+      <PropertyRef Name="CaseTypeId" />
+    </Key>
+    <Property Name="CaseTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_Compliance_Time">
+    <Key>
+      <PropertyRef Name="Copliance_Id" />
+    </Key>
+    <Property Name="Copliance_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Compliance_Time" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_Court">
+    <Key>
+      <PropertyRef Name="CourtId" />
+    </Key>
+    <Property Name="CourtId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourtName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_Status">
+    <Key>
+      <PropertyRef Name="LCMS_Status_Id" />
+    </Key>
+    <Property Name="LCMS_Status_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LCMS_Status_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LCMS_UserLog">
+    <Key>
+      <PropertyRef Name="DetailsId" />
+    </Key>
+    <Property Name="DetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ManageUser">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType_Id" Type="Int32" />
+    <Property Name="Project_Typeid" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="OLIC_Block_Ulb">
+    <Key>
+      <PropertyRef Name="Block_Ulb_Id" />
+    </Key>
+    <Property Name="Block_Ulb_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="District_Id" Type="Int32" />
+    <Property Name="Block_Ulb_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Block_Code" Type="Int32" />
+    <Property Name="Block_Ulb_Type" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Deleted" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_On" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OLIC_District_Mst">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <Property Name="DistrictName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SectorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OLIC_Gram_Panchayat">
+    <Key>
+      <PropertyRef Name="GarmPanchayat_Id" />
+    </Key>
+    <Property Name="GarmPanchayat_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Block_Ulb_Id" Type="Int32" />
+    <Property Name="GRAM_PANCHAYAT_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Deleted" Type="Boolean" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Modified_On" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OLIC_Test">
+    <Key>
+      <PropertyRef Name="Test_Id" />
+    </Key>
+    <Property Name="Test_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Test_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Typeid" />
+    </Key>
+    <Property Name="Project_Typeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserType_Id" />
+    </Key>
+    <Property Name="UserType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Typeid" Type="Int32" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Visible" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Vw_DeepBorewellRegdDtl">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="Int32" Nullable="false" />
+    <Property Name="DbRegistrationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FarmerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AadhaarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BPLCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ad_Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ad_DistrictId" Type="Int32" />
+    <Property Name="Ad_BlockId" Type="Int32" />
+    <Property Name="Ad_GramPanchayatId" Type="Int32" />
+    <Property Name="Ad_PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_DistrictId" Type="Int32" />
+    <Property Name="Pro_BlockId" Type="Int32" />
+    <Property Name="Pro_GramPanchayatId" Type="Int32" />
+    <Property Name="Pro_PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AadharFileDtl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BplFileDtl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Block_Ulb_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GRAM_PANCHAYAT_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Bank" Type="Boolean" />
+    <Property Name="Ad_PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FarmerPhotoDtl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AffidavitFileDtl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_input_case_list">
+    <Key>
+      <PropertyRef Name="CaseId" />
+    </Key>
+    <Property Name="CaseId" Type="Int32" Nullable="false" />
+    <Property Name="CaseNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PartyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourtName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CourtId" Type="Int32" />
+    <Property Name="CaseFileDate" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CaseTypeId" Type="Int32" />
+    <Property Name="CaseSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourtOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComplianceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LCMS_Status_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CaseTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Compliance_Time" Type="Int32" />
+    <Property Name="PendingAt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="appstatus" Type="String" MaxLength="63" FixedLength="false" Unicode="true" />
+    <Property Name="CDays" Type="Int32" />
+    <Property Name="AssignedDate" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Assign_Id" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="LawerName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Files_FileType">
+    <End Type="OLICModel.FileType" Role="FileType" Multiplicity="1" />
+    <End Type="OLICModel.File" Role="File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileType">
+        <PropertyRef Name="FileTypeId" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FileTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_input_case_detail_Result">
+    <Property Type="Int32" Name="CaseId" Nullable="false" />
+    <Property Type="String" Name="CaseNo" Nullable="true" />
+    <Property Type="String" Name="PartyName" Nullable="true" />
+    <Property Type="String" Name="CourtName" Nullable="true" />
+    <Property Type="Int32" Name="CourtId" Nullable="true" />
+    <Property Type="String" Name="CaseFileDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="CaseTypeId" Nullable="true" />
+    <Property Type="String" Name="CaseSubject" Nullable="true" />
+    <Property Type="String" Name="CourtOrder" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ComplianceTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LCMS_Status_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CaseTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Compliance_Time" Nullable="true" />
+    <Property Type="String" Name="PendingAt" Nullable="true" />
+    <Property Type="String" Name="appstatus" Nullable="true" MaxLength="63" />
+    <Property Type="Int32" Name="CDays" Nullable="true" />
+    <Property Type="String" Name="AssignedDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="Assign_Id" Nullable="true" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="LawerName" Nullable="true" MaxLength="101" />
+  </ComplexType>
+  <EntityType Name="DeepBorewell_Registration">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DbRegistrationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FarmerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AadhaarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BPLCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ad_Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ad_DistrictId" Type="Int32" />
+    <Property Name="Ad_BlockId" Type="Int32" />
+    <Property Name="Ad_GramPanchayatId" Type="Int32" />
+    <Property Name="Ad_PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ad_PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_DistrictId" Type="Int32" />
+    <Property Name="Pro_BlockId" Type="Int32" />
+    <Property Name="Pro_GramPanchayatId" Type="Int32" />
+    <Property Name="Pro_PostOffice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pro_PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AadhaarFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BPLCardFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FarmerPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AffidavitFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModOn" Type="DateTime" Precision="3" />
+    <Property Name="ModBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="Is_Bank" Type="Boolean" />
+    <Property Name="Is_EE" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DBW_Mst_DPR">
+    <Key>
+      <PropertyRef Name="Dpr_Id" />
+    </Key>
+    <Property Name="Dpr_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description_of_work" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rate_per_Unit" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Service_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Mst_OlicDtl">
+    <Key>
+      <PropertyRef Name="OlicMstId" />
+    </Key>
+    <Property Name="OlicMstId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CircleId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CircleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DivisionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SubDivisionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SubDivisionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SectionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Mst_Circle">
+    <Key>
+      <PropertyRef Name="CircleId" />
+    </Key>
+    <Property Name="CircleId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="CircleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_Division">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="CircleId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DivisionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_Section">
+    <Key>
+      <PropertyRef Name="SectionId" />
+    </Key>
+    <Property Name="SectionId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="SubDivisionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_SubDivision">
+    <Key>
+      <PropertyRef Name="SubDivisionId" />
+    </Key>
+    <Property Name="SubDivisionId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="DivisionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SubDivisionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scrap_Catrgory_Mst">
+    <Key>
+      <PropertyRef Name="Scrap_Category_Id" />
+    </Key>
+    <Property Name="Scrap_Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Category_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="Modified_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modified_on" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Scrap_code">
+    <Key>
+      <PropertyRef Name="Scrap_Code_Autogenerate_Id" />
+    </Key>
+    <Property Name="Scrap_Code_Autogenerate_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Scrap_Code_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="Modified_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modified_On" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Scrap_Details_Entry">
+    <Key>
+      <PropertyRef Name="Scrap_Details_Id" />
+    </Key>
+    <Property Name="Scrap_Details_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Scrap_Code_Autogenerate_Id" Type="Int32" />
+    <Property Name="Scrap_Category_Id" Type="Int32" />
+    <Property Name="Scrap_Iteam_Id" Type="Int32" />
+    <Property Name="Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Approx_Weight" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Weight" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Of_Receipt" Type="DateTime" Precision="3" />
+    <Property Name="No_Of_Scrap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="Modified_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modified_On" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Scrap_Item_Mst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_Category_Id" Type="Int32" />
+    <Property Name="MaterialType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Matreial_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Iteam_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="Modified_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modified_on" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="sp_scrap_detail_category_Result">
+    <Property Type="Int32" Name="Scrap_Category_Id" Nullable="true" />
+    <Property Type="String" Name="Category_Name" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_scrap_item_detail_category_wise_Result">
+    <Property Type="Int32" Name="Scrap_Category_Id" Nullable="true" />
+    <Property Type="Int32" Name="Scrap_Iteam_Id" Nullable="true" />
+    <Property Type="String" Name="Iteam_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Rate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Amount" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Approx_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Total_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Date_Of_Receipt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="No_Of_Scrap" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="FinacialYear">
+    <Key>
+      <PropertyRef Name="FinId" />
+    </Key>
+    <Property Name="FinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FinYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="Addby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Addon" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Hcm_ApplyLeave">
+    <Key>
+      <PropertyRef Name="Leave_Id" />
+    </Key>
+    <Property Name="Leave_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Leave_Typeid" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approval1" Type="Int32" />
+    <Property Name="Status1" Type="Boolean" />
+    <Property Name="Remarks1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approval2" Type="Int32" />
+    <Property Name="Status2" Type="Boolean" />
+    <Property Name="Remarks2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approval3" Type="Int32" />
+    <Property Name="Status3" Type="Boolean" />
+    <Property Name="Remarks3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approval4" Type="Int32" />
+    <Property Name="Status4" Type="Boolean" />
+    <Property Name="Remarks4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approval5" Type="Int32" />
+    <Property Name="Status5" Type="Boolean" />
+    <Property Name="Remarks5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="Addby" Type="Int32" />
+    <Property Name="Addon" Type="DateTime" Precision="3" />
+    <Property Name="Modby" Type="Int32" />
+    <Property Name="Modon" Type="DateTime" Precision="3" />
+    <Property Name="PendingAt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Approverejct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HCM_EmployeeDtl">
+    <Key>
+      <PropertyRef Name="Employee_Id" />
+    </Key>
+    <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+    <Property Name="Employee_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Employee_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_No" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Class" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Bank_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ac_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IFSC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GIS_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Bill_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PF_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DOJ" Type="DateTime" Precision="3" />
+    <Property Name="Area" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Approval1" Type="Int32" />
+    <Property Name="Approval2" Type="Int32" />
+    <Property Name="Approval3" Type="Int32" />
+    <Property Name="Approval4" Type="Int32" />
+    <Property Name="Approval5" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HCM_LeaveBalance">
+    <Key>
+      <PropertyRef Name="LeaveBalanceId" />
+    </Key>
+    <Property Name="LeaveBalanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LeaveType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveAllocated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveTaken" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveAvailable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HCM_LeaveMaster">
+    <Key>
+      <PropertyRef Name="LeaveCode" />
+    </Key>
+    <Property Name="LeaveCode" Type="Int32" Nullable="false" />
+    <Property Name="LeaveType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveAllocated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Hcm_Property">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Hcm_Property_House" Relationship="OLICModel.FK__Hcm_Prope__Prope__725BF7F6" FromRole="Hcm_Property" ToRole="Hcm_Property_House" />
+    <NavigationProperty Name="Hcm_Property_ImmovableProperties" Relationship="OLICModel.FK__Hcm_Prope__Prope__73501C2F" FromRole="Hcm_Property" ToRole="Hcm_Property_ImmovableProperties" />
+    <NavigationProperty Name="Hcm_Property_Land" Relationship="OLICModel.FK__Hcm_Prope__Prope__74444068" FromRole="Hcm_Property" ToRole="Hcm_Property_Land" />
+    <NavigationProperty Name="Hcm_Property_MovableProperty" Relationship="OLICModel.FK__Hcm_Prope__Prope__753864A1" FromRole="Hcm_Property" ToRole="Hcm_Property_MovableProperty" />
+    <NavigationProperty Name="Hcm_Property_OtherMovable" Relationship="OLICModel.FK__Hcm_Prope__Prope__762C88DA" FromRole="Hcm_Property" ToRole="Hcm_Property_OtherMovable" />
+  </EntityType>
+  <EntityType Name="vwEmployeesByLeaveType">
+    <Key>
+      <PropertyRef Name="Leave_Id" />
+    </Key>
+    <Property Name="Leave_Id" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="Remarks1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="remarks3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status1" Type="Boolean" />
+    <Property Name="Status2" Type="Boolean" />
+    <Property Name="Status3" Type="Boolean" />
+    <Property Name="Status4" Type="Boolean" />
+    <Property Name="Status5" Type="Boolean" />
+    <Property Name="Approval1" Type="Int32" />
+    <Property Name="Approval2" Type="Int32" />
+    <Property Name="Approval3" Type="Int32" />
+    <Property Name="Approval4" Type="Int32" />
+    <Property Name="Approval5" Type="Int32" />
+    <Property Name="PendingAt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Leave_Typeid" Type="Int32" />
+    <Property Name="Approverejct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Addby" Type="Int32" />
+    <Property Name="Addon" Type="DateTime" Precision="3" />
+    <Property Name="Modby" Type="Int32" />
+    <Property Name="Modon" Type="DateTime" Precision="3" />
+    <Property Name="Employee_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_House">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PreciseLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExtentLOfInterest" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="InWhoseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndManner" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int32" />
+    <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hcm_Property" Relationship="OLICModel.FK__Hcm_Prope__Prope__725BF7F6" FromRole="Hcm_Property_House" ToRole="Hcm_Property" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_ImmovableProperties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BreifDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExtentOfInterest" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="InWhoseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndManner" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int32" />
+    <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hcm_Property" Relationship="OLICModel.FK__Hcm_Prope__Prope__73501C2F" FromRole="Hcm_Property_ImmovableProperties" ToRole="Hcm_Property" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_Land">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PreciseLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExtentOfInterest" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="InWhoseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndMannerOfAcquisitionOrDisposal" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int32" />
+    <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hcm_Property" Relationship="OLICModel.FK__Hcm_Prope__Prope__74444068" FromRole="Hcm_Property_Land" ToRole="Hcm_Property" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_MovableProperty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionOfItem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="InWhoseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Loans" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndManner" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int32" />
+    <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hcm_Property" Relationship="OLICModel.FK__Hcm_Prope__Prope__753864A1" FromRole="Hcm_Property_MovableProperty" ToRole="Hcm_Property" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_OtherMovable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionOfItems" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="InWhoseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndManner" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int32" />
+    <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hcm_Property" Relationship="OLICModel.FK__Hcm_Prope__Prope__762C88DA" FromRole="Hcm_Property_OtherMovable" ToRole="Hcm_Property" />
+  </EntityType>
+  <Association Name="FK__Hcm_Prope__Prope__725BF7F6">
+    <End Type="OLICModel.Hcm_Property" Role="Hcm_Property" Multiplicity="0..1" />
+    <End Type="OLICModel.Hcm_Property_House" Role="Hcm_Property_House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_House">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__73501C2F">
+    <End Type="OLICModel.Hcm_Property" Role="Hcm_Property" Multiplicity="0..1" />
+    <End Type="OLICModel.Hcm_Property_ImmovableProperties" Role="Hcm_Property_ImmovableProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_ImmovableProperties">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__74444068">
+    <End Type="OLICModel.Hcm_Property" Role="Hcm_Property" Multiplicity="0..1" />
+    <End Type="OLICModel.Hcm_Property_Land" Role="Hcm_Property_Land" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_Land">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__753864A1">
+    <End Type="OLICModel.Hcm_Property" Role="Hcm_Property" Multiplicity="0..1" />
+    <End Type="OLICModel.Hcm_Property_MovableProperty" Role="Hcm_Property_MovableProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_MovableProperty">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__762C88DA">
+    <End Type="OLICModel.Hcm_Property" Role="Hcm_Property" Multiplicity="0..1" />
+    <End Type="OLICModel.Hcm_Property_OtherMovable" Role="Hcm_Property_OtherMovable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_OtherMovable">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Demo_Table_Rajesh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Service_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Application_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Length" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Breadth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Content_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Cluster">
+    <Key>
+      <PropertyRef Name="Clt_Id" />
+    </Key>
+    <Property Name="Clt_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clt_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Cluster_Details">
+    <Key>
+      <PropertyRef Name="Clt_Dtl_Id" />
+    </Key>
+    <Property Name="Clt_Dtl_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clt_Id" Type="Int32" />
+    <Property Name="DeepBorewellRegdId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DB_Registration_Detail">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="Int32" Nullable="false" />
+    <Property Name="RegNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FarmerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Block_Ulb_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Clt_Id" Type="Int32" />
+    <Property Name="Clt_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BEL.Vw_DprEstimation>
+
+
+
+<table id="default-datatable" class="table table-bordered">
+    <tbody id="applicationdtl">
+        <table id="default-datatable" class="table table-bordered">
+            <thead style="text-align: center;">
+                <tr>
+                    <th>
+                       Sl No
+                    </th>
+                    <th>
+                        Description of work
+                    </th>
+                    <th>
+                        Description of work
+                    </th>
+                    <th>
+                        Unit
+                    </th>
+                    <th>
+                        Rate per Unit
+                    </th>
+                    <th>
+                        Length
+                    </th>
+                    <th>
+                        Breadth
+                    </th>
+                    <th>
+                        Height
+                    </th>
+                    <th>
+                        Content / Area
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Remarks
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{ int count1 = 0;}
+                
+                    @foreach (var iteam in Model)
+                    {
+
+                        count1 = count1 + 1;
+                        <tr role="row" class="even">
+                            <td>@count1</td>
+                            <td style="width:50%;">@iteam.Description_of_work</td>
+                            <td>@iteam.Unit</td>
+                            <td>@iteam.Rate_per_Unit</td>
+                            <td>@iteam.Length</td>
+                            <td>@iteam.Breadth</td>
+                            <td>@iteam.Height</td>
+                            <td>@iteam.Content_Area</td>
+                            <td>@iteam.Quantity</td>
+                            <td>@iteam.Remark</td>
+                        </tr>
+
+                    }
+                
+
+
+            </tbody>
+        </table>
+    </tbody>
+
+</table>
+@*<table id="default-datatable" class="table table-bordered">
+
+    <tbody id="applicationdtl">
+        <tr>
+            <td><label>Application Number:</label></td>
+            <td><label id="p1">@Model.Application_Number</label></td>
+        </tr>
+        <tr>
+            <td><label>Beneficiary Name:</label></td>
+            <td><label id="p2">@Model.FarmerName</label></td>
+        </tr>
+        <tr>
+            <td><label> Description of work:</label></td>
+            <td><label id="p2">@Model.Description_of_work</label></td>
+        </tr>
+        <tr>
+            <td><label>Unit:</label></td>
+            <td><label id="p2">@Model.Unit</label></td>
+        </tr>
+        <tr>
+            <td><label>Rate per Unit:</label></td>
+            <td><label id="p2">@Model.Rate_per_Unit</label></td>
+        </tr>
+        <tr>
+            <td><label>Length:</label></td>
+            <td><label id="p2">@Model.Length</label></td>
+        </tr>
+        <tr>
+            <td><label>Breadth:</label></td>
+            <td><label id="p2">@Model.Breadth</label></td>
+        </tr>
+        <tr>
+            <td><label>Height:</label></td>
+            <td><label id="p2">@Model.Height</label></td>
+        </tr>
+        <tr>
+            <td><label>Content Area:</label></td>
+            <td><label id="p2">@Model.Content_Area</label></td>
+        </tr>
+        <tr>
+            <td><label>Quantity:</label></td>
+            <td><label id="p2">@Model.Quantity</label></td>
+        </tr>
+        <tr>
+            <td><label>Remark:</label></td>
+            <td><label id="p2">@Model.Remark</label></td>
+        </tr>
+    </tbody>
+
+</table>*@
+

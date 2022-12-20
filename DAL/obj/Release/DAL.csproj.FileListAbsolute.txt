@@ -1,0 +1,170 @@
+D:\OSBCL\DAL\bin\Release\DAL.dll.config
+D:\OSBCL\DAL\bin\Release\DAL.dll
+D:\OSBCL\DAL\bin\Release\DAL.pdb
+D:\OSBCL\DAL\bin\Release\BEL.dll
+D:\OSBCL\DAL\bin\Release\BLL.dll
+D:\OSBCL\DAL\bin\Release\EntityFramework.dll
+D:\OSBCL\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\OSBCL\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\OSBCL\DAL\bin\Release\System.Web.Helpers.dll
+D:\OSBCL\DAL\bin\Release\System.Web.Mvc.dll
+D:\OSBCL\DAL\bin\Release\System.Web.Mvc.Extensions.dll
+D:\OSBCL\DAL\bin\Release\System.Web.Razor.dll
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.dll
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\OSBCL\DAL\bin\Release\Mono.HttpUtility.dll
+D:\OSBCL\DAL\bin\Release\BEL.pdb
+D:\OSBCL\DAL\bin\Release\BEL.dll.config
+D:\OSBCL\DAL\bin\Release\BLL.pdb
+D:\OSBCL\DAL\bin\Release\BLL.dll.config
+D:\OSBCL\DAL\bin\Release\EntityFramework.xml
+D:\OSBCL\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\OSBCL\DAL\bin\Release\System.Web.Helpers.xml
+D:\OSBCL\DAL\bin\Release\System.Web.Mvc.xml
+D:\OSBCL\DAL\bin\Release\System.Web.Mvc.Extensions.xml
+D:\OSBCL\DAL\bin\Release\System.Web.Razor.xml
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.xml
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\OSBCL\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\OSBCL\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\OSBCL\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\OSBCL\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\OSBCL\DAL\obj\Release\DAL.dll
+D:\OSBCL\DAL\obj\Release\DAL.pdb
+D:\OLIC\OLIC\DAL\bin\Release\DAL.dll.config
+D:\OLIC\OLIC\DAL\bin\Release\DAL.dll
+D:\OLIC\OLIC\DAL\bin\Release\DAL.pdb
+D:\OLIC\OLIC\DAL\bin\Release\BEL.dll
+D:\OLIC\OLIC\DAL\bin\Release\BLL.dll
+D:\OLIC\OLIC\DAL\bin\Release\EntityFramework.dll
+D:\OLIC\OLIC\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\OLIC\OLIC\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Helpers.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Mvc.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Razor.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.dll
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\OLIC\OLIC\DAL\bin\Release\Mono.HttpUtility.dll
+D:\OLIC\OLIC\DAL\bin\Release\BEL.pdb
+D:\OLIC\OLIC\DAL\bin\Release\BEL.dll.config
+D:\OLIC\OLIC\DAL\bin\Release\BLL.pdb
+D:\OLIC\OLIC\DAL\bin\Release\BLL.dll.config
+D:\OLIC\OLIC\DAL\bin\Release\EntityFramework.xml
+D:\OLIC\OLIC\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Helpers.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Mvc.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.Razor.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\OLIC\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\OLIC\OLIC\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\OLIC\OLIC\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\OLIC\OLIC\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\OLIC\OLIC\DAL\obj\Release\DAL.dll
+D:\OLIC\OLIC\DAL\obj\Release\DAL.pdb
+D:\OLIC\DAL\bin\Release\DAL.dll.config
+D:\OLIC\DAL\bin\Release\DAL.dll
+D:\OLIC\DAL\bin\Release\DAL.pdb
+D:\OLIC\DAL\bin\Release\BEL.dll
+D:\OLIC\DAL\bin\Release\BLL.dll
+D:\OLIC\DAL\bin\Release\EntityFramework.dll
+D:\OLIC\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\OLIC\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\OLIC\DAL\bin\Release\System.Web.Helpers.dll
+D:\OLIC\DAL\bin\Release\System.Web.Mvc.dll
+D:\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.dll
+D:\OLIC\DAL\bin\Release\System.Web.Razor.dll
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.dll
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\OLIC\DAL\bin\Release\Mono.HttpUtility.dll
+D:\OLIC\DAL\bin\Release\BEL.pdb
+D:\OLIC\DAL\bin\Release\BEL.dll.config
+D:\OLIC\DAL\bin\Release\BLL.pdb
+D:\OLIC\DAL\bin\Release\BLL.dll.config
+D:\OLIC\DAL\bin\Release\EntityFramework.xml
+D:\OLIC\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\OLIC\DAL\bin\Release\System.Web.Helpers.xml
+D:\OLIC\DAL\bin\Release\System.Web.Mvc.xml
+D:\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.xml
+D:\OLIC\DAL\bin\Release\System.Web.Razor.xml
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.xml
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\OLIC\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\OLIC\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\OLIC\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\OLIC\DAL\obj\Release\DAL.dll
+D:\OLIC\DAL\obj\Release\DAL.pdb
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\DAL.dll.config
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\DAL.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\DAL.pdb
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BEL.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BLL.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\EntityFramework.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Helpers.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Mvc.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Razor.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\Mono.HttpUtility.dll
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BEL.pdb
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BEL.dll.config
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BLL.pdb
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\BLL.dll.config
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\EntityFramework.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Helpers.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Mvc.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.Razor.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\OLIC 23-08-2022\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\OLIC 23-08-2022\OLIC\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\OLIC 23-08-2022\OLIC\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\OLIC 23-08-2022\OLIC\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\OLIC 23-08-2022\OLIC\DAL\obj\Release\DAL.dll
+D:\OLIC 23-08-2022\OLIC\DAL\obj\Release\DAL.pdb
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\DAL.dll.config
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\DAL.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\DAL.pdb
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BEL.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BLL.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\EntityFramework.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Helpers.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Mvc.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Razor.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\Mono.HttpUtility.dll
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BEL.pdb
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BEL.dll.config
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BLL.pdb
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\BLL.dll.config
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\EntityFramework.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Helpers.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Mvc.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Mvc.Extensions.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.Razor.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.Deployment.xml
+D:\OLIC_08_12_2022\OLIC\DAL\bin\Release\System.Web.WebPages.Razor.xml
+D:\OLIC_08_12_2022\OLIC\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+D:\OLIC_08_12_2022\OLIC\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\OLIC_08_12_2022\OLIC\DAL\obj\Release\DAL.csproj.CopyComplete
+D:\OLIC_08_12_2022\OLIC\DAL\obj\Release\DAL.dll
+D:\OLIC_08_12_2022\OLIC\DAL\obj\Release\DAL.pdb

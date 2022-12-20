@@ -1,0 +1,962 @@
+﻿@model BEL.EmployeePropertyDetails
+@{
+    ViewBag.Title = "AddProperty";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+
+<div class="page-content">
+
+    <main id="main">
+
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="/Hcm/ShowPropertyDetails"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">ADD PROPERTY FOR STATE GOVERNMENT EMPLOYEES</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <form action="/Hcm/ShowPropertyDetails" method="post" enctype="multipart/form-data">
+            <section id="about" class="about testimonials ">
+
+                <h5 style="text-align:center">A. IMMOVABLE PROPERTY</h5>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card" style="font-size:15px">
+                            <div class="card-body">
+                                <div class="card-header  text-light card_header">
+                                    <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) LANDS:</h6>
+                                </div>
+
+                                <div class="row" style="margin-top: 3%; border: 1px dotted black;" id="addsupply">
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-4 m-lg-2">
+                                            <label for="validationCustom04" class="form-label ">Precise Location</label>
+                                            @Html.HiddenFor(x => x.DB_RegistrationLand.Id)
+                                            @*@Html.TextBoxFor(x => x.DB_Registration.PreciseLocation, new { @class = "form-control", @name = "PreciseLocation", @id = "pre" })*@
+                                            <input type="text" class="form-control" name="PreciseLocation" id="pre" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustom04" class="form-label mt-2">Extent Of Interest</label>
+                                            @*@Html.TextBoxFor(x => x.DB_Registration.ExtentOfInterest, new { @class = "form-control", @name = "ExtentOInterest", @id = "ext" })*@
+                                            <input type="text" class="form-control" name="ExtentOInterest" id="ext" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="validationCustom04" class="form-label mt-2">Value</label>
+                                            @*@Html.TextBoxFor(x => x.DB_Registration.Value, new { @class = "form-control", @name = "Value", @id = "Val" })*@
+                                            <input type="text" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" name="Value" id="Val" />
+                                        </div>
+
+                                        <div class="col-md-4 m-lg-2">
+                                            <label for="validationCustom04" class="form-label">In whose Name</label>
+                                            @*@Html.TextBoxFor(x => x.DB_Registration.InWhoseName, new { @class = "form-control", @name = "InWhoseName", @id = "Inwho" })*@
+                                            <input type="text" class="form-control" name="InWhoseName" id="Inwho" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="validationCustom04" class="form-label mt-2">Date And Manner </label>
+                                            @*@Html.TextBoxFor(x => x.DB_Registration.DateAndMannerOfAcquisitionOrDisposal, new { @class = "form-control", @name = "DateAndmanner", @id = "Date" })*@
+                                            <input type="date" class="form-control" name="DateAndmanner" id="Date" />
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label for="validationCustom04" class="form-label mt-2">UpLoad</label><br />
+                                            <input type="file" class="form-control" name="Adhar1" id="AadhaarFile1">
+                                        </div>
+                                        <div class="col-md">
+                                            <label for="validationCustom04" class="form-label mt-2">Action</label><br />
+                                            <button type="button" id="AddRow" onclick="AddMore1()" class="btn btn-outline-primary">+</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card" style="font-size:15px">
+                            <div class="card-body">
+                                <div class="card-header  text-light card_header">
+                                    <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(2) HOUSES:</h6>
+                                </div>
+
+                                @*<div class="col-md-12">
+                                        <label for="validationCustom04" class="form-label"></label>
+
+                                        <table id="" class="table table-striped table-bordered">
+
+                                            <tbody id="addsupply">
+                                                <tr>
+                                                    <td class="trec">Precise location</td>
+                                                    <td class="trec">Extent of interest</td>
+                                                    <td class="trec">Value</td>
+                                                    <td class="trec">In whose name(self,wife,child, dependant,other relation or Benamidar)the assetisor was</td>
+                                                    <td class="trec">Date and manner of acquisition or disposal</td>
+                                                    <td class="trec">Action</td>
+                                                </tr>
+                                                <tr id="tr1">
+                                                    <td><input type="text" class="form-control allow_decimal" name="Plot" id="Hprec1" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Khata" id="Hext1" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="Hval1" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="HInWhose1" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="Hdate1" /></td>
+                                                    <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore1()" class="btn btn-outline-primary">+</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>*@
+
+                                <div class="row mb-3" style="margin-top: 3%; border: 1px dotted black; " id="addsupply1">
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Precise</label>
+                                        @*@Html.HiddenFor(x => x.DB_Registration.Id)*@
+                                        @*@Html.TextBoxFor(x => x.House.PreciseLocation, new { @class = "form-control", @name = "Precise", @id = "Hprec" })*@
+                                        <input type="text" class="form-control" name="Precise" id="Hprec" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Extent</label>
+                                        @*@Html.TextBoxFor(x => x.House.ExtentLOfInterest, new { @class = "form-contro", @name = "Extent", @id = "Hext" })*@
+                                        <input type="text" class="form-control" name="Extent" id="Hext" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Value</label>
+                                        @*@Html.TextBoxFor(x => x.House.Value, new { @class = "form-control", @name = "Valuee", @id = "Hval" })*@
+                                        <input type="text" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" name="Valuee" id="Hval" />
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Inwhose</label>
+                                        @*@Html.TextBoxFor(x => x.House.InWhoseName, new { @class = "form-control", @name = "Inwhose", @id = "HInWhose" })*@
+                                        <input type="text" class="form-control" name="Inwhose" id="HInWhose" />
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Date and manner </label>
+                                        @*@Html.TextBoxFor(x => x.House.DateAndManner, new { @class = "form-control", @name = "DateManner", @id = "Hdate" })*@
+                                        <input type="date" class="form-control" name="DateManner" id="Hdate" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">UpLoad</label><br />
+                                        <input type="file" class="form-control" name="Adhar2" id="AadhaarFile">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="validationCustom04" class="form-label mt-2">Action</label><br />
+                                        <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore2()" class="btn btn-outline-primary">+</button></td>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id=addsupply2>
+                    <div class="col-lg-12">
+                        <div class="card" style="font-size:15px">
+                            <div class="card-body">
+                                <div class="card-header  text-light card_header">
+                                    <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(3) Immovable properties of other description (including mortgages and such other rights:</h6>
+                                </div>
+
+                                <div class="row" style="margin-top: 3%; border: 1px dotted black;">
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Brief description</label>
+                                        <input type="text" class="form-control" name="IBreif" id="Ibrief" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Extent Of Interest</label>
+                                        @*@Html.TextBoxFor(x => x.Immovablepropertie.ExtentOfInterest, new { @class = "form-contro", @name = "ExtentOInterest", @id = "Iextt" })*@
+                                        <input type="text" class="form-control" name="Iextent" id="Iextt" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Value</label>
+                                        @*@Html.TextBoxFor(x => x.Immovablepropertie.Value, new { @class = "form-control", @name = "Value", @id = "Ival" })*@
+                                        <input type="text" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" name="IValue" id="Ival" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">In whose name</label>
+                                        @*@Html.TextBoxFor(x => x.Immovablepropertie.InWhoseName, new { @class = "form-control", @name = "InWhoseName", @id = "IInwhose"*@
+                                        <input type="text" class="form-control" name="IInWhoseName" id="IInwhose" />
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Date and manner </label>
+                                        @*@Html.TextBoxFor(x => x.Immovablepropertie.DateAndMannerOfAcquisitionOrDiposal, new { @class = "form-control", @name = "DateAndmanner", @id = "Idate" })*@
+                                        <input type="date" class="form-control" name="IDateAndmanner" id="Idate" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Remarks </label>
+                                        @*@Html.TextBoxFor(x => x.Immovablepropertie.Remarks, new { @class = "form-control", @name = "DateAndmanner", @id = "IRemarks" })*@
+                                        <input type="text" class="form-control" name="IRemark" id="IRemarks" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom04" class="form-label mt-2">UpLoad</label><br />
+                                        <input type="file" class="form-control" name="Adhar3" id="AadhaarFile">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="validationCustom04" class="form-label mt-2">Action</label><br />
+                                        <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore3()" class="btn btn-outline-primary">+</button></td>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 style="text-align:center">B. MOVABLE PROPERTY</h5>
+
+                <div class="row" id="addsupply3">
+                    <div class="col-lg-12">
+                        <div class="card" style="font-size:15px">
+                            <div class="card-body">
+                                <div class="card-header  text-light card_header">
+                                    <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) Cash, Bankbalance, Credit, Insurancepolicies, Shares, Debentures, etc:</h6>
+                                </div>
+
+
+                                <div class="row" style="margin-top: 3%; border: 1px dotted black;">
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Description Of Item</label>
+                                        @*@Html.HiddenFor(x => x.Bankbalance.Id)
+                                            @Html.TextBoxFor(x => x.Bankbalance.DescriptionOfItems, new { @class = "form-control", @name = "DescriptioOfitems", @id = "Bdesc" })*@
+                                        <input type="text" class="form-control" name="MDes" id="Mdes" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Value</label>
+                                        @*@Html.TextBoxFor(x => x.Bankbalance.Value, new { @class = "form-contro", @name = "value", @id = "Bvalue" })*@
+                                        <input type="text" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" name="MVal" id="Mval" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">InWhoseName</label>
+                                        @*@Html.TextBoxFor(x => x.Bankbalance.InWhoseName, new { @class = "form-control", @name = "Value", @id = "Binwhose" })*@
+                                        <input type="text" class="form-control" name="MInwhose" id="Minwhose" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">DateAndManner</label>
+                                        @*@Html.TextBoxFor(x => x.Bankbalance.DateAndManner, new { @class = "form-control", @name = "InWhoseName", @id = "Bdate" })*@
+                                        <input type="date" class="form-control" name="MDate" id="Mdate" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Loans</label>
+                                        @*@Html.TextBoxFor(x => x.Bankbalance.Loans, new { @class = "form-control", @name = "Loans", @id = "Bloans" })*@
+                                        <input type="text" class="form-control" name="MLoans" id="Mloans" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Remarks </label>
+                                        @*@Html.TextBoxFor(x => x.Bankbalance.Remarks, new { @class = "form-control", @name = "DateAndmanner", @id = "Bremarks" })*@
+                                        <input type="text" class="form-control" name="MRemarks" id="Mremarks" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">UpLoad</label><br />
+                                        <input type="file" class="form-control" name="Adhar4" id="AadhaarFile">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">Action</label><br />
+                                        <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore4()" class="btn btn-outline-primary">+</button></td>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="addsupply4">
+                    <div class="col-lg-12">
+                        <div class="card" style="font-size:15px">
+                            <div class="card-body">
+                                <div class="card-header  text-light card_header">
+                                    <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">
+                                        (2) Other movable(including jewellery and other valuable,motor vehicles,refrigerators and
+                                        other articles or materials of value of Rs.4,000 and over for each item in respect of Gazetted
+                                        officers and Rs.2,000 and over for each item in respect of Non-gazetted Officers):
+                                    </h6>
+                                </div>
+
+
+                                <div class="row" style="margin-top: 3%; border: 1px dotted black;">
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Description Of Items</label>
+                                        @*@Html.HiddenFor(x => x.Othermovable.Id)
+                                            @Html.TextBoxFor(x => x.Othermovable.DescriptionOfItems, new { @class = "form-control", @name = "DescriptioOfitems", @id = "Mdesc" })*@
+                                        <input type="text" class="form-control" name="OMDes" id="OMdes" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Value</label>
+                                        @*@Html.TextBoxFor(x => x.Othermovable.Value, new { @class = "form-contro", @name = "value", @id = "Mvalue" })*@
+                                        <input type="text" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" name="OMVal" id="OMval" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">InWhoseName</label>
+                                        @*@Html.TextBoxFor(x => x.Othermovable.InWhoseName, new { @class = "form-control", @name = "Value", @id = "MInwhose" })*@
+                                        <input type="text" class="form-control" name="OMInwhose" id="OMinwhose" />
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">DateAndManner</label>
+                                        @*@Html.TextBoxFor(x => x.Othermovable.DateAndManner, new { @class = "form-control", @name = "InWhoseName", @id = "Mdate" })*@
+                                        <input type="date" class="form-control" name="OMDate" id="OMdate" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom04" class="form-label mt-2">Remarks </label>
+                                        @*@Html.TextBoxFor(x => x.Othermovable.Remarks, new { @class = "form-control", @name = "DateAndmanner", @id = "Mremark" })*@
+                                        <input type="text" class="form-control" name="OMRemarks" id="OMremarks" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label mt-2">UpLoad</label><br />
+                                        <input type="file" class="form-control" name="Adhar5" id="AadhaarFile">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="validationCustom04" class="form-label mt-2">Action</label><br />
+                                        <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore5()" class="btn btn-outline-primary">+</button></td>
+                                    </div>
+                                </div>
+
+                                @*<div class="col-md-12">
+                                        <label for="validationCustom04" class="form-label"></label>
+
+                                        <table id="" class="table table-striped table-bordered">
+
+
+                                                <tr>
+                                                    <td class="trec">Description of items</td>
+                                                    <td class="trec">Value</td>
+                                                    <td class="trec">In whose name(self,wife,child, dependantotherrelationor Benamidar)the assetisor was</td>
+                                                    <td class="trec">Date and manner of acquisition or disposal</td>
+                                                    <td class="trec">Remarks</td>
+                                                    <td class="trec">Action</td>
+                                                </tr>
+                                                <tr id="tr1">
+                                                    <td><input type="text" class="form-control allow_decimal" name="Plot" id="OMdes" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Khata" id="OMval" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="OMinwhose" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="OMDate" /></td>
+                                                    <td><input type="text" class="form-control allow_decimal" name="Land" id="OMRemark" /></td>
+                                                    <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore1()" class="btn btn-outline-primary">+</button></td>
+                                                </tr>
+
+                                        </table>
+                                    </div>*@
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: right;" class="mb-3">
+                    <button type="submit" class="btn btn-success" id="btnSubmit" value="Submit">Submit</button>
+                    <a class="btn btn-danger" href="#contact">Cancel</a>
+                </div>
+            </section>
+        </form>
+    </main>
+
+
+</div>
+
+
+<script>
+    $("#btnSubmit").click(function () {
+        debugger;
+        var count = 0;
+        var PreciseLocation = $("#pre").val();
+        var ExtentOfInterest = $("#ext").val();
+        var Value = $("#Val").val();
+        var InWhose = $("#Inwho").val();
+        var Dateandmanner = $("#Date").val();
+        var UploadFile = $("#AadhaarFile1").val();
+        var HExtentOfInterest = $("#Hext").val();
+        var HValue = $("#Hval").val();
+        var HInWhose = $("#HInWhose").val();
+        var HDate = $("#Hdate").val();
+        var IBrief = $("#Ibrief").val();
+        var IExt = $("#Iextt").val();
+        var IVar = $("#Ival").val();
+        var IInwhose = $("#IInwhose").val();
+        var Idate = $("#Idate").val();
+        var IRemarks = $("#IRemarks").val();
+        var Mdescr = $("#Bdesc").val();
+        var MBvalue = $("#Bvalue").val();
+        var MBinwhose = $("#Binwhose").val();
+        var MBdate = $("#Bdate").val();
+        var MBloans = $("#Bloans").val();
+        var MBremarks = $("#Bremarks").val();
+        var OMdesc = $("#Mdesc").val();
+        var OMvalue = $("#Mvalue").val();
+        var OMInwhose = $("#MInwhose").val();
+        var OMremark = $("#Mremark").val();
+
+
+
+
+        if (PreciseLocation == "") {
+            $('#pcise1').next("label").remove();
+            $('#pcise1').after('<label class="error mt-2 text-danger1 "></label>');
+            $("#pcise1").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#pcise1').next("label").remove();
+        }
+
+        if (UploadFile == "") {
+            $('#AadhaarFile1').next("label").remove();
+            $('#AadhaarFile1').after('<label class="error mt-2 text-danger1 "></label>');
+            $("#AadhaarFile1").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#AadhaarFile1').next("label").remove();
+        }
+        if (ExtentOfInterest == "") {
+            $('#extent').next("label").remove();
+            $('#extent').after('<label class="error mt-2 text-danger1 "></label>');
+            $("#extent").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#extent').next("label").remove();
+        }
+        if (Value == "") {
+            $('#Val').next("label").remove();
+            $('#Val').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମିର ପରିମାଣ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+            $("#Val").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#Val').next("label").remove();
+        }
+        if (InWhose == "") {
+            $('#Inwhose').next("label").remove();
+            $('#Inwhose').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମି ପଟା ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+            $("#Inwhose").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#Inwhose').next("label").remove();
+        }
+
+        if (Dateandmanner == "") {
+            $('#Date').next("label").remove();
+            $('#Date').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମି ପଟା ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+            $("#Date").focus();
+            count = 1;
+            return false;
+        }
+        else {
+            $('#Inwhose').next("label").remove();
+        }
+
+
+    }
+</script>
+
+<script>
+                                var count = 0;
+        function AddMore1() {
+            debugger;
+            var count = 0;
+            var PreciseLocation = $("#pre").val();
+            var ExtentOfInterest = $("#ext").val();
+            var Value = $("#Val").val();
+            var InWhose = $("#Inwho").val();
+            var Dateandmanner = $("#Date").val();
+
+            if (PreciseLocation == "") {
+                $('#pre').next("label").remove();
+                $('#pre').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#pre").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#pre').next("label").remove();
+            }
+            if (ExtentOfInterest == "") {
+                $('#ext').next("label").remove();
+                $('#ext').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#ext").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#ext').next("label").remove();
+            }
+            if (Value == "") {
+                $('#Val').next("label").remove();
+                $('#Val').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Val").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Val').next("label").remove();
+            }
+            if (InWhose == "") {
+                $('#Inwho').next("label").remove();
+                $('#Inwho').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Inwho").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Inwho').next("label").remove();
+            }
+            if (Dateandmanner == "") {
+                $('#Date').next("label").remove();
+                $('#Date').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Date").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Date').next("label").remove();
+            }
+
+            if (PreciseLocation != "" && ExtentOfInterest != "" && Value != "" && InWhose != "" && Dateandmanner != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<div class="row mb-3" id="tr_' + count + '" style="margin-top: 3%;margin-right:0px;margin-left:0px;padding-top:12px; border-top: 1px dotted black;border-bottom:1px dotted black;">';
+
+                data += '<tr id="tr_' + count + '" >';
+                data += '<div id="tr_' + count + '"class="col-md-4">';
+                data += '<td style="width:380px;padding-right:15px;margin-top:5px; "><input type="text" class="form-control allow_decimal" name="PreciseLocation"   id="pre' + count + '" required/></td>';
+                data += '</div>';
+                data += '<div id="tr_' + count + '"class="col-md-4">';
+                data += '<td style="width:380px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="ExtentOInterest" id="ext' + count + '" required /></td>';
+                data += '</div>';
+                data += '<div id="tr_' + count + '"class="col-md-4">';
+                data += '<td style="width:380px;padding-right:15px;"><input type="text"  class="form-control allow_decimal" name="Value" id="Val' + count + '" required /></td>';
+                data += '</div>';
+                data += '</tr>';
+
+
+                data += '<div class="row mb-3" id="tr_' + count + '" style="margin-top:15px;">';
+                data += '<tr id="tr_' + count + '" >';
+                data += '<div id="tr_' + count + '"class="col-md-4">';
+                data += '<td style="width:380px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="InWhoseName"  id="Inwho' + count + '" required/></td>';
+                data += '</div>';
+                data += '<div id="tr_' + count + '"class="col-md-4">';
+                data += '<td style="width:380px;padding-right:15px;"><input type="date" class="form-control allow_decimal" name="DateAndmanner"  id="Date' + count + '" required/></td>';
+                data += '</div>';
+                data += '<div id="tr_' + count + '"class="col-md-3">';
+                data += '<td style="width:380px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar1"  id="AadhaarFile' + count + '" required/></td>';
+                data += '</div>';
+                data += '<div id="tr_' + count + '"class="col-md-1">';
+                data += '<td style="text-align:center; width:100px;padding-right:15px;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</div>';
+                data += '</tr>';
+
+
+                data += '</div>';
+                $("#addsupply").append(data);
+
+
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+
+
+        function AddMore2() {
+            debugger;
+            var count = 0;
+            var HPreciseLocation = $("#Hprec").val();
+            var HExtentOfInterest = $("#Hext").val();
+            var HValue = $("#Hval").val();
+            var HInWhose = $("#HInWhose").val();
+            var HDate = $("#Hdate").val();
+
+            if (HPreciseLocation == "") {
+                $('#Hprec').next("label").remove();
+                $('#Hprec').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Hprec").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Hprec').next("label").remove();
+            }
+            if (HExtentOfInterest == "") {
+                $('#Hext').next("label").remove();
+                $('#Hext').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Hext").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Hext').next("label").remove();
+            }
+            if (HValue == "") {
+                $('#Hval').next("label").remove();
+                $('#Hval').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Hval").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Val').next("label").remove();
+            }
+            if (HInWhose == "") {
+                $('#HInWhose').next("label").remove();
+                $('#HInWhose').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#HInWhose").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#HInWhose').next("label").remove();
+            }
+            if (HDate == "") {
+                $('#Hdate').next("label").remove();
+                $('#Hdate').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Hdate").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Hdate').next("label").remove();
+            }
+
+            //count = count + 1;
+            //var data = "";
+            //data += '<tr id="tr_' + count + '" style="margin-top:12px;">';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="PreciseLocation"   id="pre' + count + '" required/></td>';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="ExtentOInterest" id="ext' + count + '" required /></td>';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text"  class="form-control allow_decimal" name="Value" id="Val' + count + '" required /></td>';
+            //data += '</tr>';
+            //data += '<tr id="tr_' + count + '" style="margin-top:12px;">';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="InWhoseName"  id="Inwho' + count + '" required/></td>';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="date" class="form-control allow_decimal" name="DateAndmanner"  id="Date' + count + '" required/></td>';
+            //data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar"  id="AadhaarFile' + count + '" required/></td>';
+            //data += '<td style="text-align:center; width:100px;padding-right:15px;padding-right:15px;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+            //data += '</tr>';
+            //$("#addsupply").append(data);
+
+
+            if (HPreciseLocation != "" && HExtentOfInterest != "" && HValue != "" && HInWhose != "" && HDate != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<tr id="tr_' + count + '" style="margin-top:12x;">';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="Precise"   id="pre' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="Extent" id="ext' + count + '" required /></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text"  class="form-control allow_decimal" name="Valuee" id="Val' + count + '" required /></td>';
+                data += '</tr>';
+                data += '<tr id="tr_' + count + '" style="margin-top:12x;">';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="text" class="form-control allow_decimal" name="Inwhose"  id="Inwho' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="date" class="form-control allow_decimal" name="DateManner"  id="Date' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar2"  id="AadhaarFile' + count + '" required/></td>';
+                data += '<td style="text-align:center; width:100px;padding-right:15px;padding-right:15px;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</tr>';
+                $("#addsupply1").append(data);
+
+
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+
+        function AddMore3() {
+            debugger;
+            var count = 0;
+            var IBrief = $("#Ibrief").val();
+            var IExt = $("#Iextt").val();
+            var IVal = $("#Ival").val();
+            var IInwhose = $("#IInwhose").val();
+            var Idate = $("#Idate").val();
+            var Remarks = $("#IRemarks").val();
+            if (IBrief == "") {
+                $('#Ibrief').next("label").remove();
+                $('#Ibrief').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Ibrief").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ibrief').next("label").remove();
+            }
+            if (IExt == "") {
+                $('#Iextt').next("label").remove();
+                $('#Iextt').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Iextt").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Iextt').next("label").remove();
+            }
+            if (IVal == "") {
+                $('#Ival').next("label").remove();
+                $('#Ival').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Ival").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ival').next("label").remove();
+            }
+            if (IInwhose == "") {
+                $('#IInwhose').next("label").remove();
+                $('#IInwhose').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#IInwhose").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#IInwhose').next("label").remove();
+            }
+            if (Idate == "") {
+                $('#Idate').next("label").remove();
+                $('#Idate').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Idate").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Idate').next("label").remove();
+            }
+
+            if (IBrief != "" && IExt != "" && IVal != "" && IInwhose != "" && Idate != "" && Remarks != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<tr id="tr_' + count + '">';
+                data += '<td><input type="text" class="form-control allow_decimal" name="IBreif"   id="Ibrief' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="Iextent" id="Iextt' + count + '" required /></td>';
+                data += '<td><input type="text"  class="form-control allow_decimal" name="IValue" id="Ival' + count + '" required /></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="IInWhoseName"  id="IInwhose' + count + '" required/></td>';
+                data += '<td><input type="date" class="form-control allow_decimal" name="IDateAndmanner"  id="Idate' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="IRemark"  id="IRemarks' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar3"  id="AadhaarFile' + count + '" required/></td>';
+                data += '<td style="text-align:center;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</tr>';
+                $("#addsupply2").append(data);
+
+
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+        function AddMore4() {
+            debugger;
+            var count = 0;
+            var MDescr = $("#Mdes").val();
+            var MValue = $("#Mval").val();
+            var MInwhose = $("#Minwhose").val();
+            var MDate = $("#MDate").val();
+            var MLoans = $("#Mloans").val();
+            var MRemarks = $("#Mremarks").val();
+
+            if (MDescr == "") {
+                $('#Mdes').next("label").remove();
+                $('#Mdes').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Mdes").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Mdes').next("label").remove();
+            }
+            if (MValue == "") {
+                $('#Mval').next("label").remove();
+                $('#Mval').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Mval").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Mval').next("label").remove();
+            }
+            if (MInwhose == "") {
+                $('#Minwhose').next("label").remove();
+                $('#Minwhose').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Minwhose").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Minwhose').next("label").remove();
+            }
+            if (MDate == "") {
+                $('#MDate').next("label").remove();
+                $('#MDate').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#MDate").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#MDate').next("label").remove();
+            }
+            if (MLoans == "") {
+                $('#Mloans').next("label").remove();
+                $('#Mloans').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Mloans").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Mloans').next("label").remove();
+            }
+
+
+            if (MRemarks == "") {
+                $('#Mremarks').next("label").remove();
+                $('#Mremarks').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#Mremarks").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Mremarks').next("label").remove();
+            }
+
+
+            if (MDescr != "" && MValue != "" && MInwhose != "" && MDate != "" && MLoans != "" && MRemarks != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<tr id="tr_' + count + '">';
+                data += '<td><input type="text" class="form-control allow_decimal" name="MDes"   id="Mdes' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="MVal" id="Mval' + count + '" required /></td>';
+                data += '<td><input type="text"  class="form-control allow_decimal" name="MInwhose" id="Minwhose' + count + '" required /></td>';
+                data += '<td><input type="date" class="form-control allow_decimal" name="MDate"  id="Mdate' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="MLoans"  id="Mloans' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="MRemarks"  id="Mremarks' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar4"  id="AadhaarFile' + count + '" required/></td>';
+                data += '<td style="text-align:center;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</tr>';
+                $("#addsupply3").append(data);
+
+
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+        function AddMore5() {
+            debugger;
+            var count = 0;
+            var OMDes = $("#OMdes").val();
+            var OMValue = $("#OMval").val();
+            var OMInwhose = $("#OMinwhose").val();
+            var OMDate = $("#OMdate").val();
+            var OMRemarks = $("#OMremarks").val();
+
+
+            if (OMDes == "") {
+                $('#OMdes').next("label").remove();
+                $('#OMdes').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#OMdes").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#OMdes').next("label").remove();
+            }
+            if (OMValue == "") {
+                $('#OMval').next("label").remove();
+                $('#OMval').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#OMval").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#OMval').next("label").remove();
+            }
+            if (OMInwhose == "") {
+                $('#OMinwhose').next("label").remove();
+                $('#OMinwhose').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#OMinwhose").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#OMinwhose').next("label").remove();
+            }
+            if (OMDate == "") {
+                $('#OMdate').next("label").remove();
+                $('#OMdate').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#OMdate").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#OMdate').next("label").remove();
+            }
+            if (OMRemarks == "") {
+                $('#OMremarks').next("label").remove();
+                $('#OMremarks').after('<label class="error mt-2 text-danger1 "></label>');
+                $("#OMremarks").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#OMremarks').next("label").remove();
+            }
+
+
+
+            if (OMDes != "" && OMValue != "" && OMInwhose != "" && OMDate != "" && OMRemarks != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<tr id="tr_' + count + '">';
+                data += '<td><input type="text" class="form-control allow_decimal" name="OMDes"   id="OMdes' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="OMVal" id="OMval' + count + '" required /></td>';
+                data += '<td><input type="text"  class="form-control allow_decimal" name="OMinwhose" id="OMinwhose' + count + '" required /></td>';
+                data += '<td><input type="date" class="form-control allow_decimal" name="OMDate"  id="OMdate' + count + '" required/></td>';
+                data += '<td><input type="text" class="form-control allow_decimal" name="OMRemarks"  id="OMremarks' + count + '" required/></td>';
+                data += '<td style="width:380px;padding-right:15px;padding-right:15px;"><input type="file" class="form-control allow_decimal" name="Adhar5"  id="AadhaarFile' + count + '" required/></td>';
+                data += '<td style="text-align:center;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</tr>';
+                $("#addsupply4").append(data);
+
+
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+

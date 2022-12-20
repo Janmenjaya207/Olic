@@ -1,0 +1,316 @@
+﻿@model BEL.ApprovalprocessEE
+@{
+    ViewBag.Title = "verify_application";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+
+<!--start page wrapper -->
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Assign Application (DBW)</li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+    <form action="/Divison/verify_application" method="post" id="myform">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-0 text-uppercase">Search Beneficiary</h6>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Block:</label>
+                        @Html.DropDownListFor(x => x.EE_Verify.block, (IEnumerable<SelectListItem>)ViewBag.Block, new { @class = "form-select", @id = "Ad_Block", @Name = "Ad_Block", @Onchange = "StoreTypeeee()" })
+                        @Html.HiddenFor(m => m.EE_Verify.block, new { @id = "BlockId" })
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Village:</label>
+                        @Html.DropDownListFor(x => x.EE_Verify.panchayat, (IEnumerable<SelectListItem>)ViewBag.GramPanchayat, new { @class = "form-select", @Disabled = "true", @id = "Ad_GramPanchayat", @Name = "Ad_GramPanchayat", @Onchange = "GpType()" })
+                        @Html.HiddenFor(m => m.EE_Verify.panchayat, new { @id = "GramPanchayatId" })
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">From Date:</label>
+                        <input type="date" class="form-control" id="FromDate" />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">To Date:</label>
+                        <input type="date" class="form-control" id="ToDate" />
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-10">
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <button type="button" class="btn btn-outline-primary px-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: 28px;">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-0 text-uppercase">Beneficiary List</h6>
+                <hr>
+                <div class="table-responsive mb-3" style="margin-top: 40px;">
+                    <table id="example2" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="check" onclick="selectitem()" /> Select</th>
+                                <th>Registration Number</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Mobile No</th>
+                                <th>Age</th>
+                                <th>Aadhaar No</th>
+                                <th>District</th>
+                                <th>Block</th>
+                                <th>Village</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (ViewBag.verifyPaidDeepBorewell != null)
+                            {
+                                int data = 0;
+                                foreach (var item in ViewBag.verifyPaidDeepBorewell)
+                                {
+                                    if (data != item.DeepBorewellRegdId)
+                                    {
+                                        <tr id="@item.DeepBorewellRegdId">
+                                            <td>
+                                                <input type="checkbox" class="checkall" name="reqid" id="check_@item.DeepBorewellRegdId" onclick="binddata(@item.DeepBorewellRegdId)" />
+                                                @*<input type="hidden" class="sss" name="Appid" value="@item.UserId" disabled id="applicationid_@item.Tas_Id" />*@
+                                                <input type="hidden" class="Tasid" name="Taasid" value="@item.DeepBorewellRegdId" disabled id="Tasid_@item.DeepBorewellRegdId" />
+
+                                            </td>
+                                            <td>
+                                                @item.DbRegistrationNo
+                                                <input type="hidden" class="Emp_Name" name="DbRegistrationNo" value="@item.DbRegistrationNo" disabled id="DbRegistrationNo_@item.DeepBorewellRegdId" />
+                                            </td>
+
+                                            <td>
+                                                @item.FarmerName
+                                                <input type="hidden" class="Emp_Name" name="FarmerName" value="@item.FarmerName" disabled id="FarmerName_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.MobileNo
+                                                <input type="hidden" class="Emp_Name" name="MobileNo" value=" @item.MobileNo" disabled id="MobileNo_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.Gender
+                                                <input type="hidden" class="Emp_Name" name="Gender" value="@item.Gender" disabled id="Gender_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.Category
+                                                <input type="hidden" class="Emp_Name" name="Category" value="@item.Category" disabled id="Category_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.AadhaarNo
+                                                <input type="hidden" class="Emp_Name" name="AadhaarNo" value="@item.AadhaarNo" disabled id="AadhaarNo_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.DistrictName
+                                                <input type="hidden" class="Emp_Name" name="DistrictName" value="@item.DistrictName" disabled id="DistrictName_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.Block_Ulb_Name
+                                                <input type="hidden" class="Emp_Name" name="Block_Ulb_Name" value="@item.Block_Ulb_Name" disabled id="Block_Ulb_Name_@item.DeepBorewellRegdId" />
+                                            </td>
+                                            <td>
+                                                @item.DistrictName
+                                                <input type="hidden" class="Emp_Name" name="GRAM_PANCHAYAT_Name" value="@item.GRAM_PANCHAYAT_Name" disabled id="GRAM_PANCHAYAT_Name_@item.DeepBorewellRegdId" />
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                    data = item.DeepBorewellRegdId;
+                                }
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card p-3">
+            <div class="panel-container show" id="listhide">
+                <div class="panel-content">
+                    <!-- datatable start -->
+                    <div class="table-responsive">
+                        <table id="" class="table table-striped table-bordered">
+                            <thead class="bg-info-700">
+                                <tr>
+                                    <th>Registration Number</th>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Mobile No</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="AssignList"></tbody>
+
+                        </table>
+                    </div>
+
+                    <!-- datatable end -->
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="validationCustom04" class="form-label">Choose Sub-Division:</label>
+                        <select class="form-select" id="validationCustom04" required="">
+                            <option value="1">Select</option>
+                            <option value="1">
+                                ANGUL
+                            </option>
+                            <option value="2">
+                                TALCHER
+                            </option>
+                            <option value="3">
+                                ATHAMALLIK
+                            </option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputAddress" class="form-label">Remarks</label>
+                        @Html.TextAreaFor(x => x.EE_Verify.Remarks, new { @class = "form-control", @name = "Remarks", @id = "Remarks" })
+                    </div>
+                    <div class="col-md-1">
+
+                        <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: 28px;">Submit</button>
+
+                    </div>
+                    <div class="col-md-1">
+
+
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: 28px;">Cancel</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+
+</div>
+<!--end page wrapper -->
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#listhide').hide();
+    });
+</script>
+
+<script>
+    function binddata(id) {
+        debugger;
+        $("#listhide").show();
+        var data = $("#check_" + id);
+        if (data[0].checked == true) {
+
+            var Tasid = $("#Tasid_" + id).val();
+            var RegistrationNumber = $("#DbRegistrationNo_" + id).val();
+            var Fname = $("#FarmerName_" + id).val();
+            var gender = $("#Gender_" + id).val();
+            var Mobile = $("#MobileNo_" + id).val();
+
+
+            var data = '<tr id="tr_' + id + '">';
+            data += '<td><input type="hidden" name="Applicationid" value="' + Tasid + '"/>' + RegistrationNumber + '</td>';
+            data += '<td>' + Fname + '</td>';
+            data += '<td>' + gender + '</td>';
+            data += '<td>' + Mobile + '</td>';
+            data += '<td><button class="btn btn-danger" onclick="remove(' + id + ')" >X</button></td>';
+            $("#AssignList").append(data);
+        }
+        else {
+            $("#tr_" + id).remove();
+        }
+    }
+    function selectitem() {
+        debugger;
+        var data = $("#check");
+        if (data[0].checked == true) {
+            $(".checkall").prop("checked", true);
+            $(".sss").prop("disabled", false);
+            $(".Emp_Name").prop("disabled", false);
+            $(".Tasid").prop("disabled", false);
+            //$(".Emp_Name").prop("disabled", false);
+        }
+        else {
+
+            $(".checkall").prop("checked", false);
+            $(".sss").prop("disabled", true);
+            $(".Emp_Name").prop("disabled", true);
+            $(".Tasid").prop("disabled", true);
+            //$(".Emp_Name").prop("disabled", true);
+
+        }
+    }
+</script>
+<script>
+    function StoreTypeeee() {
+        debugger;
+        var Block = $('#Ad_Block').val();
+        localStorage.setItem('Ad_Block', Block);
+        count = 0;
+        debugger;
+        if (count == 0) {
+
+            $.ajax({
+                type: "post",
+                url: "/Farmer/GramPanchayatType",
+                data: { gggg: Block },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var GramPanchayat = "<select id='Ad_GramPanchayat'class='form-control'>";
+                    GramPanchayat = GramPanchayat + '<option value="">--Select--</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        GramPanchayat = GramPanchayat + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    GramPanchayat = GramPanchayat + '</select>';
+
+                    if (count == 0) {
+
+                        $("#BlockId").val(Block);
+                        $("#Ad_GramPanchayat").html(GramPanchayat);
+
+                        $("#Ad_GramPanchayat").prop("disabled", false);
+                    }
+                    else {
+
+                        $("#Ad_GramPanchayat" + count).html(Block);
+                    }
+                }
+            });
+        }
+
+    }
+
+    function GpType() {
+        debugger;
+        var data = $("#Ad_GramPanchayat").val();
+        $("#GramPanchayatId").val(data);
+        localStorage.setItem('Ad_GramPanchayat', data);
+    }
+</script>

@@ -1,0 +1,234 @@
+﻿@model BEL.RajeshDemoModel
+@{
+    ViewBag.Title = "DBW_BillingApproval";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Billing Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <form action="/BillingSection/DBW_BillingApproval" method="post">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-0 text-uppercase">Search Farmer Billing Report</h6>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Application No:</label>
+                        @*<input type="text" class="form-control" id="FromDate" />*@
+
+                        <select name="ApplicationNonn" id="ApplicationNo" class="form-select" required>
+                            <option value="0">--SELECT--</option>
+                            @if (ViewBag.Registeration != null)
+                            {
+                                foreach (var item in ViewBag.Registeration)
+                                {
+                                    <option value="@item.DbRegistrationNo">@(item.DbRegistrationNo)</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Farmer Name:</label>
+                        <input type="text" disabled class="form-control" id="FromDate" value="Krushnachandra Das" />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Grampanchayat Name:</label>
+                        <input type="text" disabled class="form-control" id="FromDate" value="Balianta" />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Village Name:</label>
+                        <input type="text" disabled class="form-control" id="FromDate" value="Benupur" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-10">
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <button type="button" class="btn btn-outline-primary px-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: 28px;">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="hidedtl" style="display:none;">
+            <div class="card-body">
+                <h6 class="mb-0 text-uppercase">Update Billing Details</h6>
+                <hr>
+                <div class=" mb-3">
+
+                    <table class="table table-bordered table-responsive-md">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th>
+                                    Sl.No.
+                                </th>
+                                <th>
+                                    Description of work
+                                </th>
+                                <th>
+                                    Unit
+                                </th>
+                                <th>
+                                    Rate per Unit
+                                </th>
+                                <th>
+                                    Length
+                                </th>
+                                <th>
+                                    Breadth
+                                </th>
+                                <th>
+                                    Height
+                                </th>
+                                <th>
+                                    Content / Area
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Remarks
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{ int count = 0;}
+                            @if (ViewBag.DprDtl != null)
+                            {
+                                foreach (var iteam in ViewBag.DprDtl)
+                                {
+                                    @*@{ var data=Model.vw_DprEstimations.Where(x=>x.Application_Number==)}*@
+                                    count = count + 1;
+                                    <tr role="row" class="even">
+
+                                        <td>@count</td>
+                                        <td style="width:50%;">@iteam.Description_of_work</td>
+                                        <td>@iteam.Unit</td>
+                                        <td>@iteam.Rate_per_Unit</td>
+                                        <td>
+                                            <input type="hidden" value="@iteam.Dpr_Id" id="Dpr_Id" name="Dpr_Id" />
+                                            <input type="text" class="form-control" id="Length" name="Length"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Breadth" name="Breadth" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Height" name="Height"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Content_Area" name="Content_Area"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="quantity" name="quantity" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Remark" name="Remark"/>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+
+                            <tr>
+                                <td colspan="2" style="text-align: right;font-weight: 600;">
+                                    TOTAL
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">
+                                    Misc. 8.5%
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;font-weight: 600;">
+                                    TOTAL
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">
+                                    GST 12%
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;font-weight: 600;">
+                                    G. TOTAL
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div style="text-align:right;">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-danger">Cancel</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(".btn").click(function () {
+        $("#hidedtl").css("display", "block");
+    });
+
+</script>

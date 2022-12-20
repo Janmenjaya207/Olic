@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "View_CancelLeave";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+<html>
+<main id="main">
+    <div class="page-content">
+        @{string confirmMessage = Convert.ToString(TempData["Message"]); string warningMessage = Convert.ToString(TempData["WarningMessage"]);}
+        @if (!string.IsNullOrEmpty(confirmMessage))
+        {
+            <div class="alert border-0 border-start border-5 border-primary1 alert-dismissible fade show">
+                <input type="hidden" id="messagealert" style="background-color: lightgray;" value="@confirmMessage" />
+                @confirmMessage
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        else if (!string.IsNullOrEmpty(warningMessage))
+        {
+            <div class="alert border-0 border-start border-5 border-danger1 alert-dismissible fade show" id="divSuccessMessage">
+                <input type="hidden" id="messagealert" style="background-color: lightcoral;" value="@warningMessage" />
+                @warningMessage
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        else
+        {
+            <input type="hidden" id="messagealert" value="0" />
+        }
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="/Hcm/Dashboard"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">VIEW / CANCEL LEAVE</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <form action="/Hcm/View_CancelLeave" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" style="font-size:15px">
+                        <div class="card-body">
+                            <div class="card-header  text-light card_header">
+                                <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">VIEW LEAVE DETAILS</h6>
+                            </div>
+
+                            <div class="table-responsive mb-3" style="margin-top: 20px;">
+
+                                <table class="table table-hover table-striped table-condensed general-table" id="example2" data-swhgajax="true" data-swhgcontainer="gridContent" data-swhgcallback="">
+                                    <thead>
+                                        <tr class="header">
+                                            <th scope="col">
+                                                SL NO.
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">EmpName</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">EmpCode</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">Leave Type</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">FormDate</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">ToDate</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">Purpose of Leave</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">Pending At</a>
+                                            </th>
+                                            <th scope="col">
+                                                <a data-swhglnk="true">Status</a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @{ int count = 0;}
+                                        @if (ViewBag.LeaveDetails != null)
+                                        {
+                                            foreach (var iteam in ViewBag.LeaveDetails)
+                                            {
+
+                                                count = count + 1;
+
+                                                <tr role="row" class="even">
+                                                    <td>@count</td>
+                                                    <td>@iteam.Employee_Name </td>
+                                                    <td>@iteam.EmployeeCode</td>
+                                                    <td>@iteam.LeaveType</td>
+                                                    <td>@iteam.FromDate.ToShortDateString()</td>
+                                                    <td>@iteam.ToDate.ToShortDateString()</td>
+                                                    <td>@iteam.Remarks</td>
+                                                    <td>@iteam.Designation</td>
+                                                    <td>@iteam.Approverejct</td>
+                                                    @*<td></td>*@
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+
+    </script>
+</main>
+</html>

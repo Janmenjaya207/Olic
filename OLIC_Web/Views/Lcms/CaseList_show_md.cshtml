@@ -1,0 +1,186 @@
+﻿@model BEL.CaseListViewModel
+
+@{
+    ViewBag.Title = "CaseList_show_md";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<style>
+    .blink_text {
+        animation: 1s blinker linear infinite;
+        -webkit-animation: 1s blinker linear infinite;
+        -moz-animation: 1s blinker linear infinite;
+        color: red;
+    }
+
+    @@-moz-keyframes blinker {
+        0% {
+            opacity: 1.0;
+        }
+
+        50% {
+            opacity: 0.0;
+        }
+
+        100% {
+            opacity: 1.0;
+        }
+    }
+
+    @@-webkit-keyframes blinker {
+        0% {
+            opacity: 1.0;
+        }
+
+        50% {
+            opacity: 0.0;
+        }
+
+        100% {
+            opacity: 1.0;
+        }
+    }
+
+    @@keyframes blinker {
+        0% {
+            opacity: 1.0;
+        }
+
+        50% {
+            opacity: 0.0;
+        }
+
+        100% {
+            opacity: 1.0;
+        }
+    }
+</style>
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Search Case List</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h6 class="mb-0 text-uppercase">Search Case List</h6>
+            <hr>
+
+            <form method="post" action="/lcms/CaseList_show_md">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="validationCustom04" class="form-label">Case Type:</label>
+                        @Html.DropDownListFor(x => x.CaseTypeId, Model.CaseType, new { @class = "form-select", @required = "true" })
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="validationCustom04" class="form-label">Status:</label>
+                        @Html.DropDownListFor(x => x.Statuss, Model.Status, new { @class = "form-select", @required = "true" })
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom04" class="form-label">Compliance Time(In Days):</label>
+                        @Html.DropDownListFor(x => x.ComplianceTimee, Model.ComplianceTime, new { @class = "form-select", @required = "true" })
+                    </div>
+
+                    <div class="col-md-10">
+
+
+                    </div>
+                    <div class="col-md-1">
+
+                        <button type="submit" class="btn btn-outline-primary" style="margin-top: 28px;">Submit</button>
+
+                    </div>
+                    <div class="col-md-1">
+
+
+                        <button type="button" class="btn btn-outline-danger" style="margin-top: 28px;" onclick="location.reload();">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h6 class="mb-0 text-uppercase">Case List</h6>
+            <hr>
+
+            @{string confirmMessage = Convert.ToString(TempData["Message"]); string warningMessage = Convert.ToString(TempData["WarningMessage"]);}
+            @if (!string.IsNullOrEmpty(confirmMessage))
+            {
+                <div class="alert alert-success alert-dismissable" id="divSuccessMessage">
+                    <input type="hidden" id="messagealert" value="@confirmMessage" />
+                    @confirmMessage
+                </div>
+            }
+            else if (!string.IsNullOrEmpty(warningMessage))
+            {
+                <div class="alert alert-warning alert-dismissable" id="divSuccessMessage">
+                    <input type="hidden" id="messagealert" value="@warningMessage" />
+                    @warningMessage
+                </div>
+            }
+            else
+            {
+                <input type="hidden" id="messagealert" value="0" />
+            }
+            <div class="table-responsive mb-3" style="margin-top: 40px;">
+                <table id="example2" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Sl No</td>
+                            <th>Case No</th>
+                            <th>Party Name</th>
+                            <th>Court Name</th>
+                            <th>Case File Date</th>
+                            <th>Compliance Left(In Days)</th>
+                            <th>Approval Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model.vw_Input_Case_Lists.ToList().Count > 0)
+                        {
+                            int count = 0;
+                            foreach (var item in Model.vw_Input_Case_Lists)
+                            {
+                                count = count + 1;
+                                string caseid = item.CaseId.ToString();
+                                string data = BEL.EncodeDecode.EncodeBase64(caseid);
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.CaseNo</td>
+                                    <td>@item.PartyName</td>
+                                    <td>@item.CourtName</td>
+                                    <td>@item.CaseFileDate</td>
+                                    <td><span class="blink_text">@item.CDays Days</span></td>
+                                    @if (item.PendingAt == "100")
+                                    {
+                                        <td><span style="color:green;">@item.appstatus</span></td> }
+                                    else
+                                    {
+                                        <td>@item.appstatus</td>
+                                    }
+
+                                    <td>
+                                        <a href="/lcms/viewcasedetails_md?id=@data" title="view">View</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

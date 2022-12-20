@@ -1,0 +1,1051 @@
+﻿@model BEL.FarmerRegistration
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>OLIC</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Animation2/assets/img/favicon.png" rel="icon">
+    <link href="~/Animation2/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Animation2/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Animation2/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Animation2/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Animation2/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Animation2/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Animation2/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Animation2/assets/css/style1.css" rel="stylesheet">
+    <style type="text/css">
+        .trec {
+            color: aliceblue !important;
+        }
+
+        .bg {
+            background-color: #00000066;
+            padding: 35px 30px;
+        }
+
+        .buttons {
+            white-space: nowrap;
+            padding: 8px 10px 8px 10px;
+            background-color: #106de8;
+            border-radius: 4px;
+        }
+
+        nav.buttons a {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tx-danger {
+            color: #ff0606;
+        }
+
+        .text-danger1 {
+            color: #f44d4d;
+        }
+    </style>
+    <!-- =======================================================
+    * Template Name: BizLand - v3.6.0
+    * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <!--    <h1 class="logo"><a href="index.html">BizLand<span>.</span></a></h1> -->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo"><img src="~/Animation2/assets/img/lgo.png" alt=""></a>
+
+            <nav class="buttons">
+                <a class="" href="/Farmer/Application">Home</a>
+
+
+            </nav>
+
+        </div>
+    </header><!-- End Header -->
+
+
+
+    <main id="main">
+
+
+        <form action="/Farmer/DeepBorewell" method="post" enctype="multipart/form-data">
+            <!-- ======= About Section ======= -->
+
+            <section id="about" class="about testimonials ">
+                <div class="container bg">
+                    @{string confirmMessage = Convert.ToString(TempData["Message"]); string warningMessage = Convert.ToString(TempData["WarningMessage"]);}
+                    @if (!string.IsNullOrEmpty(confirmMessage))
+                    {
+                        <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show">
+                            <input type="hidden" id="messagealert" value="@confirmMessage" />
+                            @confirmMessage
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    else if (!string.IsNullOrEmpty(warningMessage))
+                    {
+                        <div class="alert border-0 border-start border-5 border-danger alert-dismissible fade show" id="divSuccessMessage">
+                            <input type="hidden" id="messagealert" value="@warningMessage" />
+                            @warningMessage
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    else
+                    {
+                        <input type="hidden" id="messagealert" value="0" />
+                    }
+
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>FARMER REGISTRATION / ଚାଷୀ ପଞୀକରଣ</h2>
+                        @*<p style="color: white;">Application form for Exploitation of Ground Water Resources through Deep Bore Well with Solar Pumping System in remote areas of the state in (BKVY-DBSK)2021-22</p>*@
+                        @*<p>
+                                <span>
+                                    ସୁଚନା : * ସୂଚିତ ସ୍ଥାନ ଦରକାରୀ |
+                                    ପ୍ରତ୍ୟେକ ସ୍ଥାନ ଇଂରାଜୀରେ ପୂରଣ କର |
+                                </span>
+                            </p>*@
+                    </div>
+
+                    <section style="position: relative;">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="validationCustom04" class="form-label">Project Name / ପ୍ରକଳ୍ପ ନାମ :</label>
+                                <span style="color: white; font-weight:700;">Deep Bore Well with Solar Pumping System</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom04" class="form-label">Last date of application / ଆବେଦନର ଶେଷ ତାରିଖ :</label>
+                                <span style="color: white; font-weight:700;">30-09-2022</span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationCustom04" class="form-label">Scheme Name / ଯୋଜନା  ନାମ :</label>
+                                <span style="color: white; font-weight:700;">BKVY-DBSK (2022-23)</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom04" class="form-label">Last date to deposit FD in bank / ବ୍ୟାଙ୍କରେ FD କରିବାର ଶେଷ ତାରିଖ :</label>
+                                <span style="color: white; font-weight:700;">30-09-2022</span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="validationCustom04" class="form-label">Beneficiary Share / ହିତାଧିକାରୀ ଅଂଶ :</label>
+                                <span style="color: white; font-weight:700;">(All category / ସମସ୍ତ ବର୍ଗ) - Rs. 20,000/- & (S.C / S.T category having BPL card / BPL କାର୍ଡ ଥିବା S.C / S.T ବର୍ଗ) - Rs. 10,000/-</span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <span style="color: red; font-weight:600;">
+                                    Information : * Indicated space is important and Fill each space in English
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <span style="color: red; font-weight:500;">
+                                    ସୁଚନା : * ସୂଚିତ ସ୍ଥାନ ଦରକାରୀ ଏବଂ ପ୍ରତ୍ୟେକ ସ୍ଥାନ ଇଂରାଜୀରେ ପୂରଣ କରନ୍ତୁ
+                                </span>
+                            </div>
+                        </div>
+                        <h6 style="border-bottom: 1px dotted #dd932c; color: #dd9332;font-size: 16px;">
+                            Personal Details (ବ୍ୟକ୍ତିଗତ ବିବରଣୀ):
+                        </h6>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Farmer's Name / ଚାଷୀଙ୍କ ନାମ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" id="FarmerName" />
+                                @*@Html.HiddenFor(x => x.DB_Registration.DeepBorewellRegdId)*@
+                                @*@Html.TextBoxFor(x => x.DB_Registration.FarmerName, new { @class = "form-control", @placeholder = "Farmer's Name / ଚାଷୀଙ୍କ ନାମ", @name = "FarmerName", @id = "FarmerName" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Mobile No / ମୋବାଇଲ ନଂ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.MobileNo, new { @class = "form-control c", @placeholder = "Mobile No / ମୋବାଇଲ ନଂ", @name = "MobileNo", @id = "MobileNo", @maxlength = "10" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Email ID / ଇମେଲ୍ ଆଇଡି :</label>
+                                <input type="text" class="form-control" />
+                                @*@Html.TextBoxFor(x => x.DB_Registration.Email, new { @class = "form-control", @placeholder = "Email ID / ଇମେଲ୍ ଆଇଡି", @name = "Email", @id = "Email", @onchange = "ValidateEmail()" })*@
+                                <span id="lblError" style="color:red"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Gender / ଲିଙ୍ଗ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @*@{ var gender = new List<SelectListItem>() { new SelectListItem() { Text = "Select", Value = "0" }, new SelectListItem() { Text = "Male", Value = "Male" }, new SelectListItem() { Text = "Female", Value = "Female" }, new SelectListItem() { Text = "Other", Value = "Other" }, }; }*@
+                                @*@Html.DropDownListFor(x => x.DB_Registration.Gender, gender, new { @class = "form-select form-control1 d", @id = "gender", @name = "gender", @onchange = "GenderValidate()" })*@
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Category / ବର୍ଗ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @{ var category = new List<SelectListItem>() { new SelectListItem() { Text = "Select", Value = "0" }, new SelectListItem() { Text = "General", Value = "General" }, new SelectListItem() { Text = "OBC", Value = "OBC" }, new SelectListItem() { Text = "SC", Value = "SC" }, new SelectListItem() { Text = "ST", Value = "ST" }, }; }*@
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Category, category, new { @class = "form-select form-control1 d", @id = "category", @name = "category", @onchange = "manageBPL()" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Aadhaar No / ଆଧାର ସଂଖ୍ୟା : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.AadhaarNo, new { @class = "form-control c", @placeholder = "Aadhaar No / ଆଧାର ସଂଖ୍ୟା", @name = "AadhaarNo", @id = "AadhaarNo", @maxlength = "12" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Upload Aadhaar / ଆଧାର ଅପଲୋଡ୍ କରନ୍ତୁ : <span class="tx-danger">*</span></label>
+                                <input type="file" class="form-control" name="AdharFile" id="AadhaarFile">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Upload Photo / ଫଟୋ ଅପଲୋଡ୍ କରନ୍ତୁ :</label>
+                                <input type="file" class="form-control" name="Photo" id="Photo">
+                            </div>
+                        </div>
+
+
+                        <div id="bplCard">
+                            <div class="mb-2" style="display: flex;margin-top: 35px;">
+                                <label style="color: #dd9332;font-size: 16px;">B.P.L Category (If Yes) / ବି.ପି.ଏଲ ଅନ୍ତର୍ଭୁକ୍ତ (ଯଦି ହଁ)</label>
+                                <input class="form-check-input" type="checkbox" id="chkBPL" style="margin-left: 4px;">
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <label for="validationCustom04" class="form-label">B.P.L Card No / ବି.ପି.ଏଲ କାର୍ଡ ନଂ :</label>
+                                    @* @Html.TextBoxFor(x => x.DB_Registration.BPLCardNo, new { @class = "form-control c", @placeholder = "B.P.L Card No / ବି.ପି.ଏଲ କାର୍ଡ ନଂ", @name = "BPLCardNo", @id = "BPLCardNo", @disabled = "disabled" })*@
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationCustom04" class="form-label">Upload B.P.L Card / ବି.ପି.ଏଲ କାର୍ଡ ଅପଲୋଡ୍ କରନ୍ତୁ :</label>
+                                    <input type="file" class="form-control" id="UploadBPL" name="Bpl" disabled="disabled" placeholder="Upload B.P.L Card  / ବି.ପି.ଏଲ କାର୍ଡ ଅପଲୋଡ୍ କରନ୍ତୁ">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h6 style="border-bottom: 1px dotted #dd932c; color: #dd9332;font-size: 16px;">
+                            Present Address Details (ବର୍ତ୍ତମାନର ଠିକଣା ବିବରଣୀ):
+                        </h6>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Village / ଗ୍ରାମ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Ad_Village, new { @class = "form-control", @placeholder = "Village / ଗ୍ରାମ", @name = "Ad_Village", @id = "Ad_Village" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">District / ଜିଲ୍ଲା : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Ad_DistrictId, (IEnumerable<SelectListItem>)ViewBag.District, new { @class = "form-select", @Name = "Ad_District", @id = "Ad_District", @Onchange = "BindType()" })*@
+                                @* @Html.HiddenFor(m => m.DB_Registration.Ad_DistrictId, new { @id = "DistId" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Block / ବ୍ଲକ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Ad_BlockId, (IEnumerable<SelectListItem>)ViewBag.Block, new { @class = "form-select", @Disabled = "true", @id = "Ad_Block", @Name = "Ad_Block", @Onchange = "StoreTypeeee()" })*@
+                                @* @Html.HiddenFor(m => m.DB_Registration.Ad_BlockId, new { @id = "BlockId" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Gram Panchayat / ଗ୍ରାମ ପଞ୍ଚାୟତ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Ad_GramPanchayatId, (IEnumerable<SelectListItem>)ViewBag.GramPanchayat, new { @class = "form-select", @Disabled = "true", @id = "Ad_GramPanchayat", @Name = "Ad_GramPanchayat", @Onchange = "GpType()" })*@
+                                @*@Html.HiddenFor(m => m.DB_Registration.Ad_GramPanchayatId, new { @id = "GramPanchayatId" })*@
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Post Office / ଡାକ ଘର : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Ad_PostOffice, new { @class = "form-control", @placeholder = "Post Office / ଡାକ ଘର", @name = "Ad_PostOffice", @id = "Ad_PostOffice" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">PIN Code / ପିନ୍ କୋଡ୍ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Ad_PostOffice, new { @class = "form-control", @placeholder = "PIN Code / ପିନ୍ କୋଡ୍", @name = "Ad_PinCode", @id = "Ad_PinCode" })*@
+                            </div>
+                        </div>
+
+
+
+
+                        <div>
+                            <h6 style="border-bottom: 1px dotted #dd932c; color: #dd9332;font-size: 16px;">
+                                Land Particulars of Proposed Project (ପ୍ରକଳ୍ପ ପ୍ରତିଷ୍ଠା ହେବାକୁ ଥିବା ଚାଷ ଜମିର ବିବରଣୀ):
+                            </h6>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Village / ଗ୍ରାମ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Pro_Village, new { @class = "form-control", @placeholder = "Village / ଗ୍ରାମ", @name = "Pro_Village", @id = "Pro_Village" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">District / ଜିଲ୍ଲା : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Pro_DistrictId, (IEnumerable<SelectListItem>)ViewBag.District, new { @class = "form-select", @Name = "Pro_District", @id = "Pro_District", @Onchange = "ProBindType()" })*@
+                                @* @Html.HiddenFor(m => m.DB_Registration.Pro_DistrictId, new { @id = "ProDistId" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Block / ବ୍ଲକ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Pro_BlockId, (IEnumerable<SelectListItem>)ViewBag.Block, new { @class = "form-select", @Disabled = "true", @id = "Pro_Block", @Name = "Pro_Block", @Onchange = "ProStoreType()" })*@
+                                @* @Html.HiddenFor(m => m.DB_Registration.Pro_BlockId, new { @id = "ProBlockId" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Gram Panchyat / ଗ୍ରାମ ପଞ୍ଚାୟତ : <span class="tx-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                                @* @Html.DropDownListFor(x => x.DB_Registration.Pro_GramPanchayatId, (IEnumerable<SelectListItem>)ViewBag.GramPanchayat, new { @class = "form-select", @Disabled = "true", @id = "Pro_GramPanchayat", @Name = "Pro_GramPanchayat", @Onchange = "GpType1()" })*@
+                                @* @Html.HiddenFor(m => m.DB_Registration.Pro_GramPanchayatId, new { @id = "ProGramPanchayatId" })*@
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Post Office / ଡାକ ଘର : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Pro_PostOffice, new { @class = "form-control", @placeholder = "Post Office / ଡାକ ଘର", @name = "Pro_PostOffice", @id = "Pro_PostOffice" })*@
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">PIN Code / ପିନ୍ କୋଡ୍ : <span class="tx-danger">*</span></label>
+                                <input type="text" class="form-control" />
+                                @* @Html.TextBoxFor(x => x.DB_Registration.Ad_PostOffice, new { @class = "form-control", @placeholder = "PIN Code / ପିନ୍ କୋଡ୍", @name = "Pro_PinCode", @id = "Pro_PinCode" })*@
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationCustom04" class="form-label"></label>
+
+                            <table id="" class="table table-striped table-bordered">
+
+                                <tbody id="addsupply">
+                                    <tr>
+                                        <td class="trec">Plot No. / ପ୍ଲଟ ନ॰ <span class="tx-danger">*</span></td>
+                                        <td class="trec">Khata No. / ଖାତା ନ॰ <span class="tx-danger">*</span></td>
+                                        <td class="trec">Land Area / ଜମିର ପରିମାଣ <span class="tx-danger">*</span></td>
+                                        <td class="trec">Upload Land Patta / ଜମି ପଟା ଅପଲୋଡ୍ କରନ୍ତୁ <span class="tx-danger">*</span></td>
+                                        <td class="trec">Action / କାର୍ଯ୍ୟ</td>
+                                    </tr>
+                                    <tr id="tr1">
+                                        <td><input type="text" placeholder="Plot No. / ପ୍ଲଟ ନ॰" class="form-control allow_decimal" name="Plot" id="PlotNo" /></td>
+                                        <td><input type="text" placeholder="Khata no. / ଖାତା ନ॰" class="form-control allow_decimal" name="Khata" id="KhataNo" /></td>
+                                        <td><input type="text" placeholder="Land Area / ଜମିର ପରିମାଣ" class="form-control allow_decimal" name="Land" id="LandArea" /></td>
+                                        <td><input type="file" class="form-control allow_decimal" name="PattaFile" id="PattaFile" /></td>
+                                        <td style="text-align:center;"><button type="button" id="AddRow" onclick="AddMore1()" class="btn btn-outline-primary">+</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <div class="mb-2" style="display: flex;margin-top: 35px;">
+                                <label style="color: #faf7f7;font-size: 16px; font-weight: 700;">If Land Patta is not in the name of the Applicant then click on the checkbox / ଯଦି ଜମି ପଟା ଆବେଦନକାରୀଙ୍କ ନାମରେ ନାହିଁ ତେବେ ଚେକ୍ ବକ୍ସରେ କ୍ଲିକ୍ କରନ୍ତୁ</label>
+                                <input class="form-check-input" type="checkbox" id="ChkAffidavit" onchange="ManageAffidavit()" style="margin-left: 4px;">
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-3" id="Afd">
+                                    <label for="validationCustom04" class="form-label">Upload Affidavit / ଆଫିଡେଭିଟ୍  ଅପଲୋଡ୍ କରନ୍ତୁ :</label>
+                                    <input type="file" class="form-control" name="Affidavit" id="Affidavit">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-success" id="btnSubmit" value="Submit">Submit</button>
+                            <a class="btn btn-danger" href="#contact" onClick="myFunction()">Cancel</a>
+                        </div>
+
+                    </section>
+
+                </div>
+            </section><!-- End About Section -->
+        </form>
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>OLIC</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+                Designed & Developed by by <a href="https://oasystspl.com/" target="_blank">OasysTech Solution Pvt. Ltd.</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Animation2/assets/vendor/aos/aos.js"></script>
+    <script src="~/Animation2/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Animation2/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/Animation2/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/Animation2/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Animation2/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="~/Animation2/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/Animation2/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="~/Animation2/assets/js/main.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#bplCard").hide();
+        });
+        $(document).ready(function () {
+            $("#Afd").hide();
+        });
+        var count = 0;
+        function AddMore1() {
+            debugger;
+            var count = 0;
+            var PlotNo = $("#PlotNo").val();
+            var KhataNo = $("#KhataNo").val();
+            var LandArea = $("#LandArea").val();
+            var PattaFile = $("#PattaFile").val();
+
+            if (PlotNo == "") {
+                $('#PlotNo').next("label").remove();
+                $('#PlotNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ପ୍ଲଟ ନ॰ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#PlotNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#PlotNo').next("label").remove();
+            }
+            if (KhataNo == "") {
+                $('#KhataNo').next("label").remove();
+                $('#KhataNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଖାତା ନ॰ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#KhataNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#KhataNo').next("label").remove();
+            }
+            if (LandArea == "") {
+                $('#LandArea').next("label").remove();
+                $('#LandArea').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମିର ପରିମାଣ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#LandArea").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#LandArea').next("label").remove();
+            }
+            if (PattaFile == "") {
+                $('#PattaFile').next("label").remove();
+                $('#PattaFile').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମି ପଟା ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+                $("#PattaFile").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#PattaFile').next("label").remove();
+            }
+            if (PlotNo != "" && KhataNo != "" && LandArea != "" && PattaFile != "") {
+
+                count = count + 1;
+                var data = "";
+                data += '<tr id="tr_' + count + '">';
+                data += '<td><input type="text" placeholder = "Plot No. / ପ୍ଲଟ ନ॰" class="form-control allow_decimal" name="PlotNo" id="PlotNo' + count + '"/></td>';
+                data += '<td><input type="text" placeholder = "Khata no. / ଖାତା ନ॰" class="form-control allow_decimal" name="KhataNo" id="KhataNo' + count + '"/></td>';
+                data += '<td><input type="text" placeholder = "Land Area / ଜମିର ପରିମାଣ" class="form-control allow_decimal" name="LandArea" id="LandArea' + count + '"/></td>';
+                data += '<td><input type="file" class="form-control allow_decimal" name="PattaFile" id="PattaFile' + count + '"/></td>';
+                data += '<td style="text-align:center;"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-outline-danger">X</button></td>';
+                data += '</tr>';
+                $("#addsupply").append(data);
+            }
+        }
+        function Remove1(id) {
+            $("#tr_" + id).remove();
+        }
+    </script>
+
+    <script>
+        function myFunction() {
+            let text = "Are you sure you want to cancel?";
+            if (confirm(text) == true) {
+                window.location.reload();
+            } else {
+
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+
+    <script>
+        function BindType() {
+            debugger;
+            var District = $('#Ad_District').val();
+            count = 0;
+            debugger;
+            if (count == 0) {
+
+                $.ajax({
+                    type: "post",
+                    url: "/Farmer/BlockType",
+                    data: { cccc: District },
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        var Block = "<select id='Ad_Block'class='form-control'>";
+                        Block = Block + '<option value="">--Select--</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            Block = Block + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                        }
+                        Block = Block + '</select>';
+
+                        if (count == 0) {
+
+                            $("#DistId").val(District);
+                            $("#Ad_Block").html(Block);
+
+                            $("#Ad_Block").prop("disabled", false);
+                        }
+                        else {
+
+                            $("#Ad_Block" + count).html(Block);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        function StoreType() {
+            var data = $("#Block").val();
+            $("#BlockId").val(data);
+        }
+    </script>
+
+    <script>
+        function StoreTypeeee() {
+            debugger;
+            var Block = $('#Ad_Block').val();
+            count = 0;
+            debugger;
+            if (count == 0) {
+
+                $.ajax({
+                    type: "post",
+                    url: "/Farmer/GramPanchayatType",
+                    data: { gggg: Block },
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        var GramPanchayat = "<select id='Ad_GramPanchayat'class='form-control'>";
+                        GramPanchayat = GramPanchayat + '<option value="">--Select--</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            GramPanchayat = GramPanchayat + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                        }
+                        GramPanchayat = GramPanchayat + '</select>';
+
+                        if (count == 0) {
+
+                            $("#BlockId").val(Block);
+                            $("#Ad_GramPanchayat").html(GramPanchayat);
+
+                            $("#Ad_GramPanchayat").prop("disabled", false);
+                        }
+                        else {
+
+                            $("#Ad_GramPanchayat" + count).html(Block);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        function GpType() {
+            debugger;
+            var data = $("#Ad_GramPanchayat").val();
+            $("#GramPanchayatId").val(data);
+        }
+    </script>
+
+    <script>
+        function ProBindType() {
+            debugger;
+            var ProDistrict = $('#Pro_District').val();
+            count = 0;
+            debugger;
+            if (count == 0) {
+
+                $.ajax({
+                    type: "post",
+                    url: "/Farmer/BlockType",
+                    data: { cccc: ProDistrict },
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        var Block = "<select id='Pro_Block'class='form-control'>";
+                        Block = Block + '<option value="">--Select--</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            Block = Block + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                        }
+                        Block = Block + '</select>';
+
+                        if (count == 0) {
+
+                            $("#ProDistId").val(ProDistrict);
+                            $("#Pro_Block").html(Block);
+
+                            $("#Pro_Block").prop("disabled", false);
+                        }
+                        else {
+
+                            $("#Pro_Block" + count).html(Block);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        function StoreType() {
+            var data = $("#Block").val();
+            $("#ProBlockId").val(data);
+        }
+    </script>
+
+    <script>
+        function ProStoreType() {
+            debugger;
+            var ProBlock = $('#Pro_Block').val();
+            count = 0;
+            debugger;
+            if (count == 0) {
+
+                $.ajax({
+                    type: "post",
+                    url: "/Farmer/GramPanchayatType",
+                    data: { gggg: ProBlock },
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        var GramPanchayat = "<select id='Pro_GramPanchayat'class='form-control'>";
+                        GramPanchayat = GramPanchayat + '<option value="">--Select--</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            GramPanchayat = GramPanchayat + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                        }
+                        GramPanchayat = GramPanchayat + '</select>';
+
+                        if (count == 0) {
+
+                            $("#ProBlockId").val(ProBlock);
+                            $("#Pro_GramPanchayat").html(GramPanchayat);
+
+                            $("#Pro_GramPanchayat").prop("disabled", false);
+                        }
+                        else {
+
+                            $("#Pro_GramPanchayat" + count).html(Block);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        function GpType1() {
+            debugger;
+            var data = $("#Pro_GramPanchayat").val();
+            $("#ProGramPanchayatId").val(data);
+        }
+    </script>
+
+    <script type="text/javascript">
+        $("#btnSubmit").click(function () {
+            debugger;
+            var count = 0;
+            var FarmerName = $("#FarmerName").val();
+            var MobileNo = $("#MobileNo").val();
+            var Email = $("#Email").val();
+            var gender = $("#gender").val();
+            var category = $("#category").val();
+            var AadhaarNo = $("#AadhaarNo").val();
+            var AadhaarFile = $("#AadhaarFile").val();
+
+            var chkBPL = $("#chkBPL");
+            var BPLCardNo = $("#BPLCardNo").val();
+            var UploadBPL = $("#UploadBPL").val();
+
+            var Ad_Village = $("#Ad_Village").val();
+            var Ad_District = $("#Ad_District").val();
+            var Ad_Block = $("#Ad_Block").val();
+            var Ad_GramPanchayat = $("#Ad_GramPanchayat").val();
+            var Ad_PostOffice = $("#Ad_PostOffice").val();
+
+            var Pro_Village = $("#Pro_Village").val();
+            var Pro_District = $("#Pro_District").val();
+            var Pro_Block = $("#Pro_Block").val();
+            var Pro_GramPanchayat = $("#Pro_GramPanchayat").val();
+            var Pro_PostOffice = $("#Pro_PostOffice").val();
+
+            var PlotNo = $("#PlotNo").val();
+            var KhataNo = $("#KhataNo").val();
+            var LandArea = $("#LandArea").val();
+            var PattaFile = $("#PattaFile").val();
+
+            var ChkAffidavit = $("#ChkAffidavit");
+            var Affidavit = $("#Affidavit").val();
+
+            if (FarmerName == "") {
+                $('#FarmerName').next("label").remove();
+                $('#FarmerName').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି କୃଷକଙ୍କ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#FarmerName").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#FarmerName').next("label").remove();
+            }
+            if (MobileNo == "") {
+                $('#MobileNo').next("label").remove();
+                $('#MobileNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ମୋବାଇଲ୍ ନମ୍ବର ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#MobileNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#MobileNo').next("label").remove();
+            }
+            if (Email != "") {
+                if (ValidateEmail(Email)) {
+                    $("#Email").next("label").remove();
+                }
+                else {
+                    $("#Email").next("label").remove();
+                    $("#Email").after('<label class="error mt-2 text-danger1">ଦୟାକରି ବୈଧ ଇମେଲ୍ ଆଇଡି ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                    $("#Email").focus();
+                    count = 1;
+                    return false;
+                }
+            }
+            else {
+                $('#Email').next("label").remove();
+            }
+            if (gender == 0) {
+                $('#gender').next("label").remove();
+                $('#gender').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଲିଙ୍ଗ ଚୟନ କରନ୍ତୁ</label>');
+                $("#gender").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#gender').next("label").remove();
+            }
+            if (category == 0) {
+                $('#category').next("label").remove();
+                $('#category').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ବର୍ଗ ଚୟନ କରନ୍ତୁ</label>');
+                $("#category").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#category').next("label").remove();
+            }
+            if (AadhaarNo == "") {
+                $('#AadhaarNo').next("label").remove();
+                $('#AadhaarNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଆଧାର ନମ୍ବର ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#AadhaarNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#AadhaarNo').next("label").remove();
+            }
+            if (AadhaarFile == "") {
+                $('#AadhaarFile').next("label").remove();
+                $('#AadhaarFile').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଆଧାର ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+                $("#AadhaarFile").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#AadhaarFile').next("label").remove();
+            }
+
+            if (chkBPL[0].checked == true) {
+
+                if (BPLCardNo == "") {
+                    $('#BPLCardNo').next("label").remove();
+                    $('#BPLCardNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ବି.ପି.ଏଲ କାର୍ଡ ନମ୍ବର ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                    $("#BPLCardNo").focus();
+                    count = 1;
+                    return false;
+                }
+                else {
+                    $('#BPLCardNo').next("label").remove();
+                }
+                if (UploadBPL == "") {
+                    $('#UploadBPL').next("label").remove();
+                    $('#UploadBPL').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ବି.ପି.ଏଲ କାର୍ଡ ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+                    $("#UploadBPL").focus();
+                    count = 1;
+                    return false;
+                }
+                else {
+                    $('#UploadBPL').next("label").remove();
+                }
+            }
+            else {
+                $('#BPLCardNo').next("label").remove();
+                $('#UploadBPL').next("label").remove();
+            }
+
+            if (Ad_Village == "") {
+                $('#Ad_Village').next("label").remove();
+                $('#Ad_Village').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଗ୍ରାମ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#Ad_Village").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ad_Village').next("label").remove();
+            }
+            if (Ad_District == 0) {
+                $('#Ad_District').next("label").remove();
+                $('#Ad_District').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜିଲ୍ଲା ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Ad_District").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ad_District').next("label").remove();
+            }
+            if (Ad_Block == 0) {
+                $('#Ad_Block').next("label").remove();
+                $('#Ad_Block').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ବ୍ଲକ ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Ad_Block").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ad_Block').next("label").remove();
+            }
+            if (Ad_GramPanchayat == 0) {
+                $('#Ad_GramPanchayat').next("label").remove();
+                $('#Ad_GramPanchayat').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଗ୍ରାମ ପଞ୍ଚାୟତ ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Ad_GramPanchayat").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ad_GramPanchayat').next("label").remove();
+            }
+            if (Ad_PostOffice == "") {
+                $('#Ad_PostOffice').next("label").remove();
+                $('#Ad_PostOffice').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଡାକ ଘର ନାମ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#Ad_PostOffice").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Ad_PostOffice').next("label").remove();
+            }
+
+
+            if (Pro_Village == "") {
+                $('#Pro_Village').next("label").remove();
+                $('#Pro_Village').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଗ୍ରାମ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#Pro_Village").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Pro_Village').next("label").remove();
+            }
+            if (Pro_District == 0) {
+                $('#Pro_District').next("label").remove();
+                $('#Pro_District').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜିଲ୍ଲା ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Pro_District").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Pro_District').next("label").remove();
+            }
+            if (Pro_Block == 0) {
+                $('#Pro_Block').next("label").remove();
+                $('#Pro_Block').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ବ୍ଲକ ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Pro_Block").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Pro_Block').next("label").remove();
+            }
+            if (Pro_GramPanchayat == 0) {
+                $('#Pro_GramPanchayat').next("label").remove();
+                $('#Pro_GramPanchayat').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଗ୍ରାମ ପଞ୍ଚାୟତ ନାମ ଚୟନ କରନ୍ତୁ</label>');
+                $("#Pro_GramPanchayat").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Pro_GramPanchayat').next("label").remove();
+            }
+            if (Pro_PostOffice == "") {
+                $('#Pro_PostOffice').next("label").remove();
+                $('#Pro_PostOffice').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଡାକ ଘର ନାମ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#Pro_PostOffice").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#Pro_PostOffice').next("label").remove();
+            }
+
+
+            if (PlotNo == "") {
+                $('#PlotNo').next("label").remove();
+                $('#PlotNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ପ୍ଲଟ ନ॰ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#PlotNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#PlotNo').next("label").remove();
+            }
+            if (KhataNo == "") {
+                $('#KhataNo').next("label").remove();
+                $('#KhataNo').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଖାତା ନ॰ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#KhataNo").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#KhataNo').next("label").remove();
+            }
+            if (LandArea == "") {
+                $('#LandArea').next("label").remove();
+                $('#LandArea').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମିର ପରିମାଣ ପ୍ରବେଶ କରନ୍ତୁ</label>');
+                $("#LandArea").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#LandArea').next("label").remove();
+            }
+            if (PattaFile == "") {
+                $('#PattaFile').next("label").remove();
+                $('#PattaFile').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଜମି ପଟା ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+                $("#PattaFile").focus();
+                count = 1;
+                return false;
+            }
+            else {
+                $('#PattaFile').next("label").remove();
+            }
+
+            if (ChkAffidavit[0].checked == true) {
+
+                if (Affidavit == "") {
+                    $('#Affidavit').next("label").remove();
+                    $('#Affidavit').after('<label class="error mt-2 text-danger1 ">ଦୟାକରି ଆଫିଡେଭିଟ୍ ଅପଲୋଡ୍ କରନ୍ତୁ</label>');
+                    $("#Affidavit").focus();
+                    count = 1;
+                    return false;
+                }
+                else {
+                    $('#Affidavit').next("label").remove();
+                }
+            }
+            else {
+                $('#Affidavit').next("label").remove();
+            }
+        });
+
+        function ValidateEmail(Email) {
+
+            var emailReg = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            if (!emailReg.test(Email)) { return false; }
+            else { return true; }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#chkBPL").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#BPLCardNo").removeAttr("disabled");
+                    $("#BPLCardNo").focus();
+                    $("#UploadBPL").removeAttr("disabled");
+                    $("#UploadBPL").focus();
+                }
+                else {
+                    $("#BPLCardNo").attr("disabled", "disabled");
+                    $("#BPLCardNo").val("");
+                    $("#UploadBPL").attr("disabled", "disabled");
+                    $("#UploadBPL").val("");
+                }
+            });
+        });
+
+        function manageBPL() {
+            debugger;
+            var category = $("#category").val();
+            if ((category == "SC") || (category == "ST")) {
+                $("#bplCard").show();
+            } else {
+                $("#bplCard").hide();
+            }
+        }
+
+        function ManageAffidavit() {
+            debugger;
+            var ChkAffidavit = $("#ChkAffidavit");
+            if (ChkAffidavit[0].checked == true) {
+                $("#Afd").show();
+            } else {
+                $("#Afd").hide();
+                $("#Affidavit").val("");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

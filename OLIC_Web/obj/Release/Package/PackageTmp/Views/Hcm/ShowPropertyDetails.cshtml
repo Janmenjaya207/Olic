@@ -1,0 +1,375 @@
+﻿@model BEL.EmployeePropertyDetails
+@{
+    ViewBag.Title = "ShowPropertyDetails";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+
+<main id="main">
+    <div class="page-content">
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="/Hcm/Dashboard"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">View Property DETAILS</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <form action="/Hcm/EditPropertyDetails" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) Lands</h6>
+                    </div>
+                    <div class="mb-3 " style="margin-top: 10px;">
+                        <table id="example2" class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Precise Location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th>
+                                        In whose Name (Self, Wife, Child, Dependant, Other Relation Or Benamidar) The Asset is Or Was
+                                    </th>
+                                    <th>
+                                        Date And Manner of Acquisition Disposal
+                                    </th>
+                                    <th>File</th>
+                                    @*<th>Details</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int count = 0;}
+                                @if (ViewBag.LandDtls != null)
+                                {
+                                    foreach (var iteam in ViewBag.LandDtls)
+                                    {
+
+                                        count = count + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count</td>
+                                            <td>
+                                                @iteam.PreciseLocation
+                                            </td>
+
+                                            <td>
+                                                @iteam.ExtentOfInterest
+                                            </td>
+
+                                            <td>
+                                                @iteam.Value
+                                            </td>
+
+                                            <td>
+                                                @iteam.InWhoseName
+                                            </td>
+
+                                            <td>
+                                                @iteam.DateAndMannerOfAcquisitionOrDisposal.ToShortDateString()
+                                            </td>
+
+                                            <td><a target="_blank" href="@iteam.Files">View</a></td>
+
+                                            @*<td> @Html.ActionLink("View", "PropertyDetails", "Hcm", new { id = @iteam.Id }, null)</td>*@
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(2) Houses</h6>
+                    </div>
+                    <div class="mb-3 table-re " style="margin-top: 10px;">
+                        <table id="example3" class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Precise Location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th>
+                                        In whose Name (Self, Wife, Child, Dependant, Other Relation Or Benamidar) The Asset is Or Was
+                                    </th>
+                                    <th>
+                                        Date And Manner of Acquisition Disposal
+                                    </th>
+                                    <th>File</th>
+                                    @*<th>Details</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count1 = 0;}
+                                @if (ViewBag.HouseDtls != null)
+                                {
+                                    foreach (var iteam in ViewBag.HouseDtls)
+                                    {
+
+                                        count1 = count1 + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count1</td>
+                                            <td>@iteam.PreciseLocation</td>
+                                            <td>@iteam.ExtentLOfInterest</td>
+                                            <td>@iteam.Value</td>
+                                            <td>@iteam.InWhoseName</td>
+                                            <td>@iteam.DateAndManner.ToShortDateString()</td>
+                                            <td><a target="_blank" href="@iteam.Files">View</a></td>
+                                            @*<td> @Html.ActionLink("View", "PropertyDetails1", "Hcm", new { id = @iteam.Id }, null)</td>*@
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(3)Immovable properties Of Other Description (Including Mortgages And Such Other Rights)</h6>
+                    </div>
+                    <div class="mb-3 " style="margin-top: 10px;">
+                        <table id="example4" class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Precise Location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th>
+                                        In whose Name (Self, Wife, Child, Dependant, Other Relation Or Benamidar) The Asset is Or Was
+                                    </th>
+                                    <th>
+                                        Date And Manner of Acquisition Disposal
+                                    </th>
+                                    <th>Remarks</th>
+                                    <th>File</th>
+                                    @*<th>Details</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int count2 = 0;}
+                                @if (ViewBag.ImmovableProperty != null)
+                                {
+                                    foreach (var iteam in ViewBag.ImmovableProperty)
+                                    {
+
+                                        count2 = count2 + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count2</td>
+                                            <td>@iteam.BreifDescription</td>
+                                            <td>@iteam.ExtentOfInterest</td>
+                                            <td>@iteam.Value</td>
+                                            <td>@iteam.InWhoseName</td>
+                                            <td>@iteam.DateAndManner.ToShortDateString()</td>
+                                            <td>@iteam.Remarks</td>
+                                            <td><a target="_blank"   href="@iteam.Files">View</a></td>
+                                            @*<td> @Html.ActionLink("View", "PropertyDetails2", "Hcm", new { id = @iteam.Id }, null)</td>*@
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) Cash, Bank Balance, Credit, Insurance Policies, Shares, Debentures, Etc.</h6>
+                    </div>
+                    <div class="mb-3 " style="margin-top: 10px;">
+                        <table id="example5" class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Description Of Items</th>
+                                    <th>Values</th>
+                                    <th>
+                                        In whose Name (Self, Wife, Child, Dependant, Other Relation Or Benamidar) The Asset is Or Was
+                                    </th>
+                                    <th>
+                                        Date And Manner of Acquisition Disposal
+                                    </th>
+                                    <th>
+                                        Loans That May Have Been Given To Others
+                                    </th>
+                                    <th>Remarks</th>
+                                    <th>File</th>
+                                    @*<th>Details</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int count3 = 0;}
+                                @if (ViewBag.MovableProperty != null)
+                                {
+                                    foreach (var iteam in ViewBag.MovableProperty)
+                                    {
+
+                                        count3 = count3 + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count3</td>
+                                            <td>@iteam.DescriptionOfItem</td>
+                                            <td>@iteam.Value</td>
+                                            <td>@iteam.InWhoseName</td>
+                                            <td>@iteam.DateAndManner.ToShortDateString()</td>
+                                            <td>@iteam.Loans</td>
+                                            <td>@iteam.Remarks</td>
+                                            <td><a target="_blank"  href="@iteam.Files">View</a></td>
+                                            @*<td> @Html.ActionLink("View", "PropertyDetails2", "Hcm", new { id = @iteam.Id }, null)</td>*@
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">
+                            (2) Other Movable (Including Jewellery And Other Valuable, Motor Vehicles, Refrigerators And Other Articles Or Materials Of Value Of Rs.4,000 and
+                            Over For Each Item In Respect Of Gazetted Officers And Rs.2,000 And Over For Each Item In Respect Of Non-Gazetted Officers
+                        </h6>
+                    </div>
+                    <div class="mb-3 " style="margin-top: 10px;">
+                        <table id="example6" class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Description Of Items</th>
+                                    <th>Values</th>
+                                    <th>
+                                        In whose Name (Self, Wife, Child, Dependant, Other Relation Or Benamidar) The Asset is Or Was
+                                    </th>
+                                    <th>
+                                        Date And Manner of Acquisition Disposal
+                                    </th>
+                                    <th>Remarks</th>
+                                    <th>File</th>
+                                    @*<th>Details</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int count4 = 0;}
+                                @if (ViewBag.OmovableProperty != null)
+                                {
+                                    foreach (var iteam in ViewBag.OmovableProperty)
+                                    {
+
+                                        count4 = count4 + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count4</td>
+                                            <td>@iteam.DescriptionOfItems</td>
+                                            <td>@iteam.Value</td>
+                                            <td>@iteam.InWhoseName</td>
+                                            <td>@iteam.DateAndManner.ToShortDateString()</td>
+                                            <td>@iteam.Remarks</td>
+                                            <td><a target="_blank"  href="@iteam.Files">View</a></td>
+                                            @*<td> @Html.ActionLink("View", "PropertyDetails4", "Hcm", new { id = @iteam.Id }, null)</td>*@
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;" class="mb-3">
+                <input type="submit" class="btn btn-success" id="btnLandEdit" value="EDIT" />
+            </div>
+
+
+        </form>
+    </div>
+</main>
+<script>
+    $("#btnEdit").click(function () {
+        debugger;
+
+        debugger;
+        var count = 0;
+        var Id = $("#Id").val();
+        var PreciseLocation = $("#pre").val();
+        var ExtentOfInterest = $("#ext").val();
+        var Value = $("#Val").val();
+        var InWhose = $("#Inwho").val();
+        var Dateandmanner = $("#Date").val();
+        var HPreciseLocation = $("#Hprec").val();
+        var HExtentOfInterest = $("#Hext").val();
+        var HValue = $("#Hval").val();
+        var HInWhose = $("#HInWhose").val();
+        var HDate = $("#Hdate").val();
+        var IBrief = $("#Ibrief").val();
+        var IExt = $("#Iextt").val();
+        var IVar = $("#Ival").val();
+        var IInwhose = $("#IInwhose").val();
+        var Idate = $("#Idate").val();
+        var IRemarks = $("#IRemarks").val();
+        var Mdescr = $("#Bdesc").val();
+        var MBvalue = $("#Bvalue").val();
+        var MBinwhose = $("#Binwhose").val();
+        var MBdate = $("#Bdate").val();
+        var MBloans = $("#Bloans").val();
+        var MBremarks = $("#Bremarks").val();
+        var OMdesc = $("#Mdesc").val();
+        var OMvalue = $("#Mvalue").val();
+        var OMInwhose = $("#MInwhose").val();
+        var OMremark = $("#Mremark").val();
+
+</script>
+<script>
+
+    $('#a1').click(function (event) {
+        event.preventDefault();
+        var Student = {
+            ID: $('#a1').Id.val,
+
+        };
+        $.ajax({
+            type: "POST",
+            url: "/Hcm/PropertyDetailss",
+            data: JSON.stringify(Student),
+            dataType: "json",
+            contentType: 'application/json',
+            success: function (data) {
+                alert(data.msg);
+            },
+            error: function () {
+                alert("Error occured!!")
+            }
+        });
+    });
+
+
+
+</script>
+
+
+
+
+

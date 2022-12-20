@@ -1,0 +1,316 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+<style>
+
+/*.content{
+  background:#e6e2c8;
+  width: 80%;
+  max-width: 960px;
+  min-height: 3.750em;
+  margin: 2em auto;
+  padding: 1.250em;
+  border-radius: 0.313em;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+  line-height: 1.5em;
+  color: #292929;
+}*/
+
+    .ribbon {
+        position: relative;
+        padding: 0 0.5em;
+        font-size: 18px;
+        margin: 0 0 0 -16px;
+        line-height: 1.875em;
+        color: #e6e2c8;
+        border-radius: 0 0.156em 0.156em 0;
+        background: rgb(5 77 96);
+        box-shadow: -1px 2px 3px rgb(0 0 0 / 50%);
+        width: 17%;
+    }
+
+        .ribbon:before, .ribbon:after {
+            position: absolute;
+            content: '';
+            display: block;
+        }
+
+        .ribbon:before {
+            width: 0.469em;
+            height: 100%;
+            padding: 0 0 40px;
+            top: 0;
+            left: -0.469em;
+            background: inherit;
+            border-radius: 0.313em 0 0 0.313em;
+        }
+
+        .ribbon:after {
+            width: 0.313em;
+            height: 0.313em;
+            background: rgba(0,0,0,0.35);
+            bottom: -0.313em;
+            left: -0.313em;
+            border-radius: 0.313em 0 0 0.313em;
+            box-shadow: inset -1px 2px 2px rgba(0,0,0,0.3);
+        }
+
+
+@@media (max-width: 600px) {
+
+  .ribbon{
+    line-height: 1.143em;
+    padding: 0.5em;
+  }
+
+  .ribbon:before, .ribbon:after{
+    font-size: 0.714em;
+  }
+
+}
+</style>
+<div class="page-content">
+
+    <div class="card">
+        <div class="card-body">
+            <h6 class="ribbon">Deep Bore Well</h6>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mt-4">
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-info">
+                        <a href="/divison/Total_application_deep_borewell">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Registered Farmer</p>
+                                        <h4 class="my-1 text-info"> @ViewBag.count</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-warning">
+                        <a href="/divison/Total_paid_application__deep_borewell">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Paid Farmer</p>
+                                        <h4 class="my-1 text-warning">@ViewBag.paid</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                                        <i class='bx bxs-wallet'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-success">
+                        <a href="/divison/Total_Feasible_Farmer_DBW">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Feasible Farmer</p>
+                                        <h4 class="my-1 text-success">1945</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                                        <i class='bx bxs-bar-chart-alt-2'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-danger">
+                        <a href="/divison/Total_rejected_application_deep_borewell">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Not-Feasible Farmer</p>
+                                        <h4 class="my-1 text-danger">517</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h6 class="ribbon">Solar Deep Bore Well</h6>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mt-4">
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-info">
+                        <a href="/divison/Total_application_SDBW">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Registered Farmer</p>
+                                        <h4 class="my-1 text-info">2612</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-warning">
+                        <a href="/divison/Total_paid_application_SDBW">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Paid Farmer</p>
+                                        <h4 class="my-1 text-warning">1924</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                                        <i class='bx bxs-wallet'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-success">
+                        <a href="/divison/Total_Feasible_Farmer_SDBW">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Feasible Farmer</p>
+                                        <h4 class="my-1 text-success">1498</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                                        <i class='bx bxs-bar-chart-alt-2'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-danger">
+                        <a href="/divison/Total_rejected_application_SDBW">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Not-Feasible Farmer</p>
+                                        <h4 class="my-1 text-danger">426</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h6 class="ribbon">CLIP</h6>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mt-4">
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-info">
+                        <a href="/divison/Total_application_CLIP">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Registered Farmer</p>
+                                        <h4 class="my-1 text-info">1296</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-success">
+                        <a href="/divison/Total_Feasible_Farmer_CLIP">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Feasible Farmer</p>
+                                        <h4 class="my-1 text-success">839</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                                        <i class='bx bxs-bar-chart-alt-2'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @*<div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-danger">
+                            <a href="/divison/Total_paid_application__deep_borewell">
+                                <div class="card-body card-body1">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <p class="mb-0 text-secondary">Total Paid Farmer</p>
+                                            <h4 class="my-1 text-warning">2459</h4>
+
+                                        </div>
+                                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                                            <i class='bx bxs-wallet'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>*@
+                <div class="col">
+                    <div class="card radius-10 border-start border-0 border-3 border-danger">
+                        <a href="/divison/Total_rejected_application_CLIP">
+                            <div class="card-body card-body1">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0 text-secondary">Total Not-Feasible Farmer</p>
+                                        <h4 class="my-1 text-danger">457</h4>
+
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                                        <i class='bx bxs-group'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

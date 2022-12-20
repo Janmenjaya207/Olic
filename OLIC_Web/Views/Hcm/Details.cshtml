@@ -1,0 +1,434 @@
+﻿@model BEL.EmployeePropertyDetails
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+<main id="main">
+    <div class="page-content">
+        <form action="/Hcm/Details" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) Lands</h6>
+                    </div>
+                    <div class="mb-3 table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th hidden></th>
+                                    <th>Precise location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th style="width:20%;">
+                                        In whose name (self, wife, child, dependant, other relation or benamidar) the assetisor was
+                                    </th>
+                                    <th>
+                                        Date and manner of acquisition disposal
+                                    </th>
+                                    <th>
+                                        File
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count = 0;}
+                                @if (ViewBag.LandDtls != null)
+                                {
+                                    foreach (var iteam in ViewBag.LandDtls)
+                                    {
+
+                                        count = count + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count</td>
+                                            <td style="display:none">
+
+                                                <input hidden id="Id" class="diag" style="width:200px" type="text" name="Id" value="@iteam.Id" />
+                                            </td>
+                                            <td>
+                                                <input name="PreciseLocation" id="pre" value="@iteam.PreciseLocation" />
+                                            </td>
+                                            <td>
+                                                <input name="ExtentOInterest" id="ext" value="@iteam.ExtentOfInterest" />
+                                            </td>
+                                            <td>
+                                                <input name="Value" id="Val" value="@iteam.Value" />
+                                            </td>
+                                            <td>
+                                                <input name="InWhoseName" id="Inwho" value="@iteam.InWhoseName" />
+                                            </td>
+                                            <td>
+                                                <input type="date" name="DateAndmanner" id="Date" value="@iteam.DateAndMannerOfAcquisitionOrDisposal.ToString("yyyy-MM-dd")" />
+                                            </td>
+                                            <td>
+                                                <input type="hidden" name="fille1" value="@iteam.Files" />
+                                                <input type="file" name="fille" id="fille" />
+                                                <span><a target="_blank" href="@iteam.Files">view</a></span>
+                                            </td>
+                                        </tr>
+
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(2) Houses</h6>
+                    </div>
+                    <div class="mb-3 table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th hidden></th>
+                                    <th>Precise location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th>
+                                        In whose name (self, wife, child, dependant, other relation or benamidar) the assetisor was
+                                    </th>
+                                    <th>
+                                        Date and manner of acquisition disposal
+                                    </th>
+                                    <th>
+                                        File
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count1 = 0;}
+                                @if (ViewBag.HouseDtls != null)
+                                {
+
+                                    foreach (var iteam in ViewBag.HouseDtls)
+                                    {
+
+                                        count1 = count1 + 1;
+
+                                        <tr role="row" class="even">
+                                            <td>@count1</td>
+                                            <td style="display:none"> <input hidden id="Id" class="diag" style="width:200px" type="text" name="HId" value="@iteam.Id" /></td>
+                                            <td> <input name="Precise" id="Hprec" value="@iteam.PreciseLocation" /></td>
+                                            <td> <input name="Extent" id="Hext" value="@iteam.ExtentLOfInterest" /></td>
+                                            <td> <input name="Valuee" id="Hval" value="@iteam.Value" /></td>
+                                            <td> <input name="Inwhose" id="HInWhose" value="@iteam.InWhoseName" /></td>
+                                            <td> <input type="date" name="DateManner" id="Hdate" value="@iteam.DateAndManner.ToString("yyyy-MM-dd")" /></td>
+                                            <td>
+                                                <input type="hidden" name="fille2" value="@iteam.Files" />
+                                                <input type="file" name="fillee" id="fillee" />
+                                                <span><a target="_blank" href="@iteam.Files">view</a></span>
+                                            </td>
+
+                                        </tr>
+
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(3) Immovable properties of other description (including mortgages and such other rights)</h6>
+                    </div>
+                    <div class="mb-3 table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th hidden></th>
+                                    <th>Precise location</th>
+                                    <th>Extent Of Interest</th>
+                                    <th>Value</th>
+                                    <th>
+                                        In whose name (self, wife, child, dependant, other relation or benamidar) the assetisor was
+                                    </th>
+                                    <th>
+                                        Date and manner of acquisition disposal
+                                    </th>
+                                    <th>
+                                        Remarks
+                                    </th>
+                                    <th>
+                                        File
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count2 = 0;}
+                                @if (ViewBag.ImmovableProperty != null)
+                                {
+
+                                    foreach (var iteam in ViewBag.ImmovableProperty)
+                                    {
+
+                                        count2 = count2 + 1;
+                                        <tr role="row" class="even">
+                                            <td>@count2</td>
+                                            <td style="display:none"> <input hidden id="Id" class="diag" style="width:200px" type="text" name="IId" value="@iteam.Id" /></td>
+                                            <td> <input name="IBreif" id="Ibrief" value="@iteam.BreifDescription" /></td>
+                                            <td> <input name="Iextent" id="Iextt" value="@iteam.ExtentOfInterest" /></td>
+                                            <td> <input name="IValue" id="Ival" value="@iteam.Value" /></td>
+                                            <td><input name="IInWhoseName" id="IInwhose" value="@iteam.InWhoseName" /> </td>
+                                            <td><input type="date" name="IDateAndmanner" id="Idate" value="@iteam.DateAndManner.ToString("yyyy-MM-dd")" /></td>
+                                            <td><input name="IRemark" id="IRemarks" value="@iteam.Remarks" /></td>
+                                            <td>
+                                                <input type="hidden" name="fille3" value="@iteam.Files" />
+                                                <input type="file" name="filleee" id="filleee" />
+                                                <span><a target="_blank" href="@iteam.Files">view</a></span>
+                                            </td>
+                                        </tr>
+
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">(1) Cash, Bank balance, Credit, Insurance policies, shares, Debentures, etc.</h6>
+                    </div>
+                    <div class="mb-3 table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th hidden></th>
+                                    <th>Description Of Items</th>
+                                    <th>Values</th>
+                                    <th>
+                                        In whose name (self, wife, child, dependant, other relation or benamidar) the assetisor was
+                                    </th>
+                                    <th>
+                                        Date and manner of acquistion or disposal
+                                    </th>
+                                    <th>
+                                        Loans that may have been given to others
+                                    </th>
+                                    <th>Remarks</th>
+                                    <th>
+                                        File
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count3 = 0;}
+                                @if (ViewBag.MovableProperty != null)
+                                {
+
+
+                                    foreach (var iteam in ViewBag.MovableProperty)
+                                    {
+
+                                        count3 = count3 + 1;
+                                        <tr role="row" class="even">
+                                            <td>@count3</td>
+                                            <td style="display:none"> <input hidden id="MId" class="diag" style="width:200px" type="text" name="MId" value="@iteam.Id" /></td>
+                                            <td> <input name="MDes" id="Mdes" value="@iteam.DescriptionOfItem" /></td>
+                                            <td> <input name="MVal" id="Mval" value="@iteam.Value" /></td>
+                                            <td> <input name="MInwhose" id="Minwhose" value="@iteam.InWhoseName" /></td>
+                                            <td> <input type="date" name="MDate" id="Mdate" value="@iteam.DateAndManner.ToString("yyyy-MM-dd")" /></td>
+                                            <td> <input name="MLoans" id="Mloans" value="@iteam.Loans" /></td>.
+                                            <td> <input name="MRemarks" id="Mremarks" value="@iteam.Remarks" /></td>
+                                            <td>
+                                                <input type="hidden" name="fille4" value="@iteam.Files" />
+                                                <input type="file" name="filleeee" id="filleeee" />
+                                                <span><a target="_blank" href="@iteam.Files">view</a></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header  text-light card_header">
+                        <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">
+                            (2) other movable(including jewellery and other valuable, motor vehicles, refrigerators and
+                            other articles or materials of value of Rs.4,000 and over for each item in respect of Gazetted
+                            Officers and Rs.2,000 and over for each item in respect of Non-gazetted Officers
+                        </h6>
+                    </div>
+                    <div class="mb-3 table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-bordered " style="border: 1px solid #dfdfdf;">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th hidden></th>
+                                    <th>Description Of Items</th>
+                                    <th>Values</th>
+                                    <th>
+                                        In whose name (self, wife, child, dependant, other relation or benamidar) the assetisor was
+                                    </th>
+                                    <th>
+                                        Date and manner of acquistion or disposal
+                                    </th>
+                                    <th>Remarks</th>
+                                    <th>
+                                        File
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int count4 = 0;}
+                                @if (ViewBag.OmovableProperty != null)
+                                {
+
+                                    foreach (var iteam in ViewBag.OmovableProperty)
+                                    {
+
+                                        count4 = count4 + 1;
+                                        <tr role="row" class="even">
+                                            <td>@count4</td>
+                                            <td style="display:none"> <input hidden id="OMId" class="diag" style="width:200px" type="text" name="OMId" value="@iteam.Id" /></td>
+                                            <td> <input name="OMDes" id="OMdes" value="@iteam.DescriptionOfItems" /></td>
+                                            <td> <input name="OMVal" id="OMval" value="@iteam.Value" /></td>
+                                            <td> <input name="OMInwhose" id="OMinwhose" value="@iteam.InWhoseName" /></td>
+                                            <td> <input type="date" name="OMDate" id="OMdate" value="@iteam.DateAndManner.ToString("yyyy-MM-dd")" /></td>
+                                            <td> <input name="OMRemarks" id="OMremarks" value="@iteam.Remarks" /></td>
+                                            <td>
+                                                <input type="hidden" name="fille5" value="@iteam.Files" />
+                                                <input type="file" name="filleeeee" id="filleeeee" />
+                                                <span><a target="_blank" href="@iteam.Files">view</a></span>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="text-align: right;" class="mb-3">
+                <button type="submit" class="btn btn-success" id="btnSubmit" value="Submit" style="margin-right:50px">Update</button>
+            </div>
+
+            <script>
+                $("#btnSubmit").click(function () {
+                    debugger;
+
+                    debugger;
+                    var count = 0;
+                    var Id = $("#Id").val();
+                    var PreciseLocation = $("#pre").val();
+                    var ExtentOfInterest = $("#ext").val();
+                    var Value = $("#Val").val();
+                    var InWhose = $("#Inwho").val();
+                    var Dateandmanner = $("#Date").val();
+                    var HPreciseLocation = $("#Hprec").val();
+                    var HExtentOfInterest = $("#Hext").val();
+                    var HValue = $("#Hval").val();
+                    var HInWhose = $("#HInWhose").val();
+                    var HDate = $("#Hdate").val();
+                    var IBrief = $("#Ibrief").val();
+                    var IExt = $("#Iextt").val();
+                    var IVar = $("#Ival").val();
+                    var IInwhose = $("#IInwhose").val();
+                    var Idate = $("#Idate").val();
+                    var IRemarks = $("#IRemarks").val();
+                    var Mdescr = $("#Bdesc").val();
+                    var MBvalue = $("#Bvalue").val();
+                    var MBinwhose = $("#Binwhose").val();
+                    var MBdate = $("#Bdate").val();
+                    var MBloans = $("#Bloans").val();
+                    var MBremarks = $("#Bremarks").val();
+                    var OMdesc = $("#Mdesc").val();
+                    var OMvalue = $("#Mvalue").val();
+                    var OMInwhose = $("#MInwhose").val();
+                    var OMremark = $("#Mremark").val();
+
+
+                    if (Id == "") {
+                        $('#pcise1').next("label").remove();
+                        $('#pcise1').after('<label class="error mt-2 text-danger1 "></label>');
+                        $("#pcise1").focus();
+                        count = 1;
+                        return false;
+                    }
+
+
+                    if (PreciseLocation == "") {
+                        $('#pcise1').next("label").remove();
+                        $('#pcise1').after('<label class="error mt-2 text-danger1 "></label>');
+                        $("#pcise1").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#pcise1').next("label").remove();
+                    }
+                    if (ExtentOfInterest == "") {
+                        $('#extent').next("label").remove();
+                        $('#extent').after('<label class="error mt-2 text-danger1 "></label>');
+                        $("#extent").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#extent').next("label").remove();
+                    }
+                    if (Value == "") {
+                        $('#Val').next("label").remove();
+                        $("#Val").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#Val').next("label").remove();
+                    }
+                    if (InWhose == "") {
+                        $('#Inwhose').next("label").remove();
+                        $("#Inwhose").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#Inwhose').next("label").remove();
+                    }
+
+                    if (Dateandmanner == "") {
+                        $('#Date').next("label").remove();
+                        $("#Date").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#HPreciseLocation').next("label").remove();
+                    }
+                    if (Dateandmanner == "") {
+                        $('#HPreciseLocation').next("label").remove();
+                        $("#HPreciseLocation").focus();
+                        count = 1;
+                        return false;
+                    }
+                    else {
+                        $('#HPreciseLocation').next("label").remove();
+                    }
+            </script>
+
+        </form>
+    </div>
+</main>

@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OLICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BankUpdatePayment">
+    <Key>
+      <PropertyRef Name="Bnk_Payment_ID" />
+    </Key>
+    <Property Name="Bnk_Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeepBorewellRegdId" Type="int" />
+    <Property Name="FD_Number" Type="nvarchar" MaxLength="200" />
+    <Property Name="Dateof_FD" Type="datetime" />
+    <Property Name="Account_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="FD_Amount" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="Add_By" Type="int" />
+    <Property Name="Add_On" Type="datetime" />
+    <Property Name="ModBy" Type="int" />
+    <Property Name="Mod_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Cluster">
+    <Key>
+      <PropertyRef Name="Clt_Id" />
+    </Key>
+    <Property Name="Clt_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clt_No" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Cluster_Details">
+    <Key>
+      <PropertyRef Name="Clt_Dtl_Id" />
+    </Key>
+    <Property Name="Clt_Dtl_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clt_Id" Type="int" />
+    <Property Name="DeepBorewellRegdId" Type="int" />
+  </EntityType>
+  <EntityType Name="DBW_Mst_DPR">
+    <Key>
+      <PropertyRef Name="Dpr_Id" />
+    </Key>
+    <Property Name="Dpr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Service_Code" Type="varchar(max)" />
+    <Property Name="Description_of_work" Type="varchar(max)" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="Rate_per_Unit" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Remarks" Type="varchar(max)" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="DeepBorewell_PattaDetails">
+    <Key>
+      <PropertyRef Name="PattaId" />
+    </Key>
+    <Property Name="PattaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeepBorewellRegdId" Type="int" />
+    <Property Name="Pro_PlotNo" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_KhataNo" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_LandArea" Type="varchar(max)" />
+    <Property Name="LandPattaFile" Type="varchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="DeepBorewell_Registration">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DbRegistrationNo" Type="varchar(max)" />
+    <Property Name="FarmerName" Type="varchar" MaxLength="500" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="AadhaarNo" Type="varchar" MaxLength="50" />
+    <Property Name="BPLCardNo" Type="varchar" MaxLength="50" />
+    <Property Name="Ad_Village" Type="varchar" MaxLength="100" />
+    <Property Name="Ad_DistrictId" Type="int" />
+    <Property Name="Ad_BlockId" Type="int" />
+    <Property Name="Ad_GramPanchayatId" Type="int" />
+    <Property Name="Ad_PostOffice" Type="varchar" MaxLength="100" />
+    <Property Name="Ad_PinCode" Type="varchar" MaxLength="50" />
+    <Property Name="Pro_Village" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_DistrictId" Type="int" />
+    <Property Name="Pro_BlockId" Type="int" />
+    <Property Name="Pro_GramPanchayatId" Type="int" />
+    <Property Name="Pro_PostOffice" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_PinCode" Type="varchar" MaxLength="50" />
+    <Property Name="AadhaarFile" Type="varchar(max)" />
+    <Property Name="BPLCardFile" Type="varchar(max)" />
+    <Property Name="FarmerPhoto" Type="varchar(max)" />
+    <Property Name="AffidavitFile" Type="varchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="Is_Bank" Type="bit" />
+    <Property Name="Is_EE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Demo_Table_Rajesh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Service_Code" Type="varchar" MaxLength="100" />
+    <Property Name="Description_of_work" Type="varchar(max)" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="Rate_per_Unit" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Application_Number" Type="varchar" MaxLength="50" />
+    <Property Name="Length" Type="varchar" MaxLength="50" />
+    <Property Name="Breadth" Type="varchar" MaxLength="50" />
+    <Property Name="Height" Type="varchar" MaxLength="50" />
+    <Property Name="Content_Area" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="EE_Verify">
+    <Key>
+      <PropertyRef Name="EE_Verifyappid" />
+    </Key>
+    <Property Name="EE_Verifyappid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District" Type="int" />
+    <Property Name="block" Type="int" />
+    <Property Name="panchayat" Type="int" />
+    <Property Name="Fdate" Type="datetime" />
+    <Property Name="Tdate" Type="datetime" />
+    <Property Name="AssignTo" Type="int" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="Addon" Type="datetime" />
+    <Property Name="Addby" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="Modby" Type="nvarchar" MaxLength="50" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FileExtension" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FileTypeId" Type="int" Nullable="false" />
+    <Property Name="FileSize" Type="int" Nullable="false" />
+    <Property Name="FileLocation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedOn" Type="date" Nullable="false" />
+    <Property Name="ContentType" Type="varchar" MaxLength="100" />
+    <Property Name="SystemFileName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileType">
+    <Key>
+      <PropertyRef Name="FileTypeId" />
+    </Key>
+    <Property Name="FileTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOn" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinacialYear">
+    <Key>
+      <PropertyRef Name="FinId" />
+    </Key>
+    <Property Name="FinId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FinYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="Addby" Type="nvarchar" MaxLength="50" />
+    <Property Name="Addon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Hcm_ApplyLeave">
+    <Key>
+      <PropertyRef Name="Leave_Id" />
+    </Key>
+    <Property Name="Leave_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="50" />
+    <Property Name="Leave_Typeid" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="Approval1" Type="int" />
+    <Property Name="Status1" Type="bit" />
+    <Property Name="Remarks1" Type="nvarchar(max)" />
+    <Property Name="Approval2" Type="int" />
+    <Property Name="Status2" Type="bit" />
+    <Property Name="Remarks2" Type="nvarchar(max)" />
+    <Property Name="Approval3" Type="int" />
+    <Property Name="Status3" Type="bit" />
+    <Property Name="Remarks3" Type="nvarchar(max)" />
+    <Property Name="Approval4" Type="int" />
+    <Property Name="Status4" Type="bit" />
+    <Property Name="Remarks4" Type="nvarchar(max)" />
+    <Property Name="Approval5" Type="int" />
+    <Property Name="Status5" Type="bit" />
+    <Property Name="Remarks5" Type="nvarchar(max)" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="Addby" Type="int" />
+    <Property Name="Addon" Type="datetime" />
+    <Property Name="Modby" Type="int" />
+    <Property Name="Modon" Type="datetime" />
+    <Property Name="PendingAt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Approverejct" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HCM_EmployeeDtl">
+    <Key>
+      <PropertyRef Name="Employee_Id" />
+    </Key>
+    <Property Name="Employee_Id" Type="int" Nullable="false" />
+    <Property Name="Employee_Code" Type="varchar" MaxLength="100" />
+    <Property Name="Employee_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Mobile_No" Type="varchar" MaxLength="15" />
+    <Property Name="Department" Type="varchar" MaxLength="100" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="Emp_Class" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="200" />
+    <Property Name="Bank_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Ac_No" Type="varchar" MaxLength="100" />
+    <Property Name="IFSC" Type="varchar" MaxLength="100" />
+    <Property Name="UAN" Type="varchar" MaxLength="100" />
+    <Property Name="PAN" Type="varchar" MaxLength="100" />
+    <Property Name="GIS_No" Type="varchar" MaxLength="100" />
+    <Property Name="Bill_No" Type="varchar" MaxLength="100" />
+    <Property Name="PF_No" Type="varchar" MaxLength="100" />
+    <Property Name="DOJ" Type="datetime" />
+    <Property Name="Area" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Approval1" Type="int" />
+    <Property Name="Approval2" Type="int" />
+    <Property Name="Approval3" Type="int" />
+    <Property Name="Approval4" Type="int" />
+    <Property Name="Approval5" Type="int" />
+  </EntityType>
+  <EntityType Name="HCM_LeaveBalance">
+    <Key>
+      <PropertyRef Name="LeaveBalanceId" />
+    </Key>
+    <Property Name="LeaveBalanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Code" Type="nvarchar" MaxLength="200" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="100" />
+    <Property Name="LeaveAllocated" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveTaken" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveAvailable" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="HCM_LeaveMaster">
+    <Key>
+      <PropertyRef Name="LeaveCode" />
+    </Key>
+    <Property Name="LeaveCode" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="100" />
+    <Property Name="LeaveAllocated" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Hcm_Property">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_House">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PreciseLocation" Type="varchar" MaxLength="100" />
+    <Property Name="ExtentLOfInterest" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="int" />
+    <Property Name="InWhoseName" Type="varchar" MaxLength="100" />
+    <Property Name="DateAndManner" Type="datetime" />
+    <Property Name="Property_Id" Type="int" />
+    <Property Name="Files" Type="varchar(max)" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_ImmovableProperties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BreifDescription" Type="varchar" MaxLength="100" />
+    <Property Name="ExtentOfInterest" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="int" />
+    <Property Name="InWhoseName" Type="varchar" MaxLength="100" />
+    <Property Name="Remarks" Type="varchar" MaxLength="100" />
+    <Property Name="DateAndManner" Type="datetime" />
+    <Property Name="Property_Id" Type="int" />
+    <Property Name="Files" Type="varchar(max)" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_Land">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PreciseLocation" Type="varchar" MaxLength="100" />
+    <Property Name="ExtentOfInterest" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="int" />
+    <Property Name="InWhoseName" Type="varchar" MaxLength="100" />
+    <Property Name="DateAndMannerOfAcquisitionOrDisposal" Type="datetime" />
+    <Property Name="Property_Id" Type="int" />
+    <Property Name="Files" Type="varchar(max)" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_MovableProperty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescriptionOfItem" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="int" />
+    <Property Name="InWhoseName" Type="varchar" MaxLength="100" />
+    <Property Name="Loans" Type="varchar" MaxLength="100" />
+    <Property Name="Remarks" Type="varchar" MaxLength="100" />
+    <Property Name="DateAndManner" Type="datetime" />
+    <Property Name="Property_Id" Type="int" />
+    <Property Name="Files" Type="varchar(max)" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Hcm_Property_OtherMovable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescriptionOfItems" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="int" />
+    <Property Name="InWhoseName" Type="varchar" MaxLength="100" />
+    <Property Name="Remarks" Type="varchar" MaxLength="100" />
+    <Property Name="DateAndManner" Type="datetime" />
+    <Property Name="Property_Id" Type="int" />
+    <Property Name="Files" Type="varchar(max)" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LCMS_AssignedLawer">
+    <Key>
+      <PropertyRef Name="Assign_Id" />
+    </Key>
+    <Property Name="Assign_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="AssignedDate" Type="datetime" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Case_Hearing_Doc">
+    <Key>
+      <PropertyRef Name="Case_Hearing_Doc_Id" />
+    </Key>
+    <Property Name="Case_Hearing_Doc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Case_Hearing_Id" Type="int" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="varchar(max)" />
+    <Property Name="FileExtension" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="int" />
+    <Property Name="FileLocation" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Case_Hearing_Dtls">
+    <Key>
+      <PropertyRef Name="Case_Hearing_Id" />
+    </Key>
+    <Property Name="Case_Hearing_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="HearingDate" Type="datetime" />
+    <Property Name="OrderOfCourt" Type="varchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_CaseDetails">
+    <Key>
+      <PropertyRef Name="CaseId" />
+    </Key>
+    <Property Name="CaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseNo" Type="nvarchar(max)" />
+    <Property Name="PartyName" Type="nvarchar(max)" />
+    <Property Name="CourtName" Type="int" />
+    <Property Name="CaseFileDate" Type="datetime" />
+    <Property Name="ComplianceDate" Type="datetime" />
+    <Property Name="CaseTypeId" Type="int" />
+    <Property Name="CaseSubject" Type="nvarchar(max)" />
+    <Property Name="CourtOrder" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ComplianceTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="PendingAt" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LCMS_CaseDoc">
+    <Key>
+      <PropertyRef Name="CaseDocId" />
+    </Key>
+    <Property Name="CaseDocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseId" Type="int" />
+    <Property Name="DocumentName" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="varchar(max)" />
+    <Property Name="FileExtension" Type="nvarchar(max)" />
+    <Property Name="FileSize" Type="int" />
+    <Property Name="FileLocation" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_CaseType">
+    <Key>
+      <PropertyRef Name="CaseTypeId" />
+    </Key>
+    <Property Name="CaseTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_Compliance_Time">
+    <Key>
+      <PropertyRef Name="Copliance_Id" />
+    </Key>
+    <Property Name="Copliance_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Compliance_Time" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Mst_Court">
+    <Key>
+      <PropertyRef Name="CourtId" />
+    </Key>
+    <Property Name="CourtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourtName" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_Status">
+    <Key>
+      <PropertyRef Name="LCMS_Status_Id" />
+    </Key>
+    <Property Name="LCMS_Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LCMS_Status_Name" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="LCMS_UserLog">
+    <Key>
+      <PropertyRef Name="DetailsId" />
+    </Key>
+    <Property Name="DetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseId" Type="int" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="ManageUser">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserType_Id" Type="int" />
+    <Property Name="Project_Typeid" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModOn" Type="datetime" />
+    <Property Name="ModBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Mst_Circle">
+    <Key>
+      <PropertyRef Name="CircleId" />
+    </Key>
+    <Property Name="CircleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="CircleName" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_Division">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="CircleId" Type="nvarchar" MaxLength="500" />
+    <Property Name="DivisionName" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_OlicDtl">
+    <Key>
+      <PropertyRef Name="OlicMstId" />
+    </Key>
+    <Property Name="OlicMstId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CircleId" Type="nvarchar" MaxLength="500" />
+    <Property Name="CircleName" Type="varchar" MaxLength="100" />
+    <Property Name="DivisionId" Type="nvarchar" MaxLength="500" />
+    <Property Name="DivisionName" Type="varchar" MaxLength="100" />
+    <Property Name="SubDivisionId" Type="nvarchar" MaxLength="500" />
+    <Property Name="SubDivisionName" Type="varchar" MaxLength="100" />
+    <Property Name="SectionId" Type="nvarchar" MaxLength="500" />
+    <Property Name="SectionName" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Mst_Section">
+    <Key>
+      <PropertyRef Name="SectionId" />
+    </Key>
+    <Property Name="SectionId" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="SubDivisionId" Type="nvarchar" MaxLength="500" />
+    <Property Name="SectionName" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mst_SubDivision">
+    <Key>
+      <PropertyRef Name="SubDivisionId" />
+    </Key>
+    <Property Name="SubDivisionId" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="DivisionId" Type="nvarchar" MaxLength="500" />
+    <Property Name="SubDivisionName" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OLIC_Block_Ulb">
+    <Key>
+      <PropertyRef Name="Block_Ulb_Id" />
+    </Key>
+    <Property Name="Block_Ulb_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="int" />
+    <Property Name="Block_Ulb_Name" Type="nvarchar(max)" />
+    <Property Name="Block_Code" Type="int" />
+    <Property Name="Block_Ulb_Type" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Deleted" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar(max)" />
+    <Property Name="Modified_By" Type="nvarchar(max)" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OLIC_District_Mst">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SectorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OLIC_Gram_Panchayat">
+    <Key>
+      <PropertyRef Name="GarmPanchayat_Id" />
+    </Key>
+    <Property Name="GarmPanchayat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Block_Ulb_Id" Type="int" />
+    <Property Name="GRAM_PANCHAYAT_Name" Type="nvarchar(max)" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Deleted" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar(max)" />
+    <Property Name="Modified_By" Type="nvarchar(max)" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OLIC_Test">
+    <Key>
+      <PropertyRef Name="Test_Id" />
+    </Key>
+    <Property Name="Test_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Test_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Typeid" />
+    </Key>
+    <Property Name="Project_Typeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Scrap_Catrgory_Mst">
+    <Key>
+      <PropertyRef Name="Scrap_Category_Id" />
+    </Key>
+    <Property Name="Scrap_Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaterialType" Type="varchar" MaxLength="100" />
+    <Property Name="Category_Name" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="Modified_By" Type="varchar" MaxLength="50" />
+    <Property Name="Modified_on" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Scrap_code">
+    <Key>
+      <PropertyRef Name="Scrap_Code_Autogenerate_Id" />
+    </Key>
+    <Property Name="Scrap_Code_Autogenerate_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Scrap_Code_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Remark" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="Modified_By" Type="varchar" MaxLength="50" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Scrap_Details_Entry">
+    <Key>
+      <PropertyRef Name="Scrap_Details_Id" />
+    </Key>
+    <Property Name="Scrap_Details_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Scrap_Code_Autogenerate_Id" Type="int" />
+    <Property Name="Scrap_Category_Id" Type="int" />
+    <Property Name="Scrap_Iteam_Id" Type="int" />
+    <Property Name="Rate" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="varchar" MaxLength="100" />
+    <Property Name="Approx_Weight" Type="varchar" MaxLength="100" />
+    <Property Name="Total_Weight" Type="varchar" MaxLength="100" />
+    <Property Name="Date_Of_Receipt" Type="datetime" />
+    <Property Name="No_Of_Scrap" Type="varchar" MaxLength="100" />
+    <Property Name="Remark" Type="varchar" MaxLength="100" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="Modified_By" Type="varchar" MaxLength="50" />
+    <Property Name="Modified_On" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Scrap_Item_Mst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item_Category_Id" Type="int" />
+    <Property Name="MaterialType" Type="varchar" MaxLength="100" />
+    <Property Name="Matreial_Code" Type="varchar" MaxLength="50" />
+    <Property Name="Iteam_name" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="Modified_By" Type="varchar" MaxLength="50" />
+    <Property Name="Modified_on" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserType_Id" />
+    </Key>
+    <Property Name="UserType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_Typeid" Type="int" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Is_Visible" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OLIC.dbo.DB_Registration_Detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DB_Registration_Detail">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="int" Nullable="false" />
+    <Property Name="RegNo" Type="varchar(max)" />
+    <Property Name="FarmerName" Type="varchar" MaxLength="500" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+    <Property Name="Block_Ulb_Name" Type="nvarchar(max)" />
+    <Property Name="Clt_Id" Type="int" />
+    <Property Name="Clt_No" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OLIC.dbo.Vw_DeepBorewellRegdDtl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Vw_DeepBorewellRegdDtl">
+    <Key>
+      <PropertyRef Name="DeepBorewellRegdId" />
+    </Key>
+    <Property Name="DeepBorewellRegdId" Type="int" Nullable="false" />
+    <Property Name="DbRegistrationNo" Type="varchar(max)" />
+    <Property Name="FarmerName" Type="varchar" MaxLength="500" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="AadhaarNo" Type="varchar" MaxLength="50" />
+    <Property Name="BPLCardNo" Type="varchar" MaxLength="50" />
+    <Property Name="Ad_Village" Type="varchar" MaxLength="100" />
+    <Property Name="Ad_DistrictId" Type="int" />
+    <Property Name="Ad_BlockId" Type="int" />
+    <Property Name="Ad_GramPanchayatId" Type="int" />
+    <Property Name="Ad_PostOffice" Type="varchar" MaxLength="100" />
+    <Property Name="Ad_PinCode" Type="varchar" MaxLength="50" />
+    <Property Name="Pro_Village" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_DistrictId" Type="int" />
+    <Property Name="Pro_BlockId" Type="int" />
+    <Property Name="Pro_GramPanchayatId" Type="int" />
+    <Property Name="Pro_PostOffice" Type="varchar" MaxLength="100" />
+    <Property Name="Pro_PinCode" Type="varchar" MaxLength="50" />
+    <Property Name="AadharFileDtl" Type="varchar(max)" />
+    <Property Name="FarmerPhotoDtl" Type="varchar(max)" />
+    <Property Name="BplFileDtl" Type="varchar(max)" />
+    <Property Name="AffidavitFileDtl" Type="varchar(max)" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+    <Property Name="Block_Ulb_Name" Type="nvarchar(max)" />
+    <Property Name="GRAM_PANCHAYAT_Name" Type="nvarchar(max)" />
+    <Property Name="Is_Bank" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OLIC.dbo.Vw_DprEstimation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Vw_DprEstimation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Application_Number" Type="varchar" MaxLength="50" />
+    <Property Name="FarmerName" Type="varchar" MaxLength="500" />
+    <Property Name="Breadth" Type="varchar" MaxLength="50" />
+    <Property Name="Height" Type="varchar" MaxLength="50" />
+    <Property Name="Length" Type="varchar" MaxLength="50" />
+    <Property Name="Content_Area" Type="varchar" MaxLength="50" />
+    <Property Name="Service_Code" Type="varchar" MaxLength="100" />
+    <Property Name="Description_of_work" Type="varchar(max)" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="varchar" MaxLength="50" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="Rate_per_Unit" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OLIC.dbo.vw_input_case_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_input_case_list">
+    <Key>
+      <PropertyRef Name="CaseId" />
+    </Key>
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="CaseNo" Type="nvarchar(max)" />
+    <Property Name="PartyName" Type="nvarchar(max)" />
+    <Property Name="CourtName" Type="varchar(max)" />
+    <Property Name="CourtId" Type="int" />
+    <Property Name="CaseFileDate" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CaseTypeId" Type="int" />
+    <Property Name="CaseSubject" Type="nvarchar(max)" />
+    <Property Name="CourtOrder" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ComplianceTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="LCMS_Status_Name" Type="varchar" MaxLength="50" />
+    <Property Name="CaseTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Compliance_Time" Type="int" />
+    <Property Name="PendingAt" Type="nvarchar(max)" />
+    <Property Name="appstatus" Type="nvarchar" MaxLength="63" />
+    <Property Name="CDays" Type="int" />
+    <Property Name="AssignedDate" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Assign_Id" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="LawerName" Type="nvarchar" MaxLength="101" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OLIC.dbo.vwEmployeesByLeaveType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwEmployeesByLeaveType">
+    <Key>
+      <PropertyRef Name="Leave_Id" />
+    </Key>
+    <Property Name="Leave_Id" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="50" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Remarks1" Type="nvarchar(max)" />
+    <Property Name="Remarks2" Type="nvarchar(max)" />
+    <Property Name="remarks3" Type="nvarchar(max)" />
+    <Property Name="Remarks4" Type="nvarchar(max)" />
+    <Property Name="Remarks5" Type="nvarchar(max)" />
+    <Property Name="Status1" Type="bit" />
+    <Property Name="Status2" Type="bit" />
+    <Property Name="Status3" Type="bit" />
+    <Property Name="Status4" Type="bit" />
+    <Property Name="Status5" Type="bit" />
+    <Property Name="Approval1" Type="int" />
+    <Property Name="Approval2" Type="int" />
+    <Property Name="Approval3" Type="int" />
+    <Property Name="Approval4" Type="int" />
+    <Property Name="Approval5" Type="int" />
+    <Property Name="PendingAt" Type="varchar" MaxLength="50" />
+    <Property Name="Leave_Typeid" Type="int" />
+    <Property Name="Approverejct" Type="varchar" MaxLength="50" />
+    <Property Name="Addby" Type="int" />
+    <Property Name="Addon" Type="datetime" />
+    <Property Name="Modby" Type="int" />
+    <Property Name="Modon" Type="datetime" />
+    <Property Name="Employee_Name" Type="varchar" MaxLength="100" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="100" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__Hcm_Prope__Prope__725BF7F6">
+    <End Role="Hcm_Property" Type="Self.Hcm_Property" Multiplicity="0..1" />
+    <End Role="Hcm_Property_House" Type="Self.Hcm_Property_House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_House">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__73501C2F">
+    <End Role="Hcm_Property" Type="Self.Hcm_Property" Multiplicity="0..1" />
+    <End Role="Hcm_Property_ImmovableProperties" Type="Self.Hcm_Property_ImmovableProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_ImmovableProperties">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__74444068">
+    <End Role="Hcm_Property" Type="Self.Hcm_Property" Multiplicity="0..1" />
+    <End Role="Hcm_Property_Land" Type="Self.Hcm_Property_Land" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_Land">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__753864A1">
+    <End Role="Hcm_Property" Type="Self.Hcm_Property" Multiplicity="0..1" />
+    <End Role="Hcm_Property_MovableProperty" Type="Self.Hcm_Property_MovableProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_MovableProperty">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hcm_Prope__Prope__762C88DA">
+    <End Role="Hcm_Property" Type="Self.Hcm_Property" Multiplicity="0..1" />
+    <End Role="Hcm_Property_OtherMovable" Type="Self.Hcm_Property_OtherMovable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hcm_Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hcm_Property_OtherMovable">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Files_FileType">
+    <End Role="FileType" Type="Self.FileType" Multiplicity="1" />
+    <End Role="Files" Type="Self.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileType">
+        <PropertyRef Name="FileTypeId" />
+      </Principal>
+      <Dependent Role="Files">
+        <PropertyRef Name="FileTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_case_hearing_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="caseid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_case_hearing_doc_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hearingid" Type="int" Mode="In" />
+    <Parameter Name="url" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_DeepBorewell_PattaDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeepBorewellRegdId" Type="int" Mode="In" />
+    <Parameter Name="url" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_deepBorewell_REgdeatils" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeepBorewellRegdId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_input_case_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="caseid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_input_case_doc_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="caseid" Type="int" Mode="In" />
+    <Parameter Name="url" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_lcms_user_log" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="caseid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_scrap_detail_category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_scrap_item_detail_category_wise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="OLICModelStoreContainer">
+    <EntitySet Name="BankUpdatePayment" EntityType="Self.BankUpdatePayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cluster" EntityType="Self.Cluster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cluster_Details" EntityType="Self.Cluster_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBW_Mst_DPR" EntityType="Self.DBW_Mst_DPR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeepBorewell_PattaDetails" EntityType="Self.DeepBorewell_PattaDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeepBorewell_Registration" EntityType="Self.DeepBorewell_Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Demo_Table_Rajesh" EntityType="Self.Demo_Table_Rajesh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EE_Verify" EntityType="Self.EE_Verify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FinacialYear" EntityType="Self.FinacialYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_ApplyLeave" EntityType="Self.Hcm_ApplyLeave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HCM_EmployeeDtl" EntityType="Self.HCM_EmployeeDtl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HCM_LeaveBalance" EntityType="Self.HCM_LeaveBalance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HCM_LeaveMaster" EntityType="Self.HCM_LeaveMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property" EntityType="Self.Hcm_Property" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property_House" EntityType="Self.Hcm_Property_House" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property_ImmovableProperties" EntityType="Self.Hcm_Property_ImmovableProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property_Land" EntityType="Self.Hcm_Property_Land" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property_MovableProperty" EntityType="Self.Hcm_Property_MovableProperty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hcm_Property_OtherMovable" EntityType="Self.Hcm_Property_OtherMovable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_AssignedLawer" EntityType="Self.LCMS_AssignedLawer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Case_Hearing_Doc" EntityType="Self.LCMS_Case_Hearing_Doc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Case_Hearing_Dtls" EntityType="Self.LCMS_Case_Hearing_Dtls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_CaseDetails" EntityType="Self.LCMS_CaseDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_CaseDoc" EntityType="Self.LCMS_CaseDoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Mst_CaseType" EntityType="Self.LCMS_Mst_CaseType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Mst_Compliance_Time" EntityType="Self.LCMS_Mst_Compliance_Time" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Mst_Court" EntityType="Self.LCMS_Mst_Court" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_Status" EntityType="Self.LCMS_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCMS_UserLog" EntityType="Self.LCMS_UserLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManageUser" EntityType="Self.ManageUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mst_Circle" EntityType="Self.Mst_Circle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mst_Division" EntityType="Self.Mst_Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mst_OlicDtl" EntityType="Self.Mst_OlicDtl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mst_Section" EntityType="Self.Mst_Section" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mst_SubDivision" EntityType="Self.Mst_SubDivision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OLIC_Block_Ulb" EntityType="Self.OLIC_Block_Ulb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OLIC_District_Mst" EntityType="Self.OLIC_District_Mst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OLIC_Gram_Panchayat" EntityType="Self.OLIC_Gram_Panchayat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OLIC_Test" EntityType="Self.OLIC_Test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scrap_Catrgory_Mst" EntityType="Self.Scrap_Catrgory_Mst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scrap_code" EntityType="Self.Scrap_code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scrap_Details_Entry" EntityType="Self.Scrap_Details_Entry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scrap_Item_Mst" EntityType="Self.Scrap_Item_Mst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DB_Registration_Detail" EntityType="Self.DB_Registration_Detail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DB_Registration_Detail].[DeepBorewellRegdId] AS [DeepBorewellRegdId], 
+    [DB_Registration_Detail].[RegNo] AS [RegNo], 
+    [DB_Registration_Detail].[FarmerName] AS [FarmerName], 
+    [DB_Registration_Detail].[DistrictName] AS [DistrictName], 
+    [DB_Registration_Detail].[Block_Ulb_Name] AS [Block_Ulb_Name], 
+    [DB_Registration_Detail].[Clt_Id] AS [Clt_Id], 
+    [DB_Registration_Detail].[Clt_No] AS [Clt_No]
+    FROM [dbo].[DB_Registration_Detail] AS [DB_Registration_Detail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vw_DeepBorewellRegdDtl" EntityType="Self.Vw_DeepBorewellRegdDtl" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vw_DeepBorewellRegdDtl].[DeepBorewellRegdId] AS [DeepBorewellRegdId], 
+    [Vw_DeepBorewellRegdDtl].[DbRegistrationNo] AS [DbRegistrationNo], 
+    [Vw_DeepBorewellRegdDtl].[FarmerName] AS [FarmerName], 
+    [Vw_DeepBorewellRegdDtl].[MobileNo] AS [MobileNo], 
+    [Vw_DeepBorewellRegdDtl].[Email] AS [Email], 
+    [Vw_DeepBorewellRegdDtl].[Gender] AS [Gender], 
+    [Vw_DeepBorewellRegdDtl].[Category] AS [Category], 
+    [Vw_DeepBorewellRegdDtl].[AadhaarNo] AS [AadhaarNo], 
+    [Vw_DeepBorewellRegdDtl].[BPLCardNo] AS [BPLCardNo], 
+    [Vw_DeepBorewellRegdDtl].[Ad_Village] AS [Ad_Village], 
+    [Vw_DeepBorewellRegdDtl].[Ad_DistrictId] AS [Ad_DistrictId], 
+    [Vw_DeepBorewellRegdDtl].[Ad_BlockId] AS [Ad_BlockId], 
+    [Vw_DeepBorewellRegdDtl].[Ad_GramPanchayatId] AS [Ad_GramPanchayatId], 
+    [Vw_DeepBorewellRegdDtl].[Ad_PostOffice] AS [Ad_PostOffice], 
+    [Vw_DeepBorewellRegdDtl].[Ad_PinCode] AS [Ad_PinCode], 
+    [Vw_DeepBorewellRegdDtl].[Pro_Village] AS [Pro_Village], 
+    [Vw_DeepBorewellRegdDtl].[Pro_DistrictId] AS [Pro_DistrictId], 
+    [Vw_DeepBorewellRegdDtl].[Pro_BlockId] AS [Pro_BlockId], 
+    [Vw_DeepBorewellRegdDtl].[Pro_GramPanchayatId] AS [Pro_GramPanchayatId], 
+    [Vw_DeepBorewellRegdDtl].[Pro_PostOffice] AS [Pro_PostOffice], 
+    [Vw_DeepBorewellRegdDtl].[Pro_PinCode] AS [Pro_PinCode], 
+    [Vw_DeepBorewellRegdDtl].[AadharFileDtl] AS [AadharFileDtl], 
+    [Vw_DeepBorewellRegdDtl].[FarmerPhotoDtl] AS [FarmerPhotoDtl], 
+    [Vw_DeepBorewellRegdDtl].[BplFileDtl] AS [BplFileDtl], 
+    [Vw_DeepBorewellRegdDtl].[AffidavitFileDtl] AS [AffidavitFileDtl], 
+    [Vw_DeepBorewellRegdDtl].[DistrictName] AS [DistrictName], 
+    [Vw_DeepBorewellRegdDtl].[Block_Ulb_Name] AS [Block_Ulb_Name], 
+    [Vw_DeepBorewellRegdDtl].[GRAM_PANCHAYAT_Name] AS [GRAM_PANCHAYAT_Name], 
+    [Vw_DeepBorewellRegdDtl].[Is_Bank] AS [Is_Bank]
+    FROM [dbo].[Vw_DeepBorewellRegdDtl] AS [Vw_DeepBorewellRegdDtl]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vw_DprEstimation" EntityType="Self.Vw_DprEstimation" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vw_DprEstimation].[Application_Number] AS [Application_Number], 
+    [Vw_DprEstimation].[FarmerName] AS [FarmerName], 
+    [Vw_DprEstimation].[Breadth] AS [Breadth], 
+    [Vw_DprEstimation].[Height] AS [Height], 
+    [Vw_DprEstimation].[Length] AS [Length], 
+    [Vw_DprEstimation].[Content_Area] AS [Content_Area], 
+    [Vw_DprEstimation].[Service_Code] AS [Service_Code], 
+    [Vw_DprEstimation].[Description_of_work] AS [Description_of_work], 
+    [Vw_DprEstimation].[Quantity] AS [Quantity], 
+    [Vw_DprEstimation].[Remark] AS [Remark], 
+    [Vw_DprEstimation].[Unit] AS [Unit], 
+    [Vw_DprEstimation].[Rate_per_Unit] AS [Rate_per_Unit], 
+    [Vw_DprEstimation].[Id] AS [Id]
+    FROM [dbo].[Vw_DprEstimation] AS [Vw_DprEstimation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_input_case_list" EntityType="Self.vw_input_case_list" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_input_case_list].[CaseId] AS [CaseId], 
+    [vw_input_case_list].[CaseNo] AS [CaseNo], 
+    [vw_input_case_list].[PartyName] AS [PartyName], 
+    [vw_input_case_list].[CourtName] AS [CourtName], 
+    [vw_input_case_list].[CourtId] AS [CourtId], 
+    [vw_input_case_list].[CaseFileDate] AS [CaseFileDate], 
+    [vw_input_case_list].[CaseTypeId] AS [CaseTypeId], 
+    [vw_input_case_list].[CaseSubject] AS [CaseSubject], 
+    [vw_input_case_list].[CourtOrder] AS [CourtOrder], 
+    [vw_input_case_list].[Status] AS [Status], 
+    [vw_input_case_list].[ComplianceTime] AS [ComplianceTime], 
+    [vw_input_case_list].[LCMS_Status_Name] AS [LCMS_Status_Name], 
+    [vw_input_case_list].[CaseTypeName] AS [CaseTypeName], 
+    [vw_input_case_list].[Compliance_Time] AS [Compliance_Time], 
+    [vw_input_case_list].[PendingAt] AS [PendingAt], 
+    [vw_input_case_list].[appstatus] AS [appstatus], 
+    [vw_input_case_list].[CDays] AS [CDays], 
+    [vw_input_case_list].[AssignedDate] AS [AssignedDate], 
+    [vw_input_case_list].[Assign_Id] AS [Assign_Id], 
+    [vw_input_case_list].[UserId] AS [UserId], 
+    [vw_input_case_list].[LawerName] AS [LawerName]
+    FROM [dbo].[vw_input_case_list] AS [vw_input_case_list]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwEmployeesByLeaveType" EntityType="Self.vwEmployeesByLeaveType" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwEmployeesByLeaveType].[Leave_Id] AS [Leave_Id], 
+    [vwEmployeesByLeaveType].[EmployeeID] AS [EmployeeID], 
+    [vwEmployeesByLeaveType].[EmployeeCode] AS [EmployeeCode], 
+    [vwEmployeesByLeaveType].[FromDate] AS [FromDate], 
+    [vwEmployeesByLeaveType].[ToDate] AS [ToDate], 
+    [vwEmployeesByLeaveType].[Remarks] AS [Remarks], 
+    [vwEmployeesByLeaveType].[Count] AS [Count], 
+    [vwEmployeesByLeaveType].[Remarks1] AS [Remarks1], 
+    [vwEmployeesByLeaveType].[Remarks2] AS [Remarks2], 
+    [vwEmployeesByLeaveType].[remarks3] AS [remarks3], 
+    [vwEmployeesByLeaveType].[Remarks4] AS [Remarks4], 
+    [vwEmployeesByLeaveType].[Remarks5] AS [Remarks5], 
+    [vwEmployeesByLeaveType].[Status1] AS [Status1], 
+    [vwEmployeesByLeaveType].[Status2] AS [Status2], 
+    [vwEmployeesByLeaveType].[Status3] AS [Status3], 
+    [vwEmployeesByLeaveType].[Status4] AS [Status4], 
+    [vwEmployeesByLeaveType].[Status5] AS [Status5], 
+    [vwEmployeesByLeaveType].[Approval1] AS [Approval1], 
+    [vwEmployeesByLeaveType].[Approval2] AS [Approval2], 
+    [vwEmployeesByLeaveType].[Approval3] AS [Approval3], 
+    [vwEmployeesByLeaveType].[Approval4] AS [Approval4], 
+    [vwEmployeesByLeaveType].[Approval5] AS [Approval5], 
+    [vwEmployeesByLeaveType].[PendingAt] AS [PendingAt], 
+    [vwEmployeesByLeaveType].[Leave_Typeid] AS [Leave_Typeid], 
+    [vwEmployeesByLeaveType].[Approverejct] AS [Approverejct], 
+    [vwEmployeesByLeaveType].[Addby] AS [Addby], 
+    [vwEmployeesByLeaveType].[Addon] AS [Addon], 
+    [vwEmployeesByLeaveType].[Modby] AS [Modby], 
+    [vwEmployeesByLeaveType].[Modon] AS [Modon], 
+    [vwEmployeesByLeaveType].[Employee_Name] AS [Employee_Name], 
+    [vwEmployeesByLeaveType].[LeaveType] AS [LeaveType], 
+    [vwEmployeesByLeaveType].[Is_Active] AS [Is_Active], 
+    [vwEmployeesByLeaveType].[Is_Delete] AS [Is_Delete], 
+    [vwEmployeesByLeaveType].[Designation] AS [Designation]
+    FROM [dbo].[vwEmployeesByLeaveType] AS [vwEmployeesByLeaveType]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__725BF7F6" Association="Self.FK__Hcm_Prope__Prope__725BF7F6">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_House" EntitySet="Hcm_Property_House" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__73501C2F" Association="Self.FK__Hcm_Prope__Prope__73501C2F">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_ImmovableProperties" EntitySet="Hcm_Property_ImmovableProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__74444068" Association="Self.FK__Hcm_Prope__Prope__74444068">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_Land" EntitySet="Hcm_Property_Land" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__753864A1" Association="Self.FK__Hcm_Prope__Prope__753864A1">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_MovableProperty" EntitySet="Hcm_Property_MovableProperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hcm_Prope__Prope__762C88DA" Association="Self.FK__Hcm_Prope__Prope__762C88DA">
+      <End Role="Hcm_Property" EntitySet="Hcm_Property" />
+      <End Role="Hcm_Property_OtherMovable" EntitySet="Hcm_Property_OtherMovable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Files_FileType" Association="Self.FK_Files_FileType">
+      <End Role="FileType" EntitySet="FileType" />
+      <End Role="Files" EntitySet="Files" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

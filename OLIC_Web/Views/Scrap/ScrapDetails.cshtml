@@ -1,0 +1,455 @@
+﻿
+@{
+    ViewBag.Title = "ScrapDetails";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<div class="page-content">
+
+    @{string confirmMessage = Convert.ToString(TempData["msg"]); string warningMessage = Convert.ToString(TempData["WarningMessage"]);}
+    @if (!string.IsNullOrEmpty(confirmMessage))
+    {
+        <div class="alert alert-success alert-dismissable" id="divSuccessMessage">
+            <input type="hidden" id="messagealert" value="@confirmMessage" />
+            @confirmMessage
+        </div>
+    }
+  
+    else
+    {
+        <input type="hidden" id="messagealert" value="0" />
+    }
+
+
+
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h6 class="mb-0 text-uppercase">Scrap Entry</h6>
+            <hr>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>Material Name</label>
+                    <select class="form-select" name="Scrap_Category_Id" id="typescrap" onchange="Dropdownbind()">
+                        @if (ViewBag.typescrap != null)
+                        {
+                            foreach (var item in ViewBag.typescrap)
+                            {
+
+
+
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label>Description Of Materials</label>
+                    <select class="form-select" name="Scrap_Iteam_Id" id="material" onchange="onchangeItem()">
+                        @if (ViewBag.Iteam != null)
+                        {
+                            foreach (var item in ViewBag.Iteam)
+                            {
+
+
+
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    </select>
+                </div>
+                @*<div class="col-md-3">
+                    <label>Unit</label>
+                    <input type="text" class="form-control" name="Unit" id="Unit" readonly />
+
+                </div>
+
+                <div class="col-md-3">
+                    <label>Number of Quantity</label>
+                    <input type="text" class="form-control" name="NumberOfQuantity" id="NumberOfQuantity" readonly />
+
+                </div>*@
+                <div class="col-md-3">
+                    <label>Rate</label>
+                    <input type="text" class="form-control" name="rate" id="rate" readonly />
+
+                </div>
+
+                <div class="col-md-3">
+                    <label>Amount</label>
+                    <input type="text" class="form-control" name="amount" id="amount" readonly />
+
+                </div>
+
+
+
+            </div>
+
+            <div class="row mb-2">
+
+                <div class="col-md-3">
+                    <label>Approx Weight / In Kg</label>
+                    <input type="text" class="form-control" name="aw" id="aw"readonly />
+
+                </div>
+                <div class="col-md-3">
+                    <label>Total Weight / In Kg</label>
+                    <input type="text" class="form-control" name="tw" id="tw"readonly />
+
+                </div>
+                <div class="col-md-3">
+                    <label>Date Of Reciept</label>
+                    <input type="date" class="form-control" name="dor" id="dor" />
+
+                </div>
+                <div class="col-md-3">
+                    <label>Total Quantity of Scrap</label>
+                    <input type="text" class="form-control" name="no_of_scrap" id="no_of_scrap" />
+                </div>
+
+
+            </div>
+            @*<div class="row mb-3">
+                <div class="col-md-3">
+                    <label>Remark</label>
+                    <textarea name="Remark" id="Remark" required="" class="form-control"></textarea>
+                </div>
+            </div>*@
+            <div class="row mb-3">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-outline-success" onclick="AddData()">Add More</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <form action="/Scrap/ScrapDetails" method="post">
+
+        <div class="card" id="cardtable">
+            <div class="card-body">
+                <h6 class="mb-0 text-uppercase">Scrap Details</h6>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <table class="table table-bordered " id="scrap">
+                            <thead>
+                                <tr class="text-light card_header">
+                                    @*<th style="width:30px">SI No.</th>*@
+                                    <th>Type</th>
+                                    <th>DM</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
+                                    <th>Approx Weight/In Kg</th>
+                                    <th>Total Weight In Kg</th>
+                                    <th>Date Of Reciept</th>
+                                    <th>No nOf Scrap</th>
+                                    
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label>Remark</label>
+                        <textarea name="Remark" id="Remark" required="" class="form-control"></textarea>
+
+                    </div>
+                  
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-11"></div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+
+
+
+
+</div>
+
+<script>
+
+    $(window).ready(function () {
+
+        $("#cardtable").hide();
+       
+
+
+    });
+</script>
+
+<script>
+
+
+    var count = 0;
+    function AddData() {
+        debugger;
+        $("#cardtable").show();
+        var rows = "";
+        count = count + 1;
+
+        var typescrap = $("#typescrap option:selected").text();
+
+        var material = $("#material  option:selected").text();
+        var typescrapvalue = $("#typescrap").val();
+        var materialvalue = $("#material").val();
+        var rate = $("#rate").val();
+        var amount= $("#amount").val();
+        var aw = $("#aw").val();
+        var tw = $("#tw").val();
+        var dor = $("#dor").val();
+        var no_of_scrap = $("#no_of_scrap").val();
+        var Remark = $("#Remark").val();
+    
+        rows += "<tr><td>" + typescrap + "<input type='hidden'value=" + typescrapvalue + " name='Scrap_Category_Id'></td><td>" + material + "<input type='hidden'value=" + materialvalue + " name='Scrap_Iteam_Id'></td><td>" + rate + "<input type='hidden'value=" + rate + " name='rate'></td><td> " + amount + "<input type='hidden'value=" + amount + " name='amount'></td><td> " + aw + "<input type='hidden'value=" + aw + " name='aw'></td><td> " + tw + "<input type='hidden'value=" + tw + " name='tw'></td><td> " + dor + "<input type='hidden'value=" + dor + " name='dor'></td><td> " + no_of_scrap + "<input type='hidden'value=" + no_of_scrap + " name='no_of_scrap'></td><td><button class='btn btn - danger' onclick='SomeDeleteRowFunction()'>X</button></td></tr> ";
+        $(rows).appendTo("#scrap tbody");
+
+        $("#typescrap").val(0);
+                    
+
+        $("#material").prop("disabled", true);
+        $("#rate").val("");
+        $("#amount").val("");
+        $("#aw").val("");
+        $("#tw").val("");
+        $("#dor").val("");
+        $("#no_of_scrap").val("");
+        $("#Remark").val("");
+        return false;
+    }
+</script>
+
+
+
+
+
+
+<script src="~/Animation/assets/js/jquery.min.js"></script>
+<script>
+      var inc = "";
+    var inc2 = "";
+    var inc3 = "";
+    $(window).ready(function () {
+
+        inc = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.typescrap))';
+
+        inc = JSON.parse(inc);
+
+          inc2 = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Iteam))';
+
+        inc2 = JSON.parse(inc2);
+
+        $("#cardtable").hide();
+      
+
+
+    })
+</script>
+
+<script>
+
+
+
+    var count = 0;
+    var count3 = 2;
+    function AddMore3() {
+
+        debugger;
+        count = count + 1;
+        var data = "";
+        data += '<tr id="tr_' + count + '">';
+        data += '<td >' + count3 + '</td>';
+
+
+        data += '<td><select name="typescrap" id="typescrap' + count + '" class="form-control " required></td>';
+        data += '<td><select name="material" id="material' + count + '" class="form-control " required></td>';
+
+        data += '<td>   <input type="text" class="form-control" name="rate" id="rate' + count + '" required=""></td></td>';
+        data += '<td>   <input type="text" class="form-control" name="amount" id="amount' + count + '" required=""></td></td>';
+        data += '<td>   <input type="text" class="form-control" name="aw" id="aw' + count + '" required=""></td></td>';
+        data += '<td>   <input type="text" class="form-control" name="tw" id="tw' + count + '" required=""></td></td>';
+        data += '<td>   <input type="text" class="form-control" name="dor" id="dor' + count + '" required=""></td></td>';
+        data += '<td>   <input type="text" class="form-control" name="no_of_scrap" id="no_of_scrap' + count + '" required=""></td></td>';
+
+        data += '<td>  <textarea name="Remark" id="Remark' + count + '" required="" class="form-control"></textarea></td></td>';
+        data += '<td style="text-align:center"><button type="button" onclick="Remove1(' + count + ')" class="btn btn-danger btn1">X</button></td>';
+        data += '</tr>';
+
+        $("#scrap").append(data);
+
+        count3 = count3 + 1;
+
+        loaddrp(count);
+    }
+
+
+
+    function Remove1(id) {
+        debugger;
+        $("#tr_" + id).remove();
+    }
+
+
+    function loaddrp(count) {
+        debugger;
+        var list = "";
+        var list1 = "";
+        var list2 = "";
+        var list3 = "";
+        if (inc.length > 0) {
+            for (var i = 0; i < inc.length; i++) {
+                list += "<option value=" + inc[i].Value + ">" + inc[i].Text + "</option>";
+            }
+            $("#typescrap" + count).html(list);
+        }
+
+
+        if (inc2.length > 0) {
+            for (var i = 0; i < inc2.length; i++) {
+                list1 += "<option value=" + inc2[i].Value + ">" + inc2[i].Text + "</option>";
+            }
+            $("#material" + count).html(list1);
+        }
+
+
+
+    }
+
+
+
+
+
+    function SomeDeleteRowFunction() {
+        // event.target will be the input element.
+        var td = event.target.parentNode;
+        var tr = td.parentNode; // the row to be removed
+        tr.parentNode.removeChild(tr);
+    }
+
+</script>
+
+
+<script>
+
+    function Dropdownbind() {
+        debugger;
+        $.ajax({
+            type: "post",
+            url: "/Scrap/GetScrap_Iteam_FromCategory",
+            /* data: { stateId: $('#AreaId').val() },*/
+            data: { Scrap_Category_Id: $('#typescrap').val() },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                var material = "<select id='material'class='form-control'>";
+                material = material + '<option value="">--Select--</option>';
+                for (var i = 0; i < data.length; i++) {
+                    material = material + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                }
+                material = material + '</select>';
+                $('#material').html(material);
+                $("#material").prop("disabled",false);
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+    function onchangeItem() {
+
+        var typescrap = $("#typescrap").val();
+        var material = $("#material").val();
+        debugger;
+        $.ajax({
+            async: true,
+            type: "post",
+            url: "/Scrap/GetSAPcode",
+            data: { typescrap: typescrap, material: material },
+  
+            dataType: "json",
+        
+            success: function (data) {
+             
+                debugger;
+             
+                $.ajax({
+                    async: true,
+                    type: "post",
+                    url: "/Scrap/GetSAPQuantity",
+                    data: { MaterialType: data.MaterialType, Matreial_Code: data.Matreial_Code, User_Type: data.User_Type },
+
+                    dataType: "json",
+
+                    success: function (data) {
+
+                        $("#rate").val(data[0].rate);
+
+                        $("#amount").val(data[0].amount);
+
+                        $("#aw").val(data[0].approxWeight);
+                        $("#tw").val(data[0].totalWeight);
+                        debugger;
+
+
+
+                        //alert(data.error);
+                        //alert(data.ifsccodeerror);
+                    },
+
+
+                });
+
+                //alert(data.error);
+                //alert(data.ifsccodeerror);
+            },
+
+          
+        });
+    }
+
+  
+</script>

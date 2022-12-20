@@ -1,0 +1,75 @@
+﻿@model BEL.Hcm_Property_OtherMovable
+
+@{
+    ViewBag.Title = "PropertyDetails4";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<h2>PropertyDetails</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionOfItems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionOfItems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InWhoseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InWhoseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAndManner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAndManner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Files)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Files)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Hcm_Property.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hcm_Property.CreatedBy)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "ShowPropertyDetails")
+</p>

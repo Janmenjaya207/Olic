@@ -1,0 +1,252 @@
+﻿@model BEL.Scrap_Details_Entry_MainModel
+@{
+    ViewBag.Title = "Scrap_List_Details";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Portfolio Details - BizLand Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: BizLand - v3.6.0
+    * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<style type="text/css">
+    .container2 {
+        padding: 0px 145px;
+    }
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <body>
+            <section>
+                <div class="container">
+                    <div class="row" style="margin-bottom:3%;">
+                        <div class="col-lg-8">
+                            <h5 style="margin-left: 45%;">
+                                P.W.A. FORM No. 18 SURVEY REPORT OF STORE<br>
+                                <span style="font-size: 14px;
+    margin-left: 60px;"> ( See Chapter No. VII Paragraphs 243, 214 & 235)</span>
+                            </h5>
+                        </div>
+                        <div class="col-lg-5">
+
+                        </div>
+                    </div>
+                    <h6 style="text-align: left;margin-bottom: 12px">L.I. DIVISION, SAMBALPUR</h6>
+                    <h6 style="text-align: left;margin-bottom: 12px">L.I. SUB DIVISION, JHARSUGUDA</h6>
+                    <h6 style="text-align: left;margin-bottom: 12px">Report of survey of store which have become unservicable (T & P Materials) under L.I. Section Lakhanpur </h6>
+                    <table class="table table-bordered">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <td rowspan="2">
+                                    Sl.No.
+                                </td>
+                                <td rowspan="2">
+                                    No. of Qnty
+                                </td>
+                                <td rowspan="2">
+                                    Unit
+                                </td>
+                                <td rowspan="2">
+                                    Description of materials
+                                </td>
+
+                                <td colspan="2">
+                                    Value on the B
+                                </td>
+                                <td rowspan="2">
+                                    Approx weight in kg
+                                </td>
+                                <td rowspan="2">
+                                    Total weight in kg
+                                </td>
+                                <td rowspan="2">
+                                    Date of Reciept
+                                </td>
+                                <td rowspan="2">
+                                    Remark by the Officer in charge explaining the cause of articles becoming unserviceable
+                                </td>
+                                <td rowspan="2">
+                                    Estimated value Rs. As is where is condition
+                                </td>
+                                <td rowspan="2">
+                                    Remarks or orders of the Divisional Officer
+                                </td>
+                                <td rowspan="2">
+                                    Order of the Superintending Engineer
+                                </td>
+                            </tr>
+                            <tr>
+
+
+
+                                <td>
+                                    Rate
+                                </td>
+                                <td>
+                                    Amount
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                                <th>6</th>
+                                <th>7</th>
+                                <th>8</th>
+                                <th>9</th>
+                                <th>10</th>
+                                <th>11</th>
+                                <th>12</th>
+                                <th>13</th>
+                            </tr>
+
+                            @if (Model.sp_Scrap_Detail_Category_Results.ToList().Count > 0)
+                            {
+                                foreach (var item in Model.sp_Scrap_Detail_Category_Results)
+                                {
+
+                                    var data = Model.sp_Scrap_Item_Detail_Category_Wise_Results.Where(x => x.Scrap_Category_Id == item.Scrap_Category_Id).ToList();
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <th>@item.Category_Name</th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td rowspan="@Model.rowcount">@ViewBag.Remark</td>
+                                        <td></td>
+                                        <td rowspan="@Model.rowcount"></td>
+                                        <td></td>
+                                    </tr>
+                                    var count = 0;
+                                    foreach (var item1 in data)
+                                    {
+                                        count = count + 1;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item1.No_Of_Scrap</td>
+                                            <td>R</td>
+                                            <td>@item1.Iteam_name</td>
+                                            <td>@item1.Rate</td>
+                                            <td>@item1.Amount</td>
+                                            <td>@item1.Approx_Weight</td>
+                                            <td>@item1.Total_Weight</td>
+                                            <td>@item1.Date_Of_Receipt</td>
+                                            <td></td>
+                                            <td>R</td>
+
+                                        </tr>
+
+                                    }
+                                }
+                            }
+
+                         
+                        </thead>
+
+
+                    </table>
+                    <div class="row" style="margin-top: 6%;">
+                        <div class="col-lg-7">
+                            <h6 style="margin-left: 15%;">
+                                Assistant engineer (civil)<br>
+                                L.I. Section, Lakhanpur
+                            </h6>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 style="margin-left: 15%;">
+                                Assistant engineer<br>
+                                L.I. Sub-divn, Jharsuguda
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6%;">
+                        <div style="width: 20%">
+                            <h6 style="margin-left: 15%;">
+                                Assistant engineer (Estimator)<br>
+                                L.I.Division,Sambalpur
+                            </h6>
+                        </div>
+                        <div style="width: 20%">
+                            <h6 style="margin-left: 15%;">
+                                Divisional Accountant<br>
+                                L.I. Division,Sambalpur
+                            </h6>
+                        </div>
+                        <div style="width: 20%">
+                            <h6 style="margin-left: 15%;">
+                                Executive Engineer<br>
+                                L.I.Division ,Sambalpur
+                            </h6>
+                        </div>
+                        <div style="width: 20%">
+                            <h6 style="margin-left: 15%;">
+                                PA To SE(NC)<br>
+                                OLIC Ltd,Sambalpur
+                            </h6>
+                        </div>
+                        <div style="width: 20%">
+                            <h6 style="margin-left: 15%;">
+                                Superintending Engineer(N.C)<br>
+                                OLIC Ltd,Sambalpur
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ======= Footer ======= -->
+
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+        </body>
+
+    </div>
+</div>
+
+
+</html>
+

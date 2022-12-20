@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OLICModelStoreContainer" CdmEntityContainer="OLICEntities">
+    <FunctionImportMapping FunctionImportName="sp_case_hearing_detail" FunctionName="OLICModel.Store.sp_case_hearing_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_case_hearing_detail_Result">
+          <ScalarProperty Name="Case_Hearing_Id" ColumnName="Case_Hearing_Id" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="HearingDate" ColumnName="HearingDate" />
+          <ScalarProperty Name="OrderOfCourt" ColumnName="OrderOfCourt" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="LCMS_Status_Name" ColumnName="LCMS_Status_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_case_hearing_doc_detail" FunctionName="OLICModel.Store.sp_case_hearing_doc_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_case_hearing_doc_detail_Result">
+          <ScalarProperty Name="Case_Hearing_Doc_Id" ColumnName="Case_Hearing_Doc_Id" />
+          <ScalarProperty Name="Case_Hearing_Id" ColumnName="Case_Hearing_Id" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="docfile" ColumnName="docfile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_input_case_doc_detail" FunctionName="OLICModel.Store.sp_input_case_doc_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_input_case_doc_detail_Result">
+          <ScalarProperty Name="CaseDocId" ColumnName="CaseDocId" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="docfile" ColumnName="docfile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_lcms_user_log" FunctionName="OLICModel.Store.sp_lcms_user_log">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_lcms_user_log_Result">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_deepBorewell_REgdeatils" FunctionName="OLICModel.Store.sp_deepBorewell_REgdeatils">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_deepBorewell_REgdeatils_Result">
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+          <ScalarProperty Name="DbRegistrationNo" ColumnName="DbRegistrationNo" />
+          <ScalarProperty Name="FarmerName" ColumnName="FarmerName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="AadhaarNo" ColumnName="AadhaarNo" />
+          <ScalarProperty Name="BPLCardNo" ColumnName="BPLCardNo" />
+          <ScalarProperty Name="Ad_Village" ColumnName="Ad_Village" />
+          <ScalarProperty Name="Ad_DistrictId" ColumnName="Ad_DistrictId" />
+          <ScalarProperty Name="Ad_BlockId" ColumnName="Ad_BlockId" />
+          <ScalarProperty Name="Ad_GramPanchayatId" ColumnName="Ad_GramPanchayatId" />
+          <ScalarProperty Name="Ad_PostOffice" ColumnName="Ad_PostOffice" />
+          <ScalarProperty Name="Pro_Village" ColumnName="Pro_Village" />
+          <ScalarProperty Name="Pro_DistrictId" ColumnName="Pro_DistrictId" />
+          <ScalarProperty Name="Pro_BlockId" ColumnName="Pro_BlockId" />
+          <ScalarProperty Name="Pro_GramPanchayatId" ColumnName="Pro_GramPanchayatId" />
+          <ScalarProperty Name="Pro_PostOffice" ColumnName="Pro_PostOffice" />
+          <ScalarProperty Name="AadharFileDtl" ColumnName="AadharFileDtl" />
+          <ScalarProperty Name="BplFileDtl" ColumnName="BplFileDtl" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="Block_Ulb_Name" ColumnName="Block_Ulb_Name" />
+          <ScalarProperty Name="GRAM_PANCHAYAT_Name" ColumnName="GRAM_PANCHAYAT_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DeepBorewell_PattaDetails" FunctionName="OLICModel.Store.sp_DeepBorewell_PattaDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_DeepBorewell_PattaDetails_Result">
+          <ScalarProperty Name="PattaId" ColumnName="PattaId" />
+          <ScalarProperty Name="Pro_PlotNo" ColumnName="Pro_PlotNo" />
+          <ScalarProperty Name="Pro_KhataNo" ColumnName="Pro_KhataNo" />
+          <ScalarProperty Name="Pro_LandArea" ColumnName="Pro_LandArea" />
+          <ScalarProperty Name="LandPattaFileDtl" ColumnName="LandPattaFileDtl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="BankUpdatePayments">
+      <EntityTypeMapping TypeName="OLICModel.BankUpdatePayment">
+        <MappingFragment StoreEntitySet="BankUpdatePayment">
+          <ScalarProperty Name="Mod_On" ColumnName="Mod_On" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="Add_On" ColumnName="Add_On" />
+          <ScalarProperty Name="Add_By" ColumnName="Add_By" />
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FD_Amount" ColumnName="FD_Amount" />
+          <ScalarProperty Name="Account_Number" ColumnName="Account_Number" />
+          <ScalarProperty Name="Dateof_FD" ColumnName="Dateof_FD" />
+          <ScalarProperty Name="FD_Number" ColumnName="FD_Number" />
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+          <ScalarProperty Name="Bnk_Payment_ID" ColumnName="Bnk_Payment_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeepBorewell_PattaDetails">
+      <EntityTypeMapping TypeName="OLICModel.DeepBorewell_PattaDetails">
+        <MappingFragment StoreEntitySet="DeepBorewell_PattaDetails">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LandPattaFile" ColumnName="LandPattaFile" />
+          <ScalarProperty Name="Pro_LandArea" ColumnName="Pro_LandArea" />
+          <ScalarProperty Name="Pro_KhataNo" ColumnName="Pro_KhataNo" />
+          <ScalarProperty Name="Pro_PlotNo" ColumnName="Pro_PlotNo" />
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+          <ScalarProperty Name="PattaId" ColumnName="PattaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EE_Verify">
+      <EntityTypeMapping TypeName="OLICModel.EE_Verify">
+        <MappingFragment StoreEntitySet="EE_Verify">
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Modby" ColumnName="Modby" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="Addby" ColumnName="Addby" />
+          <ScalarProperty Name="Addon" ColumnName="Addon" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AssignTo" ColumnName="AssignTo" />
+          <ScalarProperty Name="Tdate" ColumnName="Tdate" />
+          <ScalarProperty Name="Fdate" ColumnName="Fdate" />
+          <ScalarProperty Name="panchayat" ColumnName="panchayat" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="EE_Verifyappid" ColumnName="EE_Verifyappid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="OLICModel.File">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="SystemFileName" ColumnName="SystemFileName" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileTypes">
+      <EntityTypeMapping TypeName="OLICModel.FileType">
+        <MappingFragment StoreEntitySet="FileType">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="FileTypeName" ColumnName="FileTypeName" />
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_AssignedLawer">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_AssignedLawer">
+        <MappingFragment StoreEntitySet="LCMS_AssignedLawer">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="Assign_Id" ColumnName="Assign_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Case_Hearing_Doc">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Case_Hearing_Doc">
+        <MappingFragment StoreEntitySet="LCMS_Case_Hearing_Doc">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="Case_Hearing_Id" ColumnName="Case_Hearing_Id" />
+          <ScalarProperty Name="Case_Hearing_Doc_Id" ColumnName="Case_Hearing_Doc_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Case_Hearing_Dtls">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Case_Hearing_Dtls">
+        <MappingFragment StoreEntitySet="LCMS_Case_Hearing_Dtls">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrderOfCourt" ColumnName="OrderOfCourt" />
+          <ScalarProperty Name="HearingDate" ColumnName="HearingDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="Case_Hearing_Id" ColumnName="Case_Hearing_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_CaseDetails">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_CaseDetails">
+        <MappingFragment StoreEntitySet="LCMS_CaseDetails">
+          <ScalarProperty Name="PendingAt" ColumnName="PendingAt" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ComplianceTime" ColumnName="ComplianceTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CourtOrder" ColumnName="CourtOrder" />
+          <ScalarProperty Name="CaseSubject" ColumnName="CaseSubject" />
+          <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
+          <ScalarProperty Name="ComplianceDate" ColumnName="ComplianceDate" />
+          <ScalarProperty Name="CaseFileDate" ColumnName="CaseFileDate" />
+          <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_CaseDoc">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_CaseDoc">
+        <MappingFragment StoreEntitySet="LCMS_CaseDoc">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="CaseDocId" ColumnName="CaseDocId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Mst_CaseType">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Mst_CaseType">
+        <MappingFragment StoreEntitySet="LCMS_Mst_CaseType">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CaseTypeName" ColumnName="CaseTypeName" />
+          <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Mst_Compliance_Time">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Mst_Compliance_Time">
+        <MappingFragment StoreEntitySet="LCMS_Mst_Compliance_Time">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Compliance_Time" ColumnName="Compliance_Time" />
+          <ScalarProperty Name="Copliance_Id" ColumnName="Copliance_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Mst_Court">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Mst_Court">
+        <MappingFragment StoreEntitySet="LCMS_Mst_Court">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+          <ScalarProperty Name="CourtId" ColumnName="CourtId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_Status">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_Status">
+        <MappingFragment StoreEntitySet="LCMS_Status">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LCMS_Status_Name" ColumnName="LCMS_Status_Name" />
+          <ScalarProperty Name="LCMS_Status_Id" ColumnName="LCMS_Status_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCMS_UserLog">
+      <EntityTypeMapping TypeName="OLICModel.LCMS_UserLog">
+        <MappingFragment StoreEntitySet="LCMS_UserLog">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="DetailsId" ColumnName="DetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManageUsers">
+      <EntityTypeMapping TypeName="OLICModel.ManageUser">
+        <MappingFragment StoreEntitySet="ManageUser">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Project_Typeid" ColumnName="Project_Typeid" />
+          <ScalarProperty Name="UserType_Id" ColumnName="UserType_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OLIC_Block_Ulb">
+      <EntityTypeMapping TypeName="OLICModel.OLIC_Block_Ulb">
+        <MappingFragment StoreEntitySet="OLIC_Block_Ulb">
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Block_Ulb_Type" ColumnName="Block_Ulb_Type" />
+          <ScalarProperty Name="Block_Code" ColumnName="Block_Code" />
+          <ScalarProperty Name="Block_Ulb_Name" ColumnName="Block_Ulb_Name" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="Block_Ulb_Id" ColumnName="Block_Ulb_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OLIC_District_Mst">
+      <EntityTypeMapping TypeName="OLICModel.OLIC_District_Mst">
+        <MappingFragment StoreEntitySet="OLIC_District_Mst">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OLIC_Gram_Panchayat">
+      <EntityTypeMapping TypeName="OLICModel.OLIC_Gram_Panchayat">
+        <MappingFragment StoreEntitySet="OLIC_Gram_Panchayat">
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="GRAM_PANCHAYAT_Name" ColumnName="GRAM_PANCHAYAT_Name" />
+          <ScalarProperty Name="Block_Ulb_Id" ColumnName="Block_Ulb_Id" />
+          <ScalarProperty Name="GarmPanchayat_Id" ColumnName="GarmPanchayat_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OLIC_Test">
+      <EntityTypeMapping TypeName="OLICModel.OLIC_Test">
+        <MappingFragment StoreEntitySet="OLIC_Test">
+          <ScalarProperty Name="Test_Name" ColumnName="Test_Name" />
+          <ScalarProperty Name="Test_Id" ColumnName="Test_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="OLICModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Project_Typeid" ColumnName="Project_Typeid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="OLICModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Is_Visible" ColumnName="Is_Visible" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Project_Typeid" ColumnName="Project_Typeid" />
+          <ScalarProperty Name="UserType_Id" ColumnName="UserType_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_DeepBorewellRegdDtl">
+      <EntityTypeMapping TypeName="OLICModel.Vw_DeepBorewellRegdDtl">
+        <MappingFragment StoreEntitySet="Vw_DeepBorewellRegdDtl">
+          <ScalarProperty Name="AffidavitFileDtl" ColumnName="AffidavitFileDtl" />
+          <ScalarProperty Name="FarmerPhotoDtl" ColumnName="FarmerPhotoDtl" />
+          <ScalarProperty Name="Pro_PinCode" ColumnName="Pro_PinCode" />
+          <ScalarProperty Name="Ad_PinCode" ColumnName="Ad_PinCode" />
+          <ScalarProperty Name="Is_Bank" ColumnName="Is_Bank" />
+          <ScalarProperty Name="GRAM_PANCHAYAT_Name" ColumnName="GRAM_PANCHAYAT_Name" />
+          <ScalarProperty Name="Block_Ulb_Name" ColumnName="Block_Ulb_Name" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="BplFileDtl" ColumnName="BplFileDtl" />
+          <ScalarProperty Name="AadharFileDtl" ColumnName="AadharFileDtl" />
+          <ScalarProperty Name="Pro_PostOffice" ColumnName="Pro_PostOffice" />
+          <ScalarProperty Name="Pro_GramPanchayatId" ColumnName="Pro_GramPanchayatId" />
+          <ScalarProperty Name="Pro_BlockId" ColumnName="Pro_BlockId" />
+          <ScalarProperty Name="Pro_DistrictId" ColumnName="Pro_DistrictId" />
+          <ScalarProperty Name="Pro_Village" ColumnName="Pro_Village" />
+          <ScalarProperty Name="Ad_PostOffice" ColumnName="Ad_PostOffice" />
+          <ScalarProperty Name="Ad_GramPanchayatId" ColumnName="Ad_GramPanchayatId" />
+          <ScalarProperty Name="Ad_BlockId" ColumnName="Ad_BlockId" />
+          <ScalarProperty Name="Ad_DistrictId" ColumnName="Ad_DistrictId" />
+          <ScalarProperty Name="Ad_Village" ColumnName="Ad_Village" />
+          <ScalarProperty Name="BPLCardNo" ColumnName="BPLCardNo" />
+          <ScalarProperty Name="AadhaarNo" ColumnName="AadhaarNo" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="FarmerName" ColumnName="FarmerName" />
+          <ScalarProperty Name="DbRegistrationNo" ColumnName="DbRegistrationNo" />
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_input_case_list">
+      <EntityTypeMapping TypeName="OLICModel.vw_input_case_list">
+        <MappingFragment StoreEntitySet="vw_input_case_list">
+          <ScalarProperty Name="LawerName" ColumnName="LawerName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Assign_Id" ColumnName="Assign_Id" />
+          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+          <ScalarProperty Name="CDays" ColumnName="CDays" />
+          <ScalarProperty Name="appstatus" ColumnName="appstatus" />
+          <ScalarProperty Name="PendingAt" ColumnName="PendingAt" />
+          <ScalarProperty Name="Compliance_Time" ColumnName="Compliance_Time" />
+          <ScalarProperty Name="CaseTypeName" ColumnName="CaseTypeName" />
+          <ScalarProperty Name="LCMS_Status_Name" ColumnName="LCMS_Status_Name" />
+          <ScalarProperty Name="ComplianceTime" ColumnName="ComplianceTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CourtOrder" ColumnName="CourtOrder" />
+          <ScalarProperty Name="CaseSubject" ColumnName="CaseSubject" />
+          <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
+          <ScalarProperty Name="CaseFileDate" ColumnName="CaseFileDate" />
+          <ScalarProperty Name="CourtId" ColumnName="CourtId" />
+          <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_input_case_detail" FunctionName="OLICModel.Store.sp_input_case_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_input_case_detail_Result">
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+          <ScalarProperty Name="CourtId" ColumnName="CourtId" />
+          <ScalarProperty Name="CaseFileDate" ColumnName="CaseFileDate" />
+          <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
+          <ScalarProperty Name="CaseSubject" ColumnName="CaseSubject" />
+          <ScalarProperty Name="CourtOrder" ColumnName="CourtOrder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ComplianceTime" ColumnName="ComplianceTime" />
+          <ScalarProperty Name="LCMS_Status_Name" ColumnName="LCMS_Status_Name" />
+          <ScalarProperty Name="CaseTypeName" ColumnName="CaseTypeName" />
+          <ScalarProperty Name="Compliance_Time" ColumnName="Compliance_Time" />
+          <ScalarProperty Name="PendingAt" ColumnName="PendingAt" />
+          <ScalarProperty Name="appstatus" ColumnName="appstatus" />
+          <ScalarProperty Name="CDays" ColumnName="CDays" />
+          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+          <ScalarProperty Name="Assign_Id" ColumnName="Assign_Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LawerName" ColumnName="LawerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DeepBorewell_Registration">
+      <EntityTypeMapping TypeName="OLICModel.DeepBorewell_Registration">
+        <MappingFragment StoreEntitySet="DeepBorewell_Registration">
+          <ScalarProperty Name="Is_EE" ColumnName="Is_EE" />
+          <ScalarProperty Name="Is_Bank" ColumnName="Is_Bank" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModBy" ColumnName="ModBy" />
+          <ScalarProperty Name="ModOn" ColumnName="ModOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="AffidavitFile" ColumnName="AffidavitFile" />
+          <ScalarProperty Name="FarmerPhoto" ColumnName="FarmerPhoto" />
+          <ScalarProperty Name="BPLCardFile" ColumnName="BPLCardFile" />
+          <ScalarProperty Name="AadhaarFile" ColumnName="AadhaarFile" />
+          <ScalarProperty Name="Pro_PinCode" ColumnName="Pro_PinCode" />
+          <ScalarProperty Name="Pro_PostOffice" ColumnName="Pro_PostOffice" />
+          <ScalarProperty Name="Pro_GramPanchayatId" ColumnName="Pro_GramPanchayatId" />
+          <ScalarProperty Name="Pro_BlockId" ColumnName="Pro_BlockId" />
+          <ScalarProperty Name="Pro_DistrictId" ColumnName="Pro_DistrictId" />
+          <ScalarProperty Name="Pro_Village" ColumnName="Pro_Village" />
+          <ScalarProperty Name="Ad_PinCode" ColumnName="Ad_PinCode" />
+          <ScalarProperty Name="Ad_PostOffice" ColumnName="Ad_PostOffice" />
+          <ScalarProperty Name="Ad_GramPanchayatId" ColumnName="Ad_GramPanchayatId" />
+          <ScalarProperty Name="Ad_BlockId" ColumnName="Ad_BlockId" />
+          <ScalarProperty Name="Ad_DistrictId" ColumnName="Ad_DistrictId" />
+          <ScalarProperty Name="Ad_Village" ColumnName="Ad_Village" />
+          <ScalarProperty Name="BPLCardNo" ColumnName="BPLCardNo" />
+          <ScalarProperty Name="AadhaarNo" ColumnName="AadhaarNo" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="FarmerName" ColumnName="FarmerName" />
+          <ScalarProperty Name="DbRegistrationNo" ColumnName="DbRegistrationNo" />
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBW_Mst_DPR">
+      <EntityTypeMapping TypeName="OLICModel.DBW_Mst_DPR">
+        <MappingFragment StoreEntitySet="DBW_Mst_DPR">
+          <ScalarProperty Name="Service_Code" ColumnName="Service_Code" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Rate_per_Unit" ColumnName="Rate_per_Unit" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Description_of_work" ColumnName="Description_of_work" />
+          <ScalarProperty Name="Dpr_Id" ColumnName="Dpr_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mst_OlicDtl">
+      <EntityTypeMapping TypeName="OLICModel.Mst_OlicDtl">
+        <MappingFragment StoreEntitySet="Mst_OlicDtl">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="SubDivisionName" ColumnName="SubDivisionName" />
+          <ScalarProperty Name="SubDivisionId" ColumnName="SubDivisionId" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CircleName" ColumnName="CircleName" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="OlicMstId" ColumnName="OlicMstId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mst_Circle">
+      <EntityTypeMapping TypeName="OLICModel.Mst_Circle">
+        <MappingFragment StoreEntitySet="Mst_Circle">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CircleName" ColumnName="CircleName" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mst_Division">
+      <EntityTypeMapping TypeName="OLICModel.Mst_Division">
+        <MappingFragment StoreEntitySet="Mst_Division">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mst_Section">
+      <EntityTypeMapping TypeName="OLICModel.Mst_Section">
+        <MappingFragment StoreEntitySet="Mst_Section">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="SubDivisionId" ColumnName="SubDivisionId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mst_SubDivision">
+      <EntityTypeMapping TypeName="OLICModel.Mst_SubDivision">
+        <MappingFragment StoreEntitySet="Mst_SubDivision">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SubDivisionName" ColumnName="SubDivisionName" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="SubDivisionId" ColumnName="SubDivisionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scrap_Catrgory_Mst">
+      <EntityTypeMapping TypeName="OLICModel.Scrap_Catrgory_Mst">
+        <MappingFragment StoreEntitySet="Scrap_Catrgory_Mst">
+          <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+          <ScalarProperty Name="Scrap_Category_Id" ColumnName="Scrap_Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scrap_code">
+      <EntityTypeMapping TypeName="OLICModel.Scrap_code">
+        <MappingFragment StoreEntitySet="Scrap_code">
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Scrap_Code_Name" ColumnName="Scrap_Code_Name" />
+          <ScalarProperty Name="Scrap_Code_Autogenerate_Id" ColumnName="Scrap_Code_Autogenerate_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scrap_Details_Entry">
+      <EntityTypeMapping TypeName="OLICModel.Scrap_Details_Entry">
+        <MappingFragment StoreEntitySet="Scrap_Details_Entry">
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="No_Of_Scrap" ColumnName="No_Of_Scrap" />
+          <ScalarProperty Name="Date_Of_Receipt" ColumnName="Date_Of_Receipt" />
+          <ScalarProperty Name="Total_Weight" ColumnName="Total_Weight" />
+          <ScalarProperty Name="Approx_Weight" ColumnName="Approx_Weight" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Scrap_Iteam_Id" ColumnName="Scrap_Iteam_Id" />
+          <ScalarProperty Name="Scrap_Category_Id" ColumnName="Scrap_Category_Id" />
+          <ScalarProperty Name="Scrap_Code_Autogenerate_Id" ColumnName="Scrap_Code_Autogenerate_Id" />
+          <ScalarProperty Name="Scrap_Details_Id" ColumnName="Scrap_Details_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scrap_Item_Mst">
+      <EntityTypeMapping TypeName="OLICModel.Scrap_Item_Mst">
+        <MappingFragment StoreEntitySet="Scrap_Item_Mst">
+          <ScalarProperty Name="Modified_on" ColumnName="Modified_on" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Iteam_name" ColumnName="Iteam_name" />
+          <ScalarProperty Name="Matreial_Code" ColumnName="Matreial_Code" />
+          <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+          <ScalarProperty Name="Item_Category_Id" ColumnName="Item_Category_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_scrap_detail_category" FunctionName="OLICModel.Store.sp_scrap_detail_category">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_scrap_detail_category_Result">
+          <ScalarProperty Name="Scrap_Category_Id" ColumnName="Scrap_Category_Id" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_scrap_item_detail_category_wise" FunctionName="OLICModel.Store.sp_scrap_item_detail_category_wise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OLICModel.sp_scrap_item_detail_category_wise_Result">
+          <ScalarProperty Name="Scrap_Category_Id" ColumnName="Scrap_Category_Id" />
+          <ScalarProperty Name="Scrap_Iteam_Id" ColumnName="Scrap_Iteam_Id" />
+          <ScalarProperty Name="Iteam_name" ColumnName="Iteam_name" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Approx_Weight" ColumnName="Approx_Weight" />
+          <ScalarProperty Name="Total_Weight" ColumnName="Total_Weight" />
+          <ScalarProperty Name="Date_Of_Receipt" ColumnName="Date_Of_Receipt" />
+          <ScalarProperty Name="No_Of_Scrap" ColumnName="No_Of_Scrap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="FinacialYears">
+      <EntityTypeMapping TypeName="OLICModel.FinacialYear">
+        <MappingFragment StoreEntitySet="FinacialYear">
+          <ScalarProperty Name="Addon" ColumnName="Addon" />
+          <ScalarProperty Name="Addby" ColumnName="Addby" />
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="FinYear" ColumnName="FinYear" />
+          <ScalarProperty Name="FinId" ColumnName="FinId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_ApplyLeave">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_ApplyLeave">
+        <MappingFragment StoreEntitySet="Hcm_ApplyLeave">
+          <ScalarProperty Name="Approverejct" ColumnName="Approverejct" />
+          <ScalarProperty Name="PendingAt" ColumnName="PendingAt" />
+          <ScalarProperty Name="Modon" ColumnName="Modon" />
+          <ScalarProperty Name="Modby" ColumnName="Modby" />
+          <ScalarProperty Name="Addon" ColumnName="Addon" />
+          <ScalarProperty Name="Addby" ColumnName="Addby" />
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Remarks5" ColumnName="Remarks5" />
+          <ScalarProperty Name="Status5" ColumnName="Status5" />
+          <ScalarProperty Name="Approval5" ColumnName="Approval5" />
+          <ScalarProperty Name="Remarks4" ColumnName="Remarks4" />
+          <ScalarProperty Name="Status4" ColumnName="Status4" />
+          <ScalarProperty Name="Approval4" ColumnName="Approval4" />
+          <ScalarProperty Name="Remarks3" ColumnName="Remarks3" />
+          <ScalarProperty Name="Status3" ColumnName="Status3" />
+          <ScalarProperty Name="Approval3" ColumnName="Approval3" />
+          <ScalarProperty Name="Remarks2" ColumnName="Remarks2" />
+          <ScalarProperty Name="Status2" ColumnName="Status2" />
+          <ScalarProperty Name="Approval2" ColumnName="Approval2" />
+          <ScalarProperty Name="Remarks1" ColumnName="Remarks1" />
+          <ScalarProperty Name="Status1" ColumnName="Status1" />
+          <ScalarProperty Name="Approval1" ColumnName="Approval1" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="Leave_Typeid" ColumnName="Leave_Typeid" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Leave_Id" ColumnName="Leave_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HCM_EmployeeDtl">
+      <EntityTypeMapping TypeName="OLICModel.HCM_EmployeeDtl">
+        <MappingFragment StoreEntitySet="HCM_EmployeeDtl">
+          <ScalarProperty Name="Approval5" ColumnName="Approval5" />
+          <ScalarProperty Name="Approval4" ColumnName="Approval4" />
+          <ScalarProperty Name="Approval3" ColumnName="Approval3" />
+          <ScalarProperty Name="Approval2" ColumnName="Approval2" />
+          <ScalarProperty Name="Approval1" ColumnName="Approval1" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="PF_No" ColumnName="PF_No" />
+          <ScalarProperty Name="Bill_No" ColumnName="Bill_No" />
+          <ScalarProperty Name="GIS_No" ColumnName="GIS_No" />
+          <ScalarProperty Name="PAN" ColumnName="PAN" />
+          <ScalarProperty Name="UAN" ColumnName="UAN" />
+          <ScalarProperty Name="IFSC" ColumnName="IFSC" />
+          <ScalarProperty Name="Ac_No" ColumnName="Ac_No" />
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Emp_Class" ColumnName="Emp_Class" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Mobile_No" ColumnName="Mobile_No" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HCM_LeaveBalance">
+      <EntityTypeMapping TypeName="OLICModel.HCM_LeaveBalance">
+        <MappingFragment StoreEntitySet="HCM_LeaveBalance">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LeaveAvailable" ColumnName="LeaveAvailable" />
+          <ScalarProperty Name="LeaveTaken" ColumnName="LeaveTaken" />
+          <ScalarProperty Name="LeaveAllocated" ColumnName="LeaveAllocated" />
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+          <ScalarProperty Name="LeaveBalanceId" ColumnName="LeaveBalanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HCM_LeaveMaster">
+      <EntityTypeMapping TypeName="OLICModel.HCM_LeaveMaster">
+        <MappingFragment StoreEntitySet="HCM_LeaveMaster">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LeaveAllocated" ColumnName="LeaveAllocated" />
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="LeaveCode" ColumnName="LeaveCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property">
+        <MappingFragment StoreEntitySet="Hcm_Property">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwEmployeesByLeaveTypes">
+      <EntityTypeMapping TypeName="OLICModel.vwEmployeesByLeaveType">
+        <MappingFragment StoreEntitySet="vwEmployeesByLeaveType">
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Modon" ColumnName="Modon" />
+          <ScalarProperty Name="Modby" ColumnName="Modby" />
+          <ScalarProperty Name="Addon" ColumnName="Addon" />
+          <ScalarProperty Name="Addby" ColumnName="Addby" />
+          <ScalarProperty Name="Approverejct" ColumnName="Approverejct" />
+          <ScalarProperty Name="Leave_Typeid" ColumnName="Leave_Typeid" />
+          <ScalarProperty Name="PendingAt" ColumnName="PendingAt" />
+          <ScalarProperty Name="Approval5" ColumnName="Approval5" />
+          <ScalarProperty Name="Approval4" ColumnName="Approval4" />
+          <ScalarProperty Name="Approval3" ColumnName="Approval3" />
+          <ScalarProperty Name="Approval2" ColumnName="Approval2" />
+          <ScalarProperty Name="Approval1" ColumnName="Approval1" />
+          <ScalarProperty Name="Status5" ColumnName="Status5" />
+          <ScalarProperty Name="Status4" ColumnName="Status4" />
+          <ScalarProperty Name="Status3" ColumnName="Status3" />
+          <ScalarProperty Name="Status2" ColumnName="Status2" />
+          <ScalarProperty Name="Status1" ColumnName="Status1" />
+          <ScalarProperty Name="Remarks5" ColumnName="Remarks5" />
+          <ScalarProperty Name="Remarks4" ColumnName="Remarks4" />
+          <ScalarProperty Name="remarks3" ColumnName="remarks3" />
+          <ScalarProperty Name="Remarks2" ColumnName="Remarks2" />
+          <ScalarProperty Name="Remarks1" ColumnName="Remarks1" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Leave_Id" ColumnName="Leave_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property_House">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property_House">
+        <MappingFragment StoreEntitySet="Hcm_Property_House">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="DateAndManner" ColumnName="DateAndManner" />
+          <ScalarProperty Name="InWhoseName" ColumnName="InWhoseName" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ExtentLOfInterest" ColumnName="ExtentLOfInterest" />
+          <ScalarProperty Name="PreciseLocation" ColumnName="PreciseLocation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property_ImmovableProperties">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property_ImmovableProperties">
+        <MappingFragment StoreEntitySet="Hcm_Property_ImmovableProperties">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="DateAndManner" ColumnName="DateAndManner" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="InWhoseName" ColumnName="InWhoseName" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ExtentOfInterest" ColumnName="ExtentOfInterest" />
+          <ScalarProperty Name="BreifDescription" ColumnName="BreifDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property_Land">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property_Land">
+        <MappingFragment StoreEntitySet="Hcm_Property_Land">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="DateAndMannerOfAcquisitionOrDisposal" ColumnName="DateAndMannerOfAcquisitionOrDisposal" />
+          <ScalarProperty Name="InWhoseName" ColumnName="InWhoseName" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ExtentOfInterest" ColumnName="ExtentOfInterest" />
+          <ScalarProperty Name="PreciseLocation" ColumnName="PreciseLocation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property_MovableProperty">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property_MovableProperty">
+        <MappingFragment StoreEntitySet="Hcm_Property_MovableProperty">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="DateAndManner" ColumnName="DateAndManner" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Loans" ColumnName="Loans" />
+          <ScalarProperty Name="InWhoseName" ColumnName="InWhoseName" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DescriptionOfItem" ColumnName="DescriptionOfItem" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hcm_Property_OtherMovable">
+      <EntityTypeMapping TypeName="OLICModel.Hcm_Property_OtherMovable">
+        <MappingFragment StoreEntitySet="Hcm_Property_OtherMovable">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="DateAndManner" ColumnName="DateAndManner" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="InWhoseName" ColumnName="InWhoseName" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DescriptionOfItems" ColumnName="DescriptionOfItems" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demo_Table_Rajesh">
+      <EntityTypeMapping TypeName="OLICModel.Demo_Table_Rajesh">
+        <MappingFragment StoreEntitySet="Demo_Table_Rajesh">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Content_Area" ColumnName="Content_Area" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Breadth" ColumnName="Breadth" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Application_Number" ColumnName="Application_Number" />
+          <ScalarProperty Name="Service_Code" ColumnName="Service_Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clusters">
+      <EntityTypeMapping TypeName="OLICModel.Cluster">
+        <MappingFragment StoreEntitySet="Cluster">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Clt_No" ColumnName="Clt_No" />
+          <ScalarProperty Name="Clt_Id" ColumnName="Clt_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cluster_Details">
+      <EntityTypeMapping TypeName="OLICModel.Cluster_Details">
+        <MappingFragment StoreEntitySet="Cluster_Details">
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+          <ScalarProperty Name="Clt_Id" ColumnName="Clt_Id" />
+          <ScalarProperty Name="Clt_Dtl_Id" ColumnName="Clt_Dtl_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DB_Registration_Detail">
+      <EntityTypeMapping TypeName="OLICModel.DB_Registration_Detail">
+        <MappingFragment StoreEntitySet="DB_Registration_Detail">
+          <ScalarProperty Name="Clt_No" ColumnName="Clt_No" />
+          <ScalarProperty Name="Clt_Id" ColumnName="Clt_Id" />
+          <ScalarProperty Name="Block_Ulb_Name" ColumnName="Block_Ulb_Name" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="FarmerName" ColumnName="FarmerName" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="DeepBorewellRegdId" ColumnName="DeepBorewellRegdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

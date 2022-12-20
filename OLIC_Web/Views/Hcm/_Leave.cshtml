@@ -1,0 +1,183 @@
+﻿@model BEL.vwEmployeesByLeaveType
+
+
+<div class="row">
+    <div class="col-md-4">
+        <label><b>Employee_Name</b></label>
+    </div>
+    <div class="col-md-4">
+        <label id="p1">:@Model.Employee_Name</label>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <label><b>Employee_Code</b></label>
+    </div>
+    <div class="col-md-4">
+        <label id="p2">:@Model.EmployeeCode</label>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label><b>FromDate</b></label>
+    </div>
+    <div class="col-md-4">
+        <label id="p1">:@Model.FromDate.Value.ToShortDateString()</label>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <label><b>ToDate</b></label>
+    </div>
+    <div class="col-md-4">
+        <label id="p2">:@Model.ToDate.Value.ToShortDateString()</label>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label><b>Purpose Of Leave</b></label>
+    </div>
+    <div class="col-md-4">
+        <label id="p2">:@Model.Remarks</label>
+    </div>
+
+</div>
+
+@if (Model.Remarks1 != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <label><b>First Level Remarks</b><space></space></label>
+        </div>
+        <div class="col-md-4">
+            <label id="p2">:@Model.Remarks1</label>
+        </div>
+
+    </div>
+}
+
+@if (Model.Remarks2 != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <label><b>Second Level Remarks</b></label>
+        </div>
+        <div class="col-md-4">
+            <label id="p2">:@Model.Remarks2</label>
+        </div>
+
+    </div>
+}
+
+
+@if (Model.remarks3 != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <label><b>Third Level Remarks</b></label>
+        </div>
+        <div class="col-md-4">
+            <label id="p2">:@Model.remarks3</label>
+        </div>
+
+    </div>
+}
+
+
+
+@if (Model.Remarks4 != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <label><b>Fourth Level Remarks</b></label>
+        </div>
+        <div class="col-md-4">
+            <label id="p2">:@Model.Remarks4</label>
+        </div>
+
+    </div>
+}
+
+@if (Model.Remarks5 != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <label><b>Final Level Remarks</b></label>
+
+        </div>
+        <div class="col-md-4">
+            <label id="p2">:@Model.Remarks5</label>
+        </div>
+
+    </div>
+}
+@*<table>
+    <tbody id="applicationdtl">
+        <tr>
+            <td><label>Employee_Name:</label></td>
+            <td><label id="p1">@Model.Employee_Name</label></td>
+        </tr>
+        <tr>
+            <td><label>Employee_Code:</label></td>
+            <td><label id="p2">@Model.EmployeeCode</label></td>
+        </tr>
+        <tr>
+            <td><label>FromDate:</label></td>
+            <td><label id="p1">@Model.FromDate</label></td>
+        </tr>
+        <tr>
+            <td><label>ToDate:</label></td>
+            <td><label id="p2">@Model.ToDate</label></td>
+        </tr>
+        <tr>
+            <td><label>Purpose Of Leave:</label></td>
+            <td><label id="p2">@Model.Remarks</label></td>
+        </tr>
+        @if (Model.Remarks1 != null)
+        {
+            <tr>
+                <td><label>First level Approval Remarks:</label></td>
+                <td><label id="p2">@Model.Remarks1</label></td>
+            </tr>
+        }
+        @if (Model.Remarks2 != null)
+        {
+            <tr>
+                <td><label>Second level Approval Remarks:</label></td>
+                <td><label id="p2">@Model.Remarks2</label></td>
+            </tr>
+        }
+        @if (Model.remarks3 != null)
+        {
+            <tr>
+                <td><label>Third level Approval Remarks:</label></td>
+                <td><label id="p2">@Model.remarks3</label></td>
+            </tr>
+        }
+        @if (Model.Remarks4 != null)
+        {
+            <tr>
+                <td><label>Fourth level Approval Remarks:</label></td>
+                <td><label id="p2">@Model.Remarks4</label></td>
+            </tr>
+        }
+        @if (Model.Remarks5 != null)
+        {
+            <tr>
+                <td><label>Final level Approval Remarks:</label></td>
+                <td><label id="p2">@Model.Remarks5</label></td>
+            </tr>
+        }
+
+
+    </tbody>
+
+
+</table>*@

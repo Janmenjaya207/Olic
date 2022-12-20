@@ -1,0 +1,128 @@
+﻿@model BEL.Hcm_Property_Land
+
+
+@{
+    ViewBag.Title = "EditPropertyDetails";
+    //Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+<h2>EditPropertyDetails</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        <div class="form-horizontal">
+            <h4>Land</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreciseLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.PreciseLocation)
+                    @Html.EditorFor(model => model.PreciseLocation, new { htmlAttributes = new { @class = "form-control" } })
+                    
+                    @Html.ValidationMessageFor(model => model.PreciseLocation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ExtentOfInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.ExtentOfInterest)
+                    @Html.EditorFor(model => model.ExtentOfInterest, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ExtentOfInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.Value)
+                    @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InWhoseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.InWhoseName)
+                    @Html.EditorFor(model => model.InWhoseName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InWhoseName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DateAndMannerOfAcquisitionOrDisposal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.DateAndMannerOfAcquisitionOrDisposal)
+                    @Html.EditorFor(model => model.DateAndMannerOfAcquisitionOrDisposal, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateAndMannerOfAcquisitionOrDisposal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="btnSubmit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+         <div style="text-align: right;" class="mb-3">
+                    <button type="submit" class="btn btn-success" id="btnSubmit" value="Submit">Submit</button>
+                    <a class="btn btn-danger" href="#contact">Cancel</a>
+                </div>
+
+        }
+       
+
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $(function() {
+            $('#btnSubmit').click(function(event) {
+                event.preventDefault();
+                var Id = $("#Id").val();
+                //var PreciseLocation=$("#")
+                var data = {
+                    ID=Id,
+                    PreciseLocation=
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Hcm/EditPropertyDetails",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(data) {
+                        alert(data.msg);
+                    },
+                    error: function() {
+                        alert("Error occured!!")
+                    }
+                });
+            });
+        });
+    });
+</script>
+        @*<div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

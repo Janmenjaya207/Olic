@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="095bb515e2c845caa8db1ad77ba6ef9a" Name="Diagram1">
+        <EntityTypeShape EntityType="OLICModel.BankUpdatePayment" Width="1.5" PointX="5.125" PointY="1" />
+        <EntityTypeShape EntityType="OLICModel.DeepBorewell_PattaDetails" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OLICModel.EE_Verify" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OLICModel.File" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="OLICModel.FileType" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_AssignedLawer" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Case_Hearing_Doc" Width="1.5" PointX="7.25" PointY="1" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Case_Hearing_Dtls" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_CaseDetails" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_CaseDoc" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Mst_CaseType" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Mst_Compliance_Time" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Mst_Court" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_Status" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="OLICModel.LCMS_UserLog" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OLICModel.ManageUser" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OLICModel.OLIC_Block_Ulb" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="OLICModel.OLIC_District_Mst" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.OLIC_Gram_Panchayat" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.OLIC_Test" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.Project" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.UserType" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.Vw_DeepBorewellRegdDtl" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OLICModel.vw_input_case_list" Width="1.5" PointX="14.75" PointY="7.75" />
+        <AssociationConnector Association="OLICModel.FK_Files_FileType" />
+        <EntityTypeShape EntityType="OLICModel.DeepBorewell_Registration" Width="1.5" PointX="3.375" PointY="15.75" />
+        <EntityTypeShape EntityType="OLICModel.DBW_Mst_DPR" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.Mst_OlicDtl" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OLICModel.Mst_Circle" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OLICModel.Mst_Division" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OLICModel.Mst_Section" Width="1.5" PointX="17.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OLICModel.Mst_SubDivision" Width="1.5" PointX="5.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OLICModel.Scrap_Catrgory_Mst" Width="1.5" PointX="17.375" PointY="17.75" />
+        <EntityTypeShape EntityType="OLICModel.Scrap_code" Width="1.5" PointX="14.375" PointY="18.75" />
+        <EntityTypeShape EntityType="OLICModel.Scrap_Details_Entry" Width="1.5" PointX="19.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OLICModel.Scrap_Item_Mst" Width="1.5" PointX="19.375" PointY="17.75" />
+        <EntityTypeShape EntityType="OLICModel.FinacialYear" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_ApplyLeave" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="OLICModel.HCM_EmployeeDtl" Width="1.5" PointX="5.75" PointY="20.75" />
+        <EntityTypeShape EntityType="OLICModel.HCM_LeaveBalance" Width="1.5" PointX="17.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OLICModel.HCM_LeaveMaster" Width="1.5" PointX="19.75" PointY="11.75" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property" Width="1.5" PointX="8.75" PointY="25.5" />
+        <EntityTypeShape EntityType="OLICModel.vwEmployeesByLeaveType" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property_House" Width="1.5" PointX="11" PointY="29.625" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property_ImmovableProperties" Width="1.5" PointX="11" PointY="25.75" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property_Land" Width="1.5" PointX="11" PointY="18.25" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property_MovableProperty" Width="1.5" PointX="11" PointY="21.875" />
+        <EntityTypeShape EntityType="OLICModel.Hcm_Property_OtherMovable" Width="1.5" PointX="11" PointY="33.375" />
+        <AssociationConnector Association="OLICModel.FK__Hcm_Prope__Prope__725BF7F6" />
+        <AssociationConnector Association="OLICModel.FK__Hcm_Prope__Prope__73501C2F" />
+        <AssociationConnector Association="OLICModel.FK__Hcm_Prope__Prope__74444068" />
+        <AssociationConnector Association="OLICModel.FK__Hcm_Prope__Prope__753864A1" />
+        <AssociationConnector Association="OLICModel.FK__Hcm_Prope__Prope__762C88DA" />
+        <EntityTypeShape EntityType="OLICModel.Cluster" Width="1.5" PointX="16.375" PointY="21.75" />
+        <EntityTypeShape EntityType="OLICModel.Cluster_Details" Width="1.5" PointX="21.375" PointY="18.75" />
+        <EntityTypeShape EntityType="OLICModel.DB_Registration_Detail" Width="1.5" PointX="18.375" PointY="21.75" />
+        <EntityTypeShape EntityType="OLICModel.Demo_Table_Rajesh" Width="1.5" PointX="22.375" PointY="9.75" />
+        <EntityTypeShape EntityType="OLICModel.Vw_DprEstimation" Width="1.5" PointX="20.375" PointY="21.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

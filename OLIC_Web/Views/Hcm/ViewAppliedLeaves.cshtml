@@ -1,0 +1,458 @@
+﻿
+@{
+    ViewBag.Title = "ViewAppliedLeaves";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+<style>
+    .color-lable {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0 0 0;
+    }
+
+        .color-lable span {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-right: 5px;
+            /* margin-top: 10px; */
+        }
+</style>
+<main id="main">
+    <div class="page-content">
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="/Hcm/Dashboard"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">LEAVE DETAILS</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-9">
+
+                        <div class="card" style="font-size:15px">
+                            <div class="card-header  text-light card_header">
+                                <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">LEAVE BALANCE AS ON DATE: <b></b></h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img style="max-width: 100%;" src="~/Animation/assets/images/Calender .jpg" />
+
+                                        @*<div class="calendar">
+                                                <div class="header">
+                                                    <a data-action="prev-month" href="javascript:void(0)" title="Previous Month"><i></i></a>
+                                                    <div class="text" data-render="month-year"></div>
+                                                    <a data-action="next-month" href="javascript:void(0)" title="Next Month"><i></i></a>
+                                                </div>
+                                                <div class="months" data-flow="left">
+                                                    <div class="month month-a">
+                                                        <div class="render render-a"></div>
+                                                    </div>
+                                                    <div class="month month-b">
+                                                        <div class="render render-b"></div>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="border: 1px solid black;padding:12px;">
+                                            <h5 style="font-weight:400;">Leave Balance</h5>
+                                            <table class="table table-hover table-striped">
+                                                <thead style="background-color: #1836a4b5;color: white;font-size: 13px;">
+                                                    <tr>
+                                                        <th scope="col">
+                                                            Leave Type
+                                                        </th>
+                                                        <th scope="col">
+                                                            Opening Balance
+                                                        </th>
+                                                        <th scope="col">
+                                                            Availed
+                                                        </th>
+                                                        <th scope="col">
+                                                            Closing Balance
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Casual Leave</td>
+                                                        <td>15</td>
+                                                        <td>07</td>
+                                                        <td>08</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Earned Leave</td>
+                                                        <td>31</td>
+                                                        <td>06</td>
+                                                        <td>25</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sick Leave</td>
+                                                        <td>240</td>
+                                                        <td>46</td>
+                                                        <td>194</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Maternity Leave</td>
+                                                        <td>300</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paternity Leave</td>
+                                                        <td>15</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Reserved Unutilized  Leave</td>
+                                                        <td>300</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Extra-Ordinary Leave</td>
+                                                        <td>240</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div class="color-lable">
+                                        <div>
+                                            <span style="background: #d4d3d0;"></span>
+                                        </div>
+                                        <div>
+                                            <a style="margin-left: -110px;">Weekend</a>
+                                        </div>
+
+                                        <div>
+                                            <span style="background: #fe0000;"></span>
+                                        </div>
+                                        <div>
+                                            <a style="margin-left: -110px;">Holiday</a>
+                                        </div>
+
+                                        <div>
+                                            <span style="background: #ffe557;"></span>
+                                        </div>
+                                        <div>
+                                            <a style="margin-left: -110px;">Under Process</a>
+                                        </div>
+
+                                        <div>
+                                            <span style="background: #047d0f;"></span>
+                                        </div>
+                                        <div>
+                                            <a style="margin-left: -110px;">Approved</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="font-size:15px">
+                            <div class="card-header  text-light card_header">
+                                <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">APPLIED / CANCELLED LEAVES</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Leave Status:</label>
+                                        <select class="col-sm-8 form-select custom-select mt-2" id="LeaveType">
+                                            <option value="All">All</option>
+                                            <option value="Approved">Approved</option>
+                                            <option value="UnderProcess">Under Process</option>
+                                            <option value="CancelInProgress">Cancel In Progress</option>
+                                            <option value="Cancel">Cancel</option>
+                                            <option value="Rejected">Rejected</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="control-label">Leave Type:</label>
+                                        <select class="col-sm-8 form-select custom-select mt-2" id="LeaveType">
+                                            <option value="All">All</option>
+                                            <option value="CasualLeave">Casual Leave</option>
+                                            <option value="EarnedLeave">Earned Leave</option>
+                                            <option value="SickLeave">Sick Leave</option>
+                                            <option value="MaternityLeave">Maternity Leave</option>
+                                            <option value="PaternityLeave">Paternity Leave</option>
+                                            <option value="ReservedUnutilizedLeave">Reserved Unutilized Leave</option>
+                                            <option value="Extra-OrdinaryLeave">Extra-Ordinary Leave</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 mt-1" style="text-align:right">
+                                        <button type="button" id="button" class="btn btn-primary float-right mt-4" data-toggle="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                @*<table id="example2" class="table table-hover table-striped">*@
+                                <table id="example2" class="table table-striped table-bordered">
+                                    <thead style="background-color: #1836a4b5;color: white;font-size: 13px;">
+                                        <tr>
+                                            <th scope="col">
+                                                SL NO.
+                                            </th>
+                                            <th scope="col">
+                                                Leave Name
+                                            </th>
+                                            <th scope="col">
+                                                From Date
+                                            </th>
+                                            <th scope="col">
+                                                To Date
+                                            </th>
+                                            <th scope="col">
+                                                Application Date
+                                            </th>
+                                            <th scope="col">
+                                                Status
+                                            </th>
+                                            <th scope="col">
+                                                Pending With
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Personal Leave</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Test Data</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Test Data</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Test Data</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Test Data</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Test Data</td>
+                                            <td>27-Oct-2022	</td>
+                                            <td>27-Oct-2022</td>
+                                            <td>10-Oct-2022</td>
+                                            <td>Cancel In Progress</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="card" style="font-size:13px">
+                            <div class="card-header  text-light card_header">
+                                <h6 class="card-title mb-1 headl" style="text-transform:uppercase;">HOLIDAY LIST</h6>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-hover table-striped">
+                                    <thead style="background-color: #1836a4b5;color: white;font-size: 13px;">
+                                        <tr>
+                                            <th scope="col">
+                                                Date
+                                            </th>
+                                            <th scope="col">
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 40%;">14-Jan-2022</td>
+                                            <td>Makar Sankranti</td>
+                                        </tr>
+                                        <tr>
+                                            <td>26-Jan-2022</td>
+                                            <td>Republic Day</td>
+                                        </tr>
+                                        <tr>
+                                            <td>05-Feb-2022</td>
+                                            <td>Basanta Panchami</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-Mar-2022</td>
+                                            <td>Maha Shivratri</td>
+                                        </tr>
+                                        <tr>
+                                            <td>05-Mar-2022</td>
+                                            <td>Panchayati Raj Divas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18-Mar-2022</td>
+                                            <td>Dola Purnima</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19-Mar-2022</td>
+                                            <td>Holi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-Apr-2022</td>
+                                            <td>Utkal Dibas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14-Apr-2022</td>
+                                            <td>Maha Bisubha Sankranti</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15-Apr-2022</td>
+                                            <td>Good Friday</td>
+                                        </tr>
+                                        @*<tr>
+                                                <td>03-May-2022</td>
+                                                <td>ID-Ul Fitre</td>
+                                            </tr>
+                                            <tr>
+                                                <td>16-May-2022</td>
+                                                <td>Budha Purnima</td>
+                                            </tr>
+                                            <tr>
+                                                <td>30-May-2022</td>
+                                                <td>Sabitri Amabasya</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14-Jun-2022</td>
+                                                <td>Pahili Raja</td>
+                                            </tr>
+                                            <tr>
+                                                <td>15-Jun-2022</td>
+                                                <td>Raja Sankranti</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-Jul-2022</td>
+                                                <td>Ratha Yatra</td>
+                                            </tr>
+                                            <tr>
+                                                <td>09-Aug-2022</td>
+                                                <td>Moharrum</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11-Aug-2022</td>
+                                                <td>Jhulana Purnima</td>
+                                            </tr>
+                                            <tr>
+                                                <td>15-Aug-2022</td>
+                                                <td>Independence Day</td>
+                                            </tr>
+                                            <tr>
+                                                <td>18-Aug-2022</td>
+                                                <td>Janmashtami</td>
+                                            </tr>
+                                            <tr>
+                                                <td>31-Aug-2022</td>
+                                                <td>Ganesh Puja</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-Sep-2022</td>
+                                                <td>Nuakhai</td>
+                                            </tr>
+                                            <tr>
+                                                <td>03-Oct-2022</td>
+                                                <td>Maha Asthami</td>
+                                            </tr>
+                                            <tr>
+                                                <td>04-Oct-2022</td>
+                                                <td>Maha Nabami</td>
+                                            </tr>
+                                            <tr>
+                                                <td>05-Oct-2022</td>
+                                                <td>Bijaya Dasami</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24-Oct-2022</td>
+                                                <td>Diwali</td>
+                                            </tr>
+                                            <tr>
+                                                <td>08-Nov-2022</td>
+                                                <td>Rasa Purnima</td>
+                                            </tr>*@
+                                    </tbody>
+                                </table>
+                                <div class="row" style="margin: 0px;">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:;">Previous</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:;javascript:;">1</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:;">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:;">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:;">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+

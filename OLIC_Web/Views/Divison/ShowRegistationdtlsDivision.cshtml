@@ -1,0 +1,216 @@
+﻿@model BEL.ShowRegistratondetails
+@{
+    ViewBag.Title = "ShowRegistationdtlsDivision";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+
+
+
+<div class="page-content">
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a href="/divison/Dashboard"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Farmer Registration Details (DBW)</li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+    
+    <form method="post" action="/lcms/viewcasedetails_lo">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="mb-0 text-uppercase">Farmer Registration Details</h5>
+                <hr>
+                <div class="col-md-12">
+                   @* <label for="validationCustom04" class="form-label"></label>*@
+
+                    <table id="" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>PARAMETERS</th>
+                                <th>DETAILS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="docdiv">
+
+                            <tr>
+                                <td>District Name</td>
+                                <td>
+                                    <span style="font-weight:500;">@Model.sp_deepBorewell_REgdeatils_Result[0].DistrictName</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Block Name</td>
+                                <td>
+                                    @*<input type="hidden" id="caseid" name="caseid" value="@Model.sp_Input_Case_Detail_Results[0].CaseId" />*@
+                                    <span style="font-weight:500;">@Model.sp_deepBorewell_REgdeatils_Result[0].Block_Ulb_Name</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Panchayat Name</td>
+                                <td>
+                                    <span style="font-weight:500;">@Model.sp_deepBorewell_REgdeatils_Result[0].GRAM_PANCHAYAT_Name</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Village</td>
+                                <td>
+                                    <span style="font-weight:500;">@Model.sp_deepBorewell_REgdeatils_Result[0].Ad_Village</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Aadhaar Card</td>
+                                @if (Model.sp_deepBorewell_REgdeatils_Result[0].AadharFileDtl != null)
+                                {
+
+                                    <td><a target="_blank" href="@Model.sp_deepBorewell_REgdeatils_Result[0].AadharFileDtl">View</a></td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span style="font-weight:500;">NA</span>
+                                    </td>
+                                }
+
+                            </tr>
+                            <tr>
+
+                                <td>BPL Number</td>
+                                @if (Model.sp_deepBorewell_REgdeatils_Result[0].BPLCardNo != null)
+                                {
+                                    <td>
+                                        <span style="font-weight:500;">@Model.sp_deepBorewell_REgdeatils_Result[0].BPLCardNo</span>
+                                    </td> }
+                                else
+                                {
+                                    <td>
+                                        <span style="font-weight:500;">NA</span>
+                                    </td>
+                                }
+
+                            </tr>
+
+                            <tr>
+
+                                <td>BPL Card</td>
+                                @if (Model.sp_deepBorewell_REgdeatils_Result[0].BplFileDtl != null)
+                                {
+
+                                    <td><a target="_blank" href="@Model.sp_deepBorewell_REgdeatils_Result[0].BplFileDtl">View</a></td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span style="font-weight:500;">NA</span>
+                                    </td>
+                                }
+
+                            </tr>
+                            @*<tr>
+                        <td>Case Type</td>
+                        <td>
+                            <span style="font-weight:bold;">@Model.sp_Input_Case_Detail_Results[0].CaseTypeName</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Case Subject</td>
+                        <td>
+                            <span style="font-weight:bold;">@Model.sp_Input_Case_Detail_Results[0].CaseSubject</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Order of the Court</td>
+                        <td>
+                            <span style="font-weight:bold;">@Model.sp_Input_Case_Detail_Results[0].CourtOrder</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <span style="font-weight:bold;">@Model.sp_Input_Case_Detail_Results[0].LCMS_Status_Name</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Compliance Time(In Days)</td>
+                        <td>
+                            <span style="font-weight:bold;">@Model.sp_Input_Case_Detail_Results[0].Compliance_Time</span>
+                        </td>
+
+                    </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom04" class="form-label"></label>
+
+                    <table id="" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Plot Number</th>
+                                <th>Khata Number</th>
+                                <th>Land Area</th>
+                                <th>Patta File</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody id="docdiv">
+                            @if (Model.sp_DeepBorewell_PattaDetails_Result != null)
+                            {
+                                foreach (var item in Model.sp_DeepBorewell_PattaDetails_Result)
+                                {
+                                    <tr>
+                                        <td>@item.Pro_PlotNo</td>
+                                        <td>@item.Pro_KhataNo</td>
+                                        <td>@item.Pro_LandArea</td>
+                                        <td><a target="_blank" href="@item.LandPattaFileDtl">View</a></td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+
+
+                    </div>
+                    <div class="col-md-1">
+
+
+                    </div>
+                    <div class="col-md-1">
+
+                        <a href="/Divison/Total_application_deep_borewell"><button type="button" class="btn btn-outline-danger" style="margin-top: 28px;">Back</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
