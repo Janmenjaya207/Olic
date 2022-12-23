@@ -264,15 +264,15 @@ namespace DAL
             if (model.mangeuser.User_Id != 0)
             {
                 var obj1 = db.ManageUsers.Where(x => x.User_Id == model.mangeuser.User_Id).FirstOrDefault();
-                obj1.BlockID = model.mangeuser.BlockID;
-                obj1.DistrictID = model.mangeuser.DistrictID;
+                //obj1.BlockID = model.mangeuser.BlockID;
+                //obj1.DistrictID = model.mangeuser.DistrictID;
                 obj1.UserType_Id = model.mangeuser.UserType_Id;
                 obj1.Project_Typeid = 1;
-                obj1.CircleID = model.mangeuser.CircleID;
-                obj1.DivisionID = model.mangeuser.DivisionID;
-                obj1.SubdivisionID = model.mangeuser.SubdivisionID;
-                obj1.SectionID = model.mangeuser.SectionID;
-                obj1.PanchayatID = model.mangeuser.PanchayatID;
+                //obj1.CircleID = model.mangeuser.CircleID;
+                //obj1.DivisionID = model.mangeuser.DivisionID;
+                //obj1.SubdivisionID = model.mangeuser.SubdivisionID;
+                //obj1.SectionID = model.mangeuser.SectionID;
+                //obj1.PanchayatID = model.mangeuser.PanchayatID;
                 obj1.FirstName = model.mangeuser.FirstName;
                 obj1.LastName = model.mangeuser.LastName;
                 obj1.Email = model.mangeuser.Email;
@@ -291,15 +291,15 @@ namespace DAL
                 //Area a = new Area();
                 ManageUser obj1 = new ManageUser();
                 //obj1.Areaname = model.AreaName;
-                obj1.BlockID = model.mangeuser.BlockID;
-                obj1.DistrictID = model.mangeuser.DistrictID;
+                //obj1.BlockID = model.mangeuser.BlockID;
+                //obj1.DistrictID = model.mangeuser.DistrictID;
                 obj1.UserType_Id = model.mangeuser.UserType_Id;
                 obj1.Project_Typeid = 1;
-                obj1.CircleID = model.mangeuser.CircleID;
-                obj1.DivisionID = model.mangeuser.DivisionID;
-                obj1.SubdivisionID = model.mangeuser.SubdivisionID;
-                obj1.SectionID = model.mangeuser.SectionID;
-                obj1.PanchayatID = model.mangeuser.PanchayatID;
+                //obj1.CircleID = model.mangeuser.CircleID;
+                //obj1.DivisionID = model.mangeuser.DivisionID;
+                //obj1.SubdivisionID = model.mangeuser.SubdivisionID;
+                //obj1.SectionID = model.mangeuser.SectionID;
+                //obj1.PanchayatID = model.mangeuser.PanchayatID;
                 obj1.FirstName = model.mangeuser.FirstName;
                 obj1.LastName = model.mangeuser.LastName;
                 obj1.Email = model.mangeuser.Email;
@@ -314,6 +314,18 @@ namespace DAL
                 db.SaveChanges();
                 return 2;
             }
+
+        }
+
+
+        public int Deleteapplyleave(int idd)
+        {
+
+
+            Hcm_ApplyLeave hcm_ApplyLeave = db.Hcm_ApplyLeave.Where(x => x.EmployeeID == idd).FirstOrDefault();
+            db.Hcm_ApplyLeave.Remove(hcm_ApplyLeave);
+            db.SaveChanges();
+            return 1;
 
         }
         public List<SelectListItem> EEBlock()
@@ -884,12 +896,27 @@ namespace DAL
 
             return data;
         }
+        public List<vwEmployeesByLeaveType> hcm_LeaveDetails(string id)
+        {
+            var data = db.vwEmployeesByLeaveTypes.Where(x => x.Is_Active == true && x.EmployeeCode == id).ToList();
+            return data;
+        }
 
         public List<vwEmployeesByLeaveType> LeaveDetailss(int idd)
         {
             var data = db.vwEmployeesByLeaveTypes.Where(x => x.Is_Active == true && x.PendingAt == idd.ToString()).ToList();
 
             return data;
+        }
+
+        public List<vwEmployeesByLeaveType> LeaveDetailss(string idd)
+        {
+            var data = db.vwEmployeesByLeaveTypes.Where(x => x.Is_Active == true && x.PendingAt == idd.ToString()).ToList();
+
+            //var data = db.vwEmployeesByLeaveTypes.Where(x => x.Is_Active == true && x.EmployeeID == Id).ToList();
+
+            return data;
+
         }
 
         public List<vwEmployeesByLeaveType> LeaveDetailsssssss()
@@ -1344,7 +1371,7 @@ namespace DAL
             }
         }
 
-        public bool Resolve(int regid, int id, string remark)
+        public bool Resolve(string regid, int id, string remark)
         {
             var data = db.Hcm_ApplyLeave.Where(x => x.Leave_Id == id).FirstOrDefault();
             if (data.Remarks1 == null && data.Status1 == false && data.PendingAt == regid.ToString())
@@ -1423,7 +1450,7 @@ namespace DAL
             return true;
         }
 
-        public bool Reject(int regid, int id, string remark)
+        public bool Reject(string regid, int id, string remark)
         {
             var data = db.Hcm_ApplyLeave.Where(x => x.Leave_Id == id).FirstOrDefault();
             if (data.Remarks1 == null && data.Status1 == false && data.PendingAt == regid.ToString())
@@ -1517,6 +1544,7 @@ namespace DAL
             var data = db.Vw_DprEstimation.Distinct().ToList();
             return data;
         }
+       
 
         public List<Demo_Table_Rajesh> demo_Table_Rajeshes()
         {

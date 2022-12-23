@@ -304,3 +304,37 @@ E:\OLIC 19-12-2022\OLIC\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\OLIC 19-12-2022\OLIC\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\OLIC 19-12-2022\OLIC\DAL\obj\Debug\DAL.dll
 E:\OLIC 19-12-2022\OLIC\DAL\obj\Debug\DAL.pdb
+D:\22_12_2022\Olic\DAL\bin\Debug\DAL.dll.config
+D:\22_12_2022\Olic\DAL\bin\Debug\DAL.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\DAL.pdb
+D:\22_12_2022\Olic\DAL\bin\Debug\BEL.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\BLL.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\EntityFramework.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Helpers.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Mvc.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Mvc.Extensions.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Razor.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\Mono.HttpUtility.dll
+D:\22_12_2022\Olic\DAL\bin\Debug\BEL.pdb
+D:\22_12_2022\Olic\DAL\bin\Debug\BEL.dll.config
+D:\22_12_2022\Olic\DAL\bin\Debug\BLL.pdb
+D:\22_12_2022\Olic\DAL\bin\Debug\BLL.dll.config
+D:\22_12_2022\Olic\DAL\bin\Debug\EntityFramework.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Helpers.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Mvc.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Mvc.Extensions.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.Razor.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\22_12_2022\Olic\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\22_12_2022\Olic\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\22_12_2022\Olic\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\22_12_2022\Olic\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\22_12_2022\Olic\DAL\obj\Debug\DAL.dll
+D:\22_12_2022\Olic\DAL\obj\Debug\DAL.pdb

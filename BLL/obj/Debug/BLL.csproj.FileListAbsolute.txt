@@ -259,3 +259,32 @@ E:\OLIC 19-12-2022\OLIC\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 E:\OLIC 19-12-2022\OLIC\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\OLIC 19-12-2022\OLIC\BLL\obj\Debug\BLL.dll
 E:\OLIC 19-12-2022\OLIC\BLL\obj\Debug\BLL.pdb
+D:\22_12_2022\Olic\BLL\bin\Debug\BLL.dll.config
+D:\22_12_2022\Olic\BLL\bin\Debug\BLL.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\BLL.pdb
+D:\22_12_2022\Olic\BLL\bin\Debug\BEL.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Helpers.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Mvc.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Mvc.Extensions.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Razor.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\EntityFramework.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\Mono.HttpUtility.dll
+D:\22_12_2022\Olic\BLL\bin\Debug\BEL.pdb
+D:\22_12_2022\Olic\BLL\bin\Debug\BEL.dll.config
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Helpers.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Mvc.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Mvc.Extensions.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.Razor.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\22_12_2022\Olic\BLL\bin\Debug\EntityFramework.xml
+D:\22_12_2022\Olic\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\22_12_2022\Olic\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\22_12_2022\Olic\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\22_12_2022\Olic\BLL\obj\Debug\BLL.dll
+D:\22_12_2022\Olic\BLL\obj\Debug\BLL.pdb

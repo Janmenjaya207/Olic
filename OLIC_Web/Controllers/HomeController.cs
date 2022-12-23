@@ -166,12 +166,12 @@ namespace OLIC_Web.Controllers
                     Session["usertype"] = data.UserType_Id;
                     Session["username"] = data.UserName;
                     Session["useriid"] = data.User_Id;
-                    Session["division"] = data.DivisionID;
-                    Session["subdivision"] = data.SubdivisionID;
-                    Session["Section"] = data.SectionID;
-                    Session["circle"] = data.CircleID;
-                    Session["district"] = data.DistrictID;
-                    Session["block"] = data.BlockID;
+                    //Session["division"] = data.DivisionID;
+                    //Session["subdivision"] = data.SubdivisionID;
+                    //Session["Section"] = data.SectionID;
+                    //Session["circle"] = data.CircleID;
+                    //Session["district"] = data.DistrictID;
+                    //Session["block"] = data.BlockID;
                     return RedirectToAction("Index", "Home");
                 }
                 else if (data != null && data.IsDelete == true)
@@ -199,7 +199,7 @@ namespace OLIC_Web.Controllers
         }
 
 
-        #region ---------------Manageuser---------------------
+       
         public ActionResult ManageUser(int? id = 0)
         {
             try
@@ -219,7 +219,7 @@ namespace OLIC_Web.Controllers
                         nh.Getsection = applicationRepository.Getsection();
                         nh.GetSubdivision = applicationRepository.GetSubDivision();
                         nh.GetUserRole = applicationRepository.GetUserRole();
-                        ViewBag.data = db.vw_showmanageuser.Where(x => x.Project_Typeid == 1).ToList();
+                       // ViewBag.data = db.vw_showmanageuser.Where(x => x.Project_Typeid == 1).ToList();
                         return View(nh);
 
                     }
@@ -235,7 +235,7 @@ namespace OLIC_Web.Controllers
                         nh.Getsection = applicationRepository.Getsection();
                         nh.GetSubdivision = applicationRepository.GetSubDivision();
                         nh.GetUserRole = applicationRepository.GetUserRole();
-                        ViewBag.data = db.vw_showmanageuser.Where(x => x.Project_Typeid == 1).ToList();
+                        //ViewBag.data = db.vw_showmanageuser.Where(x => x.Project_Typeid == 1).ToList();
                         return View(nh);
                     }
 

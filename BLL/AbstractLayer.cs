@@ -16,7 +16,7 @@ namespace BLL
         bool DeleteMangeuser(int id);
         List<SelectListItem> Getsection();
         List<SelectListItem> GetDivision();
-
+        int Deleteapplyleave(int id);
         List<SelectListItem> GetSubDivision();
         List<SelectListItem> GetCircle();
         List<SelectListItem> GetUserRole();
@@ -78,6 +78,7 @@ namespace BLL
         List<Hcm_Property_House> hcm_HouseDtls(string uid);
         List<vwEmployeesByLeaveType> hcm_LeaveDetails(int id);
         List<vwEmployeesByLeaveType> LeaveDetailss(int id);
+       
         List<vwEmployeesByLeaveType> LeaveDetailsssssss();
         List<Hcm_Property_ImmovableProperties> hcm_ImmovablepropertyDtls();
         List<Hcm_Property_MovableProperty> hcm_MovablepropertyDtls();
@@ -92,9 +93,15 @@ namespace BLL
         List<SelectListItem> Leavetypelist();
         int saveapplyleave(ApplyLeaveModel leave);
         int Savehcmemployeedetails(List<HCM_EmployeeDetails> circleMaster_SAPs);
-        bool Resolve(int regid, int id, string remark);
-        bool Reject(int regid, int id, string remark);
+        bool Resolve(string regid, int id, string remark);
+        bool Reject(string regid, int id, string remark);
 
+        List<vwEmployeesByLeaveType> hcm_LeaveDetails(string id);
+        List<vwEmployeesByLeaveType> LeaveDetailss(string id);
+        //int LeaveDetailsss(DeleteLeaveModel nhh);
+        //int hcm_LeaveDetailss();
+        //int Deleteapplyleave(int id);
+        
 
         #endregion---------------------------------------------------------------------------------------------
         List<Vw_DprEstimation> vw_DprEstimations();
