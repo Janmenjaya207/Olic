@@ -1,11 +1,8 @@
 ﻿using BEL;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -18,27 +15,14 @@ namespace OLIC_Web.Controllers
         private readonly BLL.AbstractLayer applicationRepository;
 
         OLICEntities db = new OLICEntities();
-
-
         public HcmController(BLL.AbstractLayer apprepo)
         {
             applicationRepository = apprepo;
         }
-
         public ActionResult Index()
         {
             return View();
         }
-
-
-        //public ActionResult Dashboard(string uname)
-        //{
-        //    //uname=(string)Session["username"];
-        //    uname = (string)TempData["username"];
-        //    TempData["username"] = uname;
-        //    return View();
-
-
         public ActionResult Dashboard()
         {
 
@@ -46,7 +30,6 @@ namespace OLIC_Web.Controllers
         }
 
         //Leave Section
-
         public ActionResult ApplyLeave()
         {
             try
@@ -75,18 +58,17 @@ namespace OLIC_Web.Controllers
 
         }
 
-
         [HttpPost]
         public ActionResult ApplyLeave(ApplyLeaveModel nh, HttpPostedFileBase Adhar)
         {
             try
             {
-               // string fileloc = "/FileUploadFolder/";
+                string fileloc = "/FileUploadFolder/";
 
                 if (Adhar != null)
                 {
                     var Adharr = UploadFileHelper.Benificiary_SaveFileIntoLocal(Adhar, FileTypes.AadhaarFile);
-                    //nh.applyLeavelr.Files = fileloc + Adharr.SystemFileName;
+                    nh.applyLeavelr.Files = fileloc + Adharr.SystemFileName;
                 }
 
                 int id = Convert.ToInt32(Session["userid"]);
@@ -130,45 +112,6 @@ namespace OLIC_Web.Controllers
                 throw;
             }
         }
-
-
-        //[HttpPost]
-        //public ActionResult ApplyLeave(ApplyLeaveModel nh)
-        //{
-        //    try
-        //    {
-
-        //        int id = Convert.ToInt32(Session["userid"]);
-        //        string idd = Session["usercode"].ToString();
-        //        nh.applyLeavelr.EmployeeID = id;
-
-        //        nh.applyLeavelr.EmployeeCode = idd;
-        //        if (Session["userid"] != null)
-        //        {
-        //            int count = applicationRepository.saveapplyleave(nh);
-
-        //            if (count == 1)
-        //            {
-        //                TempData["Message"] = "Apply Leave Completed Successfully";
-        //            }
-        //            else
-        //            {
-        //                TempData["Message"] = "Leave Already Exist";
-        //            }
-        //            return RedirectToAction("View_CancelLeave", "Hcm");
-
-        //        }
-        //        else
-        //        {
-        //            return RedirectToAction("ApplyLeave", "Hcm");
-        //        }
-        //    }
-
-        //    catch(Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
 
 
 
@@ -641,7 +584,6 @@ namespace OLIC_Web.Controllers
             }
 
 
-
             if (MDes[0] != "")
             {
                 for (int i = 0; i < MDes.Length; i++)
@@ -719,16 +661,15 @@ namespace OLIC_Web.Controllers
         }
         [HttpGet]
         public ActionResult View_CancelLeave()
-
         {
             try
             {
-
+                ApplyLeaveModel nh = new ApplyLeaveModel();
                 //string id = Session["usercode"].ToString();
-                int id = Convert.ToInt32(Session["usercode"]);
+                string id = Session["usercode"].ToString();
                 var data = applicationRepository.hcm_LeaveDetails(id);
                 ViewBag.LeaveDetails = data;
-                return View();
+                return View(nh);
 
 
 
@@ -740,6 +681,45 @@ namespace OLIC_Web.Controllers
 
 
         }
+
+
+        //public ActionResult ApplyLeave(ApplyLeaveModel nh)
+        //{
+        //    try
+        //    {
+
+        //        int id = Convert.ToInt32(Session["userid"]);
+        //        string idd = Session["usercode"].ToString();
+        //        nh.applyLeavelr.EmployeeID = id;
+
+        //        nh.applyLeavelr.EmployeeCode = idd;
+        //        if (Session["userid"] != null)
+        //        {
+        //            int count = applicationRepository.saveapplyleave(nh);
+
+        //            if (count == 1)
+        //            {
+        //                TempData["Message"] = "Apply Leave Completed Successfully";
+        //            }
+        //            else
+        //            {
+        //                TempData["Message"] = "Leave Already Exist";
+        //            }
+        //            return RedirectToAction("View_CancelLeave", "Hcm");
+
+        //        }
+        //        else
+        //        {
+        //            return RedirectToAction("ApplyLeave", "Hcm");
+        //        }
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
+
 
 
         [HttpPost]
@@ -782,8 +762,8 @@ namespace OLIC_Web.Controllers
 
                 //string id = Session["usercode"].ToString();
                 string id = Session["usercode"].ToString();
-                //var data = applicationRepository.LeaveDetailsssssss().Where(x => (x.Approval1 == id && x.Status1 == true) || (x.Approval2 == id && x.Status2 == true) || (x.Approval3 == id && x.Status3 == true) || (x.Approval4 == id && x.Status4 == true) || (x.Approval5 == id && x.Status5 == true)).ToList();
-                //ViewBag.LeaveDetails = data;
+                var data = applicationRepository.LeaveDetailsssssss().Where(x => (x.Approval1 == id && x.Status1 == true) || (x.Approval2 == id && x.Status2 == true) || (x.Approval3 == id && x.Status3 == true) || (x.Approval4 == id && x.Status4 == true) || (x.Approval5 == id && x.Status5 == true)).ToList();
+                ViewBag.LeaveDetails = data;
                 return View();
             }
             catch (Exception ex)
@@ -791,15 +771,14 @@ namespace OLIC_Web.Controllers
                 throw;
             }
         }
-
         [HttpGet]
         public ActionResult PendingForApproval()
         {
             try
             {
 
-                //string idd = Session["usercode"].ToString();
-                int idd = Convert.ToInt32(Session["userid"]);
+                string idd = Session["usercode"].ToString();
+                // int  idd = Convert .ToInt32(Session["userid"]);
                 var data = applicationRepository.LeaveDetailss(idd);
 
                 ViewBag.LeaveDetails = data;
@@ -813,16 +792,14 @@ namespace OLIC_Web.Controllers
                 throw;
             }
         }
-
-
         [HttpPost]
         public ActionResult PendingForApproval(int? Id)
         {
             try
             {
 
-                int idd = Convert.ToInt32(Session["userid"]);
-                //string idd = Session["usercode"].ToString();
+                //int idd = Convert.ToInt32(Session["userid"]);
+                string idd = Session["usercode"].ToString();
                 var data = applicationRepository.LeaveDetailss(idd);
 
                 ViewBag.LeaveDetails = data;
@@ -836,7 +813,6 @@ namespace OLIC_Web.Controllers
                 throw;
             }
         }
-
         [HttpPost]
         public ActionResult ViewDetails(int id)
         {
@@ -846,127 +822,49 @@ namespace OLIC_Web.Controllers
         [HttpPost]
         public ActionResult ResolveComplain(int id, string remark)
         {
-            string Regid = (Session["userid"]).ToString();
 
-            int compid = Convert.ToInt32(id)
-;
-            return Json(applicationRepository.Resolve(Regid, compid, remark), JsonRequestBehavior.AllowGet);
+            string usercode = Session["usercode"].ToString();
+
+            int compid = Convert.ToInt32(id);
+
+            return Json(applicationRepository.Resolve(usercode, compid, remark), JsonRequestBehavior.AllowGet);
+
+
+            //SendMail("bikashbhuyan07@gmail.com", "dtfrdtc", "strdtdstfgx");
+            // SendMail("sfcxz","zxcxz","zxczx");
+            //var data = applicationRepository.Resolve(Regid, compid, remark);
+
+            //return RedirectToAction("View_CancelLeave", "Hcm");
         }
+
+
+
         [HttpPost]
         public ActionResult RejectComplain(int id, string remark)
         {
-            string Regid = (Session["userid"]).ToString();
+            string Regid = Session["usercode"].ToString();
 
-            int compid = Convert.ToInt32(id)
-;
+            int compid = Convert.ToInt32(id);
+
             return Json(applicationRepository.Reject(Regid, compid, remark), JsonRequestBehavior.AllowGet);
         }
         public ActionResult ViewAppliedLeaves()
         {
             return View();
         }
-
-        [HttpGet]
+        //Payroll Section
         public ActionResult SalarySlip()
         {
             return View();
         }
-
-        [HttpPost]
-        public async Task<ActionResult> SalarySlip(string month, string year)
-        {
-            try
-            {
-                var empcode = Convert.ToInt32(Session["userid"]);
-                var data = db.HCM_EmployeeDtl.Where(x => x.Employee_Id == empcode).FirstOrDefault();
-                string Baseurl = Security.sapurl;
-                string token = Security.sapu_sername + ":" + Security.sap_password;
-
-                List<PaySlip> PaySlip = new List<PaySlip>();
-
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(Baseurl);
-
-                    var byteArray = Encoding.ASCII.GetBytes(token);
-                    var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-                    client.DefaultRequestHeaders.Authorization = header;
-
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage Res = await client.GetAsync("sap/bc/hr_payslip/" + empcode + "|" + month + "|" + year + "?sap-client=120");
-                    if (Res.IsSuccessStatusCode)
-                    {
-                        var MstResponse = Res.Content.ReadAsStringAsync().Result;
-                        PaySlip = JsonConvert.DeserializeObject<List<PaySlip>>(MstResponse);
-                    }
-
-                    ViewBag.empcode = data.Employee_Code;
-                    ViewBag.Desg = data.Designation;
-                    ViewBag.Bank = data.Bank_Name;
-                    ViewBag.ifsc = data.IFSC;
-                    ViewBag.AccNo = data.Ac_No;
-                    ViewBag.Uan = data.UAN;
-                    ViewBag.Doj = data.DOJ;
-                    ViewBag.Pan = data.PAN;
-                    ViewBag.GisNo = data.GIS_No;
-                    ViewBag.BillNo = data.Bill_No;
-                    ViewBag.PfNo = data.PF_No;
-
-
-                    ViewBag.name = PaySlip[0].name;
-                    ViewBag.basicPay = PaySlip[0].basicPay;
-                    ViewBag.dearnessAllowance = PaySlip[0].dearnessAllowance;
-                    ViewBag.hra = PaySlip[0].hra;
-                    ViewBag.medicalAllowance = PaySlip[0].medicalAllowance;
-                    ViewBag.conveyanceAllowance = PaySlip[0].conveyanceAllowance;
-                    ViewBag.specialPay = PaySlip[0].specialPay;
-                    ViewBag.interimAllowance = PaySlip[0].interimAllowance;
-                    ViewBag.odiaAllowance = PaySlip[0].odiaAllowance;
-                    ViewBag.washingAllowance = PaySlip[0].washingAllowance;
-                    ViewBag.incentiveAllowance = PaySlip[0].incentiveAllowance;
-                    ViewBag.gradePay = PaySlip[0].gradePay;
-                    ViewBag.motercycleAllowance = PaySlip[0].motercycleAllowance;
-                    ViewBag.incomeTax = PaySlip[0].incomeTax;
-                    ViewBag.pTax = PaySlip[0].pTax;
-                    ViewBag.gpf = PaySlip[0].gpf;
-                    ViewBag.epf = PaySlip[0].epf;
-                    ViewBag.advancePf = PaySlip[0].advancePf;
-                    ViewBag.quaterRent = PaySlip[0].quaterRent;
-                    ViewBag.vehicleCharges = PaySlip[0].vehicleCharges;
-                    ViewBag.medicalAdvance = PaySlip[0].medicalAdvance;
-                    ViewBag.festivalAdvance = PaySlip[0].festivalAdvance;
-                    ViewBag.mopedLoan = PaySlip[0].mopedLoan;
-                    ViewBag.carLoan = PaySlip[0].carLoan;
-                    ViewBag.motercycleLoan = PaySlip[0].motercycleLoan;
-                    ViewBag.houseBuildingLoan = PaySlip[0].houseBuildingLoan;
-                    ViewBag.landLoan = PaySlip[0].landLoan;
-                    ViewBag.otherLoan = PaySlip[0].otherLoan;
-                    ViewBag.tourAdvance = PaySlip[0].tourAdvance;
-                    ViewBag.gisAdvance = PaySlip[0].gisAdvance;
-                    ViewBag.grossEarrning = PaySlip[0].grossEarrning;
-                    ViewBag.grossDeduction = PaySlip[0].grossDeduction;
-                    ViewBag.netPay = PaySlip[0].netPay;
-                }
-                return View();
-            }
-
-            catch (Exception ex)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-        }
-
-
         public ActionResult EPF()
         {
             return View();
         }
-
         public ActionResult IncomeTax()
         {
             return View();
         }
-
         public ActionResult Form16()
         {
             return View();
